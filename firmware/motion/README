@@ -1,0 +1,14 @@
+This is some basic firmware for the CM-510 (included in the Bioloid Premium kit)
+
+To build, simply type make, this will spit out the bl.hex file (which is acually a binary file ready to be uploaded via serial). You can change the makefile to spit out a file in ihex format.
+
+To upload, use the included bioloid_upload script. It's python and requires pyserial, and if it's in your path then `make upload` will do the right thing (though you'll have to point it at your serial port). Run this before turning your CM-510 on, you should see 3 LEDs flash momentarily if it's working and the bootloader will print "Got prompt". If for some reason you can't get this to connect then:
+
+1) open a serial terminal, hold '#' and turn on the CM-510
+2) Press return
+3) Type 'SYS' and press return
+4) Close the terminal and run bioloid_upload
+5) Turn on your CM-510
+6) When bioloid_upload exits go back to step (1) but instead of typing SYS, type APP, then your code should run
+
+The default behaviour is to execute poses starting at 0x1E000. The code is really hacky and it only plays the first pose from each page, but hey, it's a start!
