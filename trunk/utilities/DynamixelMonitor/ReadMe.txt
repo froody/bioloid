@@ -14,4 +14,5 @@ This code is distributed under the GPL licence.
 Let me know if you find the code useful or want to add features to it.
 
 Christian Balkenius (christian.balkenius@lucs.lu.se)
+Tom Birch (froody@gmail.com)
 

@@ -26,10 +26,26 @@
 #import "MyDocument.h"
 
 #include "DynamixelComm.h"
+#import "Page.h"
+#import "Pose.h"
+
+NSString *pageFieldNames[] = {
+	@"playCode",
+	@"pageSpeed",
+	@"dxlSetup",
+	@"accelTime",
+	@"nextPage",
+	@"exitPage",
+	@"linkedPage1",
+	@"linkedPage1PlayCode",
+	@"linkedPage2",
+	@"linkedPage2PlayCode",
+	@"checkSum"
+};
 
 @implementation MyDocument
 
-
+#define BUF_SIZE 128*1024
 
 -(void)timerFire:(NSTimer*)theTimer
 {
@@ -38,14 +54,40 @@
     [self update: self];
 }
 
-
-
 - (id)init
 {
     self = [super init];
     if (self)
     {
-    }
+		NSBundle *bundle = [NSBundle mainBundle];
+		NSString *path = [bundle pathForResource: @"motion" ofType: @"bin"];   // The AX12 file is currently used for all servo types (they all seem to be the same)
+		NSLog(@"path is %@", path);
+		int fd = [[NSFileHandle fileHandleForReadingAtPath:path] fileDescriptor];
+
+		if(fd == -1) {
+			NSLog(@"Couldn't open motion.bin");
+			exit(1);
+		}
+
+		pages = (struct page *)malloc(BUF_SIZE);
+
+		pagesArray = [NSMutableArray arrayWithCapacity:BUF_SIZE/sizeof(struct page)];
+		[pagesArray retain];
+
+		if(BUF_SIZE != read(fd, pages, BUF_SIZE)) {
+			NSLog(@"Couldn't read BUF_SIZE from file");
+			exit(1);
+		}
+
+		int i;
+		for(i=0;i<BUF_SIZE/sizeof(struct page);i++)
+		{
+			if(pages[i].header.numPoses)
+				[pagesArray insertObject:[[Page alloc] initWithPage:&pages[i] index:i] atIndex:i];
+		}
+	}
+
+	//NSLog(@"%@", pagesArray);
     return self;
 }
 
@@ -85,6 +127,8 @@
         selector:@selector(timerFire:)
         userInfo:nil
         repeats:YES];
+
+	[self connect:self];
 }
 
 
@@ -346,6 +390,8 @@
 
     [servoValues reloadData];
     [servoValues display];      // Force redraw
+    [motionData reloadData];
+    [motionData display];      // Force redraw
 
     // Update controls
     
@@ -455,6 +501,10 @@
     int p = [goalPositionSlider intValue];
     int s = [movingSpeedSlider intValue];
     if(s == 1024) s = 0; // set maximum speed (no speed control) for maximal value
+
+	// Keep the display lively
+	[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+
     dc->Move([[idNumber objectAtIndex: [idList selectedRow]] intValue], p, s);
 }
 
@@ -464,6 +514,10 @@
 {
     int s = [movingSpeedSlider intValue];
     if(s == 1024) s = 0; // set maximum speed (no speed control) for maximum value
+
+	// Keep the display lively
+	[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+
     dc->SetSpeed([[idNumber objectAtIndex: [idList selectedRow]] intValue], s);
     
     [self forceUpdate];
@@ -490,6 +544,137 @@
     dc->SetTorque(254, 0);
 }
 
+- (IBAction)stop:(id)sender
+{
+	stop = YES;
+}
+
+- (IBAction)playPose:(id)sender
+{
+	int row = [motionData selectedRow];
+	Pose *thePose;
+	Page *thePage;
+
+	if(row == -1)
+		return;
+	id item = [motionData itemAtRow:[motionData selectedRow]];
+	
+	if([item class] == [Page class]) {
+		thePage = item;
+		NSLog(@"playing page %d, pose %d", thePage->index, 0);
+		[self reallyPlayPose:&thePage->thePage->rec[0]];
+	}
+	else if([item class] == [Pose class])
+	{
+		thePose = item;
+		int poseIndex = thePose->index;
+
+		while(--row >= 0) {
+			thePage = [motionData itemAtRow:row];
+			if([thePage class] == [Page class]) {
+				NSLog(@"playing page %d, pose %d", thePage->index, poseIndex);
+				[self reallyPlayPose:thePose->thePose];
+				break;
+			}
+		}
+	} else if([[item class] isSubclassOfClass:[NSDictionary class]]) {
+		while(--row >= 0) {
+			thePage = [motionData itemAtRow:row];
+			if([thePage class] == [Page class]) {
+				NSLog(@"playing page %d, pose %d", thePage->index, 0);
+				[self reallyPlayPose:&thePage->thePage->rec[0]];
+				break;
+			}
+		}
+
+	} else {
+		Pose *thePose;
+		Page *thePage;
+		id elem;
+		while(--row >= 0) {
+			elem = [motionData itemAtRow:row];
+			if([elem class] == [Pose class])
+			thePose = elem;
+			else if([elem class] == [Page class])
+			{
+				thePage = elem;
+				break;
+			}
+		}
+		NSLog(@"playing page %d, pose %d", thePage->index, thePose->index);
+		[self reallyPlayPose:thePose->thePose];
+	}
+}
+
+- (IBAction)playPage:(id)sender
+{
+	int row = [motionData selectedRow];
+
+	if(row == -1)
+		return;
+	id item = [motionData itemAtRow:[motionData selectedRow]];
+	Page *thePage;
+
+	if([item class] == [Page class]) {
+		thePage = item;
+	} else {
+		while(--row >= 0) {
+			thePage = [motionData itemAtRow:row];
+			if([thePage class] == [Page class]) {
+				break;
+			}
+		}
+	}
+
+	[NSThread detachNewThreadSelector:@selector(reallyPlayPage:) toTarget:self withObject:thePage];
+}
+
+- (void) reallyPlayPage:(Page *)thePage
+{
+	struct page *page = thePage->thePage;
+	int i;
+	int nextPage;
+	stop = NO;
+	while(1) {
+		for(i=0;i< page->header.numPoses; i++)
+		{
+			[self reallyPlayPose:&page->rec[i]];
+			usleep(500000);
+		}
+
+		NSLog(@"stop = %d\n", stop);
+		if(stop) {
+			nextPage = page->header.exitPage;
+			NSLog(@"selecting exitPage %d\n", nextPage);
+		}
+		else 
+			nextPage = page->header.nextPage;
+
+		if(nextPage != 0) {
+			Page *thePage = [pagesArray objectAtIndex:nextPage];
+			page = thePage->thePage;
+			continue;
+		} else {
+			break;
+		}
+	}
+}
+
+- (void) reallyPlayPose:(struct pose *)pose
+{
+	//NSLog(@"Really playing a pose omg w00t! %d servos", [ID count]);
+	//[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+	int i;
+	for(i=0;i<[ID count];i++) {
+		int servoID = [[idNumber objectAtIndex:i] intValue];
+		//NSLog(@"setting servo %d to %d\n", servoID, pose->posData[servoID]);
+		dc->Move([[idNumber objectAtIndex: i] intValue], pose->posData[servoID], 100);
+	}
+}
+
+
+
+
 
 
 - (void) tableViewSelectionDidChange: (NSNotification *) notification
@@ -510,5 +695,112 @@
     }
 }
 
+
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
+{
+	if(item == nil) {
+
+		if(index > [pagesArray count]) {
+			NSLog(@"returning nil");
+			return nil;
+		}
+
+		return [pagesArray objectAtIndex:index];
+	} else if([item class] == [Page class]) {
+		Page *thePage = item;
+		if(index < 11) {
+			uint8_t value = (&thePage->thePage->header.playCode)[index];
+			NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:value] forKey:pageFieldNames[index]];
+				[d retain];
+			return d;
+		} else 
+			return [(Page *)item getPose:index-10];
+	} else if([item class] == [Pose class]) {
+		return nil; //[(Pose *)item getPosition:index+1];
+	} else {
+		NSLog(@"child returning nil");
+		return nil;
+	}
+}
+
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+{
+	if(item == nil) {
+		return [pagesArray count];
+	} else if([item class] == [Page class]) {
+		NSMutableArray *poses = ((Page *)item)->poses;
+
+		int ret = 10 + [poses count];
+
+		return ret;
+	} else if([item class] == [Pose class]) {
+		return 0; //18; // NumServos
+	} else {
+		return 0;
+	}
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+{
+	if(item == nil) {
+		return YES;
+	} else if([item class] == [Page class]) {
+		return YES;
+	} else if([item class] == [Pose class]) {
+		return NO;
+	} 
+	
+	return NO;
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+{
+	//NSLog(@"request for value for column %@", tableColumn);
+	bool field = false;
+	
+	if([[tableColumn identifier] isEqualToString:@"Field"])
+		field = true;
+	
+	if(item == nil) {
+		NSLog(@"objectValueForTableColumn for nil item?");
+		return nil;
+	} else if([item class] == [Page class]) {
+		if(field) {
+			Page *thePage = item;
+			char s[15];
+			s[14] = 0;
+			bcopy(thePage->thePage->header.name, s, 14);
+			return [NSString stringWithFormat:@"Page %d: %s", thePage->index, s];
+		} else {
+			return nil;
+		}
+
+	} else if([item class] == [Pose class]) {
+		Pose *thePose = item;
+		if(field)
+			return [NSString stringWithFormat:@"Pose %d", thePose->index];
+		else {
+			NSMutableString *s = [NSMutableString stringWithCapacity:100];
+
+			[s appendFormat:@"S: %3d D: %3d ", thePose->thePose->speed, thePose->thePose->delay];
+
+			for(int i = 0;i<18 /*[idNumber count]*/;i++) {
+				[s appendFormat:@"%4d ", thePose->thePose->posData[i+1]];
+			}
+
+			return s;
+		}
+	} else if([[item class] isSubclassOfClass:[NSDictionary class]]) {
+		NSDictionary *theDict = item;
+		if(field)
+			return [[theDict allKeys] objectAtIndex:0];
+		else
+			return [[theDict allValues] objectAtIndex:0];
+
+	} else {
+		NSLog(@"wtf mate?");
+		return [item description];
+	}
+}
 
 @end

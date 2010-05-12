@@ -24,11 +24,14 @@
 #import <Cocoa/Cocoa.h>
 
 #include "DynamixelComm.h"
+#include "Motion.h"
+#include "Page.h"
 
 @interface MyDocument : NSDocument
 {
     IBOutlet NSTableView * idList;
     IBOutlet NSTableView * servoValues;
+	IBOutlet NSOutlineView *motionData;
     IBOutlet NSButton * connectButton;
 
     IBOutlet NSLevelIndicator * positionIndicator;
@@ -56,6 +59,9 @@
     
     unsigned char servoData[128];
     NSTimer * timer;
+	struct page *pages;
+	NSMutableArray *pagesArray;
+	BOOL stop;
 }
 
 - (IBAction)connect:(id)sender;
@@ -67,5 +73,12 @@
 
 - (IBAction)torqueAllEnable:(id)sender;
 - (IBAction)torqueAllDisable:(id)sender;
+
+- (IBAction)playPose:(id)sender;
+- (IBAction)playPage:(id)sender;
+- (IBAction)stop:(id)sender;
+
+- (void) reallyPlayPose:(struct pose *)pose;
+- (void) reallyPlayPage:(Page *)thePage;
 
 @end
