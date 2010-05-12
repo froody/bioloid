@@ -62,10 +62,12 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 295342069;
-			PBXWorkspaceStateSaveDate = 295342069;
+			PBXPerProjectTemplateStateSaveDate = 295343985;
+			PBXWorkspaceStateSaveDate = 295343985;
 		};
 		perUserProjectItems = {
+			72050B46119A977A005FD0AF /* PBXTextBookmark */ = 72050B46119A977A005FD0AF /* PBXTextBookmark */;
+			72050B4F119A97A0005FD0AF /* PBXTextBookmark */ = 72050B4F119A97A0005FD0AF /* PBXTextBookmark */;
 			72B74CAE1197BB2C00709210 = 72B74CAE1197BB2C00709210 /* PBXTextBookmark */;
 			72C2EDAC119A7E4B00D86C65 = 72C2EDAC119A7E4B00D86C65 /* PBXTextBookmark */;
 			72C2EDAD119A7E4B00D86C65 = 72C2EDAD119A7E4B00D86C65 /* PBXTextBookmark */;
@@ -77,7 +79,7 @@
 			72C2EDB3119A7E4B00D86C65 = 72C2EDB3119A7E4B00D86C65 /* PBXTextBookmark */;
 			72C2EE2E119A8EAD00D86C65 = 72C2EE2E119A8EAD00D86C65 /* PBXTextBookmark */;
 			72C2EE48119A8F5E00D86C65 = 72C2EE48119A8F5E00D86C65 /* PBXTextBookmark */;
-			72C2EE51119A8FF700D86C65 /* PBXTextBookmark */ = 72C2EE51119A8FF700D86C65 /* PBXTextBookmark */;
+			72C2EE51119A8FF700D86C65 = 72C2EE51119A8FF700D86C65 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 72B74C2F1197A1EE00709210 /* Source Control */;
 		userBuildSettings = {
@@ -103,6 +105,26 @@
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 162}";
 		};
+	};
+	72050B46119A977A005FD0AF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72B74C621197B01D00709210 /* Page.m */;
+		name = "Page.m: 45";
+		rLen = 0;
+		rLoc = 769;
+		rType = 0;
+		vrLen = 624;
+		vrLoc = 138;
+	};
+	72050B4F119A97A0005FD0AF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 72B74C621197B01D00709210 /* Page.m */;
+		name = "Page.m: 45";
+		rLen = 0;
+		rLoc = 769;
+		rType = 0;
+		vrLen = 598;
+		vrLoc = 138;
 	};
 	72B74C1A1197A1CE00709210 /* DynamixelMonitor */ = {
 		isa = PBXExecutable;
@@ -161,7 +183,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 637}}";
 			sepNavSelRange = "{769, 0}";
-			sepNavVisRange = "{138, 624}";
+			sepNavVisRange = "{138, 598}";
 		};
 	};
 	72B74C641197B02600709210 /* Pose.h */ = {

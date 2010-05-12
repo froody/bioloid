@@ -1,0 +1,14 @@
+Rough unsorted list of things to do:
+
+* Print out the full page header, and find some way of representing linked pages
+* Real code for playing pages, that does S-curves, etc
+* Serial/zigbee support, because the bioloid cables are too short
+	* This will need some integration with firmware, etc
+* Fancy 3D Visualisation of poses (could borrow some code from https://sourceforge.net/projects/bioloidcontrol/)
+* Maybe switch to make it not a doc-based app, there's no real need for this since there's only one view.
+* Clean up!
+* Editable fields (so you can change the punch, etc)
+	* Optionally broadcast settings like this to a subset of motors
+* Saving of motion files, recording of poses for playback, etc
+* Mini-preview of motor angles in ID list
+* better interface for selecting motors to control
