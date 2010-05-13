@@ -1,0 +1,1801 @@
+------------------------------------------------------------------------
+r165 | rainer_jaekel | 2009-07-10 00:53:16 -0700 (Fri, 10 Jul 2009) | 2 lines
+Changed paths:
+   M /main/src/lex.yy.c
+   M /main/src/platform.cpp
+
+Fixed CPlatform::getPathFromFilename and CPlatform::readFromFile
+
+------------------------------------------------------------------------
+r164 | rainer_jaekel | 2009-07-06 12:36:22 -0700 (Mon, 06 Jul 2009) | 2 lines
+Changed paths:
+   M /main/src/cmd.cpp
+
+activated curses style  console
+
+------------------------------------------------------------------------
+r163 | rainer_jaekel | 2009-07-06 00:20:19 -0700 (Mon, 06 Jul 2009) | 2 lines
+Changed paths:
+   M /main/Makefile
+
+Removed libftdi from Makefile
+
+------------------------------------------------------------------------
+r162 | rainer_jaekel | 2009-07-06 00:18:51 -0700 (Mon, 06 Jul 2009) | 2 lines
+Changed paths:
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   M /main/src/wrapper.cpp
+
+Improved FTDI support for USB2Dynamixel (still testing)
+
+------------------------------------------------------------------------
+r161 | rainer_jaekel | 2009-06-09 04:52:42 -0700 (Tue, 09 Jun 2009) | 2 lines
+Changed paths:
+   M /main/Makefile
+   A /main/config_humanoid_inverted.xml
+   A /main/dh_humanoid_inverted.xml
+   M /main/include/interpolation.h
+   M /main/include/wrapper.h
+   M /main/src/cmd.cpp
+   M /main/src/commands.cpp
+   M /main/src/interpolation.cpp
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   M /main/src/wrapper.cpp
+
+Added FTDI lib for USB2DYNAMIXEL (linux)
+
+------------------------------------------------------------------------
+r160 | rainer_jaekel | 2009-03-06 09:00:32 -0800 (Fri, 06 Mar 2009) | 2 lines
+Changed paths:
+   M /main/src/platform.cpp
+
+Fixed Wrong Shared Memory Identifier (Linux only)
+
+------------------------------------------------------------------------
+r159 | mdda | 2009-01-03 05:00:41 -0800 (Sat, 03 Jan 2009) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/doc/physics_building.php
+   M /physics/doc/physics_running.php
+   M /physics/scite_physics.xml
+
+Updated build instructions for 'cmake' out-of-source build
+------------------------------------------------------------------------
+r158 | mdda | 2008-12-26 20:38:50 -0800 (Fri, 26 Dec 2008) | 1 line
+Changed paths:
+   M /physics/README
+
+Fresh build (instructions in physics/README)
+------------------------------------------------------------------------
+r157 | rainer_jaekel | 2008-12-13 13:50:25 -0800 (Sat, 13 Dec 2008) | 1 line
+Changed paths:
+   M /viewer/viewer.cpp
+
+Fixed a Shared Memory Bug (wrong key) in Viewer (linux only)
+------------------------------------------------------------------------
+r156 | rainer_jaekel | 2008-12-13 06:21:35 -0800 (Sat, 13 Dec 2008) | 1 line
+Changed paths:
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+
+Added High Performance Counter (Windows) to improve timing (smoother motions)
+------------------------------------------------------------------------
+r155 | rainer_jaekel | 2008-12-10 16:12:31 -0800 (Wed, 10 Dec 2008) | 1 line
+Changed paths:
+   M /main/src/robot.cpp
+
+Updated comments for CCD Inverse Kinematics
+------------------------------------------------------------------------
+r154 | rainer_jaekel | 2008-12-10 16:06:49 -0800 (Wed, 10 Dec 2008) | 1 line
+Changed paths:
+   M /main/include/commands.h
+   M /main/include/robot.h
+   M /main/include/util.h
+   M /main/include/vecmath.h
+   M /main/src/commands.cpp
+   M /main/src/global.cpp
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   M /main/src/robot.cpp
+   M /main/src/test.cpp
+   M /main/src/util.cpp
+   M /main/src/vecmath.cpp
+   M /main/src/wrapper.cpp
+
+CCD Inverse Kinematics Added (numerical, see estimateInverseKinematics)
+------------------------------------------------------------------------
+r153 | rainer_jaekel | 2008-11-26 16:14:27 -0800 (Wed, 26 Nov 2008) | 2 lines
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /controller/include/constants.h
+   M /controller/include/interpolation.h
+   M /controller/src/communication.cpp
+   M /controller/src/interpolation.cpp
+
+in testing: disabled (see line 262 in interpolation.cpp) sending servo data during write actions (no position feedback) which produces smoother results.
+added timeout for read actions
+------------------------------------------------------------------------
+r152 | rainer_jaekel | 2008-11-25 15:55:01 -0800 (Tue, 25 Nov 2008) | 1 line
+Changed paths:
+   M /main/src/robot.cpp
+
+Added comments (inverse kinematics of default humanoid)
+------------------------------------------------------------------------
+r151 | rainer_jaekel | 2008-11-25 11:04:26 -0800 (Tue, 25 Nov 2008) | 1 line
+Changed paths:
+   M /main/include/vecmath.h
+   M /main/src/cmd.cpp
+   M /main/src/motion.cpp
+   M /main/src/parser.cpp
+   M /main/src/robot.cpp
+   M /main/src/util.cpp
+   M /main/src/vecmath.cpp
+
+Added inverse kinematics (default humanoid)
+------------------------------------------------------------------------
+r150 | mdda | 2008-11-23 20:45:05 -0800 (Sun, 23 Nov 2008) | 1 line
+Changed paths:
+   M /CMakeLists.txt
+   M /build/README.txt
+   A /main/CMakeLists.txt
+   M /physics/scite_physics.xml
+   A /viewer/CMakeLists.txt
+
+CMake configuration added throughout - build in build/ directory
+------------------------------------------------------------------------
+r149 | mdda | 2008-11-23 17:22:44 -0800 (Sun, 23 Nov 2008) | 1 line
+Changed paths:
+   A /CMakeLists.txt
+   M /build/README.txt
+   M /physics/physics.conf
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   M /uncrustify.bash
+
+clean up build process
+------------------------------------------------------------------------
+r148 | mdda | 2008-11-23 16:04:54 -0800 (Sun, 23 Nov 2008) | 1 line
+Changed paths:
+   M /physics/physics.conf
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+
+Now build is out-of-source
+------------------------------------------------------------------------
+r147 | mdda | 2008-11-23 15:54:16 -0800 (Sun, 23 Nov 2008) | 1 line
+Changed paths:
+   A /build
+   A /build/README.txt
+   D /physics/Makefile.am
+   D /physics/autogen.sh
+   D /physics/config.h
+
+Getting committed to cmake
+------------------------------------------------------------------------
+r146 | rainer_jaekel | 2008-11-21 09:26:03 -0800 (Fri, 21 Nov 2008) | 2 lines
+Changed paths:
+   M /main/src/platform.cpp
+   M /viewer/viewer.cpp
+
+Fixed shared memory index of change-parameter
+
+------------------------------------------------------------------------
+r145 | rainer_jaekel | 2008-11-21 09:11:08 -0800 (Fri, 21 Nov 2008) | 3 lines
+Changed paths:
+   M /main/bioloid.dev
+   M /main/include/cmd.h
+   M /main/include/commands.h
+   M /main/include/global.h
+   M /main/include/motion.h
+   M /main/include/platform.h
+   M /main/src/cmd.cpp
+   M /main/src/commands.cpp
+   M /main/src/global.cpp
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   M /main/src/test.cpp
+   M /viewer/viewer.cpp
+   M /viewer/viewer.dev
+   M /viewer/viewerwin.cpp
+
+moved omnidirectional walking algorithm to command system
+added command: m omniwalk steps speedx speedy speedz
+added int to shared memory. value = 0 if data didnt change since last read attempt, != 0 otherwise
+------------------------------------------------------------------------
+r144 | rainer_jaekel | 2008-11-21 07:17:18 -0800 (Fri, 21 Nov 2008) | 1 line
+Changed paths:
+   M /main/src/platform.cpp
+
+Fixed thread initialisation bug
+------------------------------------------------------------------------
+r143 | mdda | 2008-10-16 20:30:58 -0700 (Thu, 16 Oct 2008) | 1 line
+Changed paths:
+   M /main/src/interpolation.cpp
+   M /physics/src/scene.cpp
+   M /physics/src/servo.cpp
+   M /uncrustify.bash
+
+Re-uncrustified
+------------------------------------------------------------------------
+r142 | mdda | 2008-10-16 20:07:54 -0700 (Thu, 16 Oct 2008) | 1 line
+Changed paths:
+   A /physics/CMakeLists.txt
+
+CMake version - very preliminary
+------------------------------------------------------------------------
+r141 | rainer_jaekel | 2008-10-11 05:37:59 -0700 (Sat, 11 Oct 2008) | 1 line
+Changed paths:
+   M /main/src/wrapper.cpp
+
+Added automatic incrementation of id values during axs1-initialisation
+------------------------------------------------------------------------
+r140 | mdda | 2008-09-21 14:31:58 -0700 (Sun, 21 Sep 2008) | 1 line
+Changed paths:
+   M /physics/doc/physics_building.php
+
+Now using the base index.php
+------------------------------------------------------------------------
+r139 | mdda | 2008-09-21 14:21:39 -0700 (Sun, 21 Sep 2008) | 1 line
+Changed paths:
+   A /physics/doc/index.php
+
+Now using the base index.php
+------------------------------------------------------------------------
+r138 | rainer_jaekel | 2008-09-21 10:55:11 -0700 (Sun, 21 Sep 2008) | 1 line
+Changed paths:
+   M /main/src/interpolation.cpp
+
+spline interpolation corrected
+------------------------------------------------------------------------
+r137 | mdda | 2008-09-20 21:21:30 -0700 (Sat, 20 Sep 2008) | 1 line
+Changed paths:
+   M /physics/doc/howto.txt
+   M /physics/doc/physics_about.php
+
+Uploaded
+------------------------------------------------------------------------
+r136 | mdda | 2008-09-20 20:25:53 -0700 (Sat, 20 Sep 2008) | 1 line
+Changed paths:
+   M /physics/doc/index_new.php
+   M /physics/doc/physics_about.php
+   M /physics/doc/physics_building.php
+   M /physics/doc/physics_running.php
+
+Uploaded
+------------------------------------------------------------------------
+r135 | mdda | 2008-09-20 20:09:19 -0700 (Sat, 20 Sep 2008) | 1 line
+Changed paths:
+   D /physics/doc/index.php
+   A /physics/doc/index_new.php (from /physics/doc/index.php:134)
+
+New docs
+------------------------------------------------------------------------
+r134 | mdda | 2008-09-20 20:08:18 -0700 (Sat, 20 Sep 2008) | 1 line
+Changed paths:
+   A /physics/doc/howto.txt
+   A /physics/doc/index.php
+   D /physics/doc/physics-about.html
+   D /physics/doc/physics-building.html
+   D /physics/doc/physics-running.html
+   A /physics/doc/physics_about.php (from /physics/doc/physics-about.html:133)
+   A /physics/doc/physics_building.php (from /physics/doc/physics-building.html:133)
+   A /physics/doc/physics_running.php (from /physics/doc/physics-running.html:133)
+
+New docs
+------------------------------------------------------------------------
+r133 | mdda | 2008-09-14 17:39:43 -0700 (Sun, 14 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+
+Documentation v3
+------------------------------------------------------------------------
+r132 | mdda | 2008-09-14 16:40:20 -0700 (Sun, 14 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+
+Documentation v3
+------------------------------------------------------------------------
+r131 | mdda | 2008-09-14 16:37:00 -0700 (Sun, 14 Sep 2008) | 1 line
+Changed paths:
+   M /physics/doc/physics-building.html
+   M /physics/doc/physics-running.html
+
+Documentation v3
+------------------------------------------------------------------------
+r130 | mdda | 2008-09-14 16:24:45 -0700 (Sun, 14 Sep 2008) | 1 line
+Changed paths:
+   M /physics/doc/physics-about.html
+
+Documentation v3
+------------------------------------------------------------------------
+r129 | mdda | 2008-09-14 15:12:40 -0700 (Sun, 14 Sep 2008) | 1 line
+Changed paths:
+   M /physics/doc/physics-about.html
+   M /physics/doc/physics-running.html
+
+Documentation v2
+------------------------------------------------------------------------
+r128 | mdda | 2008-09-14 14:44:22 -0700 (Sun, 14 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+   A /physics/doc
+   A /physics/doc/physics-about.html
+   A /physics/doc/physics-building.html
+   A /physics/doc/physics-running.html
+
+Documentation
+------------------------------------------------------------------------
+r127 | mdda | 2008-09-13 22:17:41 -0700 (Sat, 13 Sep 2008) | 1 line
+Changed paths:
+   A /physics/frame/assemble_movie.pl
+   M /physics/frame/svg_to_mpeg.pl
+   M /physics/frame/title.svg
+
+First three movies assembled
+------------------------------------------------------------------------
+r126 | mdda | 2008-09-12 15:56:40 -0700 (Fri, 12 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/misc/Bioloid.pl
+   M /physics/physics_humanoid.xml
+   M /physics/xml-generation/perl-to-xml.pl
+
+Movies made
+------------------------------------------------------------------------
+r125 | mdda | 2008-09-08 21:48:34 -0700 (Mon, 08 Sep 2008) | 1 line
+Changed paths:
+   M /physics/frame/svg_to_mpeg.pl
+
+MPEG of SVG made
+------------------------------------------------------------------------
+r124 | mdda | 2008-09-08 21:34:15 -0700 (Mon, 08 Sep 2008) | 1 line
+Changed paths:
+   A /physics/frame
+   A /physics/frame/svg_to_mpeg.pl
+   A /physics/frame/title.svg
+
+Movie making machinery
+------------------------------------------------------------------------
+r123 | mdda | 2008-09-07 22:39:03 -0700 (Sun, 07 Sep 2008) | 1 line
+Changed paths:
+   M /physics/include/servo.h
+   M /physics/misc/Bioloid.pl
+   M /physics/physics_humanoid.xml
+   M /physics/scite_physics.xml
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+   M /physics/xml-generation/perl-to-xml.pl
+
+Robot 'playshow's fine - needed knee zeros
+------------------------------------------------------------------------
+r122 | mdda | 2008-09-07 21:43:12 -0700 (Sun, 07 Sep 2008) | 1 line
+Changed paths:
+   M /physics/physics_humanoid.xml
+   M /physics/src/scene.cpp
+   M /physics/xml-generation/PortugeseHumanoid.txt
+   M /physics/xml-generation/PortugeseHumanoid.xls
+   M /physics/xml-generation/perl-to-xml.pl
+
+Wow - torso was reversed
+------------------------------------------------------------------------
+r121 | mdda | 2008-09-07 19:59:47 -0700 (Sun, 07 Sep 2008) | 1 line
+Changed paths:
+   M /physics/misc/Bioloid.pl
+
+Testing the joints
+------------------------------------------------------------------------
+r120 | mdda | 2008-09-07 16:02:50 -0700 (Sun, 07 Sep 2008) | 1 line
+Changed paths:
+   M /physics/xml-generation/PortugeseHumanoid.xls
+
+Fixed inertia tensor scaling problem
+------------------------------------------------------------------------
+r119 | mdda | 2008-09-07 16:01:51 -0700 (Sun, 07 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/config.h
+   M /physics/physics_humanoid.xml
+   M /physics/src/body.cpp
+   M /physics/src/world.cpp
+   M /physics/xml-generation/PortugeseHumanoid.txt
+
+Fixed inertia tensor scaling problem
+------------------------------------------------------------------------
+r118 | mdda | 2008-09-06 16:51:19 -0700 (Sat, 06 Sep 2008) | 1 line
+Changed paths:
+   M /main/include/cmd.h
+   M /main/include/commands.h
+   M /main/include/configuration.h
+   M /main/include/constants.h
+   M /main/include/crc.h
+   M /main/include/global.h
+   M /main/include/interpolation.h
+   M /main/include/list.h
+   M /main/include/motion.h
+   M /main/include/parser.h
+   M /main/include/platform.h
+   M /main/include/practicalsocket.h
+   M /main/include/robot.h
+   M /main/include/test.h
+   M /main/include/tinystr.h
+   M /main/include/tinyxml.h
+   M /main/include/types.h
+   M /main/include/util.h
+   M /main/include/vars.h
+   M /main/include/vecmath.h
+   M /main/include/wrapper.h
+   M /main/include/y.tab.h
+   M /main/main.cpp
+   M /main/src/cmd.cpp
+   M /main/src/commands.cpp
+   M /main/src/configuration.cpp
+   M /main/src/crc.cpp
+   M /main/src/global.cpp
+   M /main/src/interpolation.cpp
+   M /main/src/list.cpp
+   M /main/src/motion.cpp
+   M /main/src/parser.cpp
+   M /main/src/platform.cpp
+   M /main/src/practicalsocket.cpp
+   M /main/src/robot.cpp
+   M /main/src/test.cpp
+   M /main/src/tinystr.cpp
+   M /main/src/tinyxml.cpp
+   M /main/src/tinyxmlerror.cpp
+   M /main/src/tinyxmlparser.cpp
+   M /main/src/util.cpp
+   M /main/src/vecmath.cpp
+   M /main/src/wrapper.cpp
+   M /physics/include/world.h
+   M /physics/src/body.cpp
+   M /physics/src/geom.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/main.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+   D /physics/uncrustify.bash
+   D /physics/uncrustify.cfg
+   A /uncrustify.bash (from /physics/uncrustify.bash:116)
+   A /uncrustify.cfg (from /physics/uncrustify.cfg:116)
+   M /viewer/viewer.cpp
+   M /viewer/viewerwin.cpp
+
+Verified to inter-operate
+------------------------------------------------------------------------
+r117 | mdda | 2008-09-06 16:35:19 -0700 (Sat, 06 Sep 2008) | 1 line
+Changed paths:
+   M /main/config_physics.xml
+   M /main/src/global.cpp
+   M /main/src/platform.cpp
+   M /physics/include/world.h
+   M /physics/physics.conf
+   M /physics/physics_humanoid.xml
+   M /physics/scite_physics.xml
+   M /physics/src/geom.cpp
+   M /physics/src/main.cpp
+   M /physics/src/world.cpp
+   M /physics/xml-generation/perl-to-xml.pl
+
+Verified to inter-operate
+------------------------------------------------------------------------
+r116 | mdda | 2008-09-05 22:32:47 -0700 (Fri, 05 Sep 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   M /physics/README
+   M /physics/config.h
+   D /physics/drawstuff
+   D /physics/drawstuff-0.10
+   A /physics/drawstuff-obsolete (from /physics/drawstuff:115)
+   A /physics/drawstuff-obsolete/textures/checkered.ppm
+   M /physics/scite_physics.xml
+   M /physics/src/scene.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+
+Upgraded to ode-0.10.1
+------------------------------------------------------------------------
+r115 | mdda | 2008-09-05 16:12:57 -0700 (Fri, 05 Sep 2008) | 1 line
+Changed paths:
+   M /physics/scite_physics.xml
+
+Going back to ODE-0.9
+------------------------------------------------------------------------
+r114 | mdda | 2008-09-05 16:10:45 -0700 (Fri, 05 Sep 2008) | 1 line
+Changed paths:
+   A /physics/drawstuff (from /physics/drawstuff-0.9:113)
+   D /physics/drawstuff-0.9
+
+Going back to ODE-0.9
+------------------------------------------------------------------------
+r113 | mdda | 2008-09-05 16:10:19 -0700 (Fri, 05 Sep 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   M /physics/README
+   M /physics/autogen.sh
+   M /physics/config.h
+   M /physics/configure.in
+   D /physics/drawstuff
+   A /physics/drawstuff-0.10
+   A /physics/drawstuff-0.9 (from /physics/drawstuff:112)
+   M /physics/drawstuff-0.9/src/Makefile.am
+   M /physics/physics_humanoid.xml
+   M /physics/src/body.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+
+Testing out ODE-0.10
+------------------------------------------------------------------------
+r112 | mdda | 2008-09-04 22:02:38 -0700 (Thu, 04 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/config.h
+   M /physics/scite_physics.xml
+   M /physics/src/body.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+
+Temporarily non-working state - sorry
+------------------------------------------------------------------------
+r111 | mdda | 2008-09-04 17:43:41 -0700 (Thu, 04 Sep 2008) | 1 line
+Changed paths:
+   M /physics/physics_humanoid.xml
+   M /physics/scite_physics.xml
+   M /physics/src/body.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/main.cpp
+   M /physics/src/world.cpp
+
+Testing out stability on x64 (\!\?)
+------------------------------------------------------------------------
+r110 | mdda | 2008-09-03 16:00:15 -0700 (Wed, 03 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/config.h
+   M /physics/include/util.h
+   M /physics/include/world.h
+   M /physics/src/bioloid.cpp
+   M /physics/src/bioloid_devices.cpp
+   M /physics/src/main.cpp
+   M /physics/src/sensor.cpp
+   M /physics/src/util.cpp
+   M /physics/src/world.cpp
+
+Testing on Machine #3
+------------------------------------------------------------------------
+r109 | mdda | 2008-09-03 08:55:40 -0700 (Wed, 03 Sep 2008) | 1 line
+Changed paths:
+   M /main/src/platform.cpp
+   M /physics/README
+
+Fix (void *) being used as integer in pthreads
+------------------------------------------------------------------------
+r108 | mdda | 2008-09-02 21:23:29 -0700 (Tue, 02 Sep 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/misc/Bioloid.pl
+   M /physics/scite_physics.xml
+
+Movie making notes added to README
+------------------------------------------------------------------------
+r107 | mdda | 2008-09-02 19:43:47 -0700 (Tue, 02 Sep 2008) | 1 line
+Changed paths:
+   M /physics/include/world.h
+   M /physics/misc/Bioloid.pl
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid_devices.cpp
+   M /physics/src/main.cpp
+   M /physics/src/sensor.cpp
+   M /physics/src/world.cpp
+
+Idealized sensor returns Torso orientation
+------------------------------------------------------------------------
+r106 | mdda | 2008-09-01 20:47:39 -0700 (Mon, 01 Sep 2008) | 1 line
+Changed paths:
+   M /physics/include/util.h
+   M /physics/include/world.h
+   M /physics/physics.conf
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+   M /physics/src/bioloid_devices.cpp
+   M /physics/src/main.cpp
+   M /physics/src/sensor.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/util.cpp
+   M /physics/src/world.cpp
+
+Idealized sensor logic in place
+------------------------------------------------------------------------
+r105 | mdda | 2008-09-01 18:30:19 -0700 (Mon, 01 Sep 2008) | 1 line
+Changed paths:
+   M /viewer/viewer.cpp
+
+Allow command line -geometry to be passed
+------------------------------------------------------------------------
+r104 | mdda | 2008-09-01 16:53:50 -0700 (Mon, 01 Sep 2008) | 1 line
+Changed paths:
+   M /physics/physics_humanoid.xml
+   M /physics/src/main.cpp
+   M /physics/xml-generation/perl-to-xml.pl
+
+Basic gravity units tested
+------------------------------------------------------------------------
+r103 | mdda | 2008-08-31 18:24:49 -0700 (Sun, 31 Aug 2008) | 1 line
+Changed paths:
+   M /main/include/constants.h
+
+Added HUV IMU memory location constants
+------------------------------------------------------------------------
+r102 | mdda | 2008-08-31 18:18:29 -0700 (Sun, 31 Aug 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   M /physics/include/bioloid.h
+   A /physics/include/sensor.h
+   M /physics/include/servo.h
+   M /physics/include/world.h
+   M /physics/misc/Bioloid.pl
+   M /physics/physics_humanoid.xml
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+   A /physics/src/bioloid_devices.cpp
+   M /physics/src/body.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   A /physics/src/sensor.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+   M /physics/uncrustify.bash
+   M /physics/xml-generation/perl-to-xml.pl
+
+Reengineered servo setup - make way for sensors
+------------------------------------------------------------------------
+r101 | mdda | 2008-08-29 21:32:20 -0700 (Fri, 29 Aug 2008) | 1 line
+Changed paths:
+   M /physics/scite_physics.xml
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+
+Foot spasm problem gone : Higher CFM
+------------------------------------------------------------------------
+r100 | mdda | 2008-08-28 21:51:52 -0700 (Thu, 28 Aug 2008) | 1 line
+Changed paths:
+   M /physics/physics_humanoid.xml
+   M /physics/scite_physics.xml
+   M /physics/xml-generation/PortugeseHumanoid.txt
+   M /physics/xml-generation/PortugeseHumanoid.xls
+   M /physics/xml-generation/perl-to-xml.pl
+
+Getting physics joint senses compatible
+------------------------------------------------------------------------
+r99 | mdda | 2008-08-28 21:51:22 -0700 (Thu, 28 Aug 2008) | 1 line
+Changed paths:
+   M /main/include/wrapper.h
+
+No need to eliminate ASX1 for physics simulation
+------------------------------------------------------------------------
+r98 | mdda | 2008-08-26 21:13:02 -0700 (Tue, 26 Aug 2008) | 1 line
+Changed paths:
+   M /physics/uncrustify.cfg
+
+Now ready to test joint orientation
+------------------------------------------------------------------------
+r97 | mdda | 2008-08-26 21:12:31 -0700 (Tue, 26 Aug 2008) | 1 line
+Changed paths:
+   M /main/config_physics.xml
+   M /main/include/wrapper.h
+   M /main/src/motion.cpp
+   M /main/src/wrapper.cpp
+
+Fix memory under-allocation
+------------------------------------------------------------------------
+r96 | mdda | 2008-08-26 19:14:52 -0700 (Tue, 26 Aug 2008) | 1 line
+Changed paths:
+   M /main/src/motion.cpp
+   M /physics/include/bioloid.h
+   M /physics/include/main.h
+   M /physics/include/scene.h
+   M /physics/include/servo.h
+   M /physics/include/util.h
+   M /physics/include/world.h
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+   M /physics/src/body.cpp
+   M /physics/src/geom.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/util.cpp
+   M /physics/src/world.cpp
+   A /physics/uncrustify.bash
+   A /physics/uncrustify.cfg
+
+Uncrustified source
+------------------------------------------------------------------------
+r95 | mdda | 2008-08-24 22:08:13 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   A /main/config_physics.xml
+
+For testing control of 'physics' robot
+------------------------------------------------------------------------
+r94 | mdda | 2008-08-24 22:07:23 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/include/servo.h
+   M /physics/src/bioloid.cpp
+   M /physics/src/servo.cpp
+
+Added torque reading
+------------------------------------------------------------------------
+r93 | mdda | 2008-08-24 22:06:54 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   M /main/src/motion.cpp
+   M /main/src/wrapper.cpp
+
+Compulsive indentation changes
+------------------------------------------------------------------------
+r92 | mdda | 2008-08-24 21:51:19 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   M /main/include/util.h
+   M /main/include/wrapper.h
+   M /main/src/cmd.cpp
+   M /main/src/configuration.cpp
+   M /main/src/global.cpp
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   M /main/src/util.cpp
+   M /main/src/wrapper.cpp
+
+Compulsive ndentation changes
+------------------------------------------------------------------------
+r91 | mdda | 2008-08-24 16:04:21 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   M /main/include/configuration.h
+   M /main/include/global.h
+   M /main/include/platform.h
+   M /main/src/cmd.cpp
+   M /main/src/configuration.cpp
+   M /main/src/global.cpp
+   M /main/src/parser.cpp
+   M /main/src/platform.cpp
+   M /main/src/robot.cpp
+   M /main/src/wrapper.cpp
+
+No deprecated conversions in C++
+------------------------------------------------------------------------
+r90 | mdda | 2008-08-24 15:41:10 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   M /main/src/platform.cpp
+
+Fixing Indenting (sorry - it's a compulsion of mine)
+------------------------------------------------------------------------
+r89 | mdda | 2008-08-24 15:37:34 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   M /main/src/platform.cpp
+
+Fixing Indenting (sorry)
+------------------------------------------------------------------------
+r88 | mdda | 2008-08-24 15:30:05 -0700 (Sun, 24 Aug 2008) | 1 line
+Changed paths:
+   M /main/include/cmd.h
+   M /main/include/configuration.h
+   M /main/include/util.h
+   M /main/src/configuration.cpp
+   M /main/src/global.cpp
+   M /main/src/platform.cpp
+   M /main/src/util.cpp
+
+Getting rid of some deprecated conversions...
+------------------------------------------------------------------------
+r87 | mdda | 2008-08-23 22:35:59 -0700 (Sat, 23 Aug 2008) | 1 line
+Changed paths:
+   M /main/src/platform.cpp
+
+Allow port sharing (if the same port # in and out)
+------------------------------------------------------------------------
+r86 | mdda | 2008-08-23 22:18:55 -0700 (Sat, 23 Aug 2008) | 1 line
+Changed paths:
+   M /main/include/interpolation.h
+   M /main/src/platform.cpp
+   M /main/src/practicalsocket.cpp
+
+Small fixes for Linux with modern gcc
+------------------------------------------------------------------------
+r85 | mdda | 2008-08-23 21:11:57 -0700 (Sat, 23 Aug 2008) | 1 line
+Changed paths:
+   M /physics/include/bioloid.h
+   M /physics/src/bioloid.cpp
+
+Allow delayed response packets, according to P_RETURN_DELAY_TIME
+------------------------------------------------------------------------
+r84 | mdda | 2008-08-23 20:54:54 -0700 (Sat, 23 Aug 2008) | 1 line
+Changed paths:
+   M /physics/src/bioloid.cpp
+
+READ instruction fix
+------------------------------------------------------------------------
+r83 | mdda | 2008-08-23 17:57:33 -0700 (Sat, 23 Aug 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/include/bioloid.h
+   M /physics/include/servo.h
+   M /physics/misc/Bioloid.pl
+   M /physics/src/bioloid.cpp
+   M /physics/src/servo.cpp
+
+Now SYNC_WRITE and REG_WRITE appear to work
+------------------------------------------------------------------------
+r82 | mdda | 2008-08-23 17:57:01 -0700 (Sat, 23 Aug 2008) | 1 line
+Changed paths:
+   M /main/include/constants.h
+
+Spelling error
+------------------------------------------------------------------------
+r81 | mdda | 2008-08-22 21:54:52 -0700 (Fri, 22 Aug 2008) | 1 line
+Changed paths:
+   M /physics/include/servo.h
+   M /physics/misc/Bioloid.pl
+   M /physics/src/bioloid.cpp
+   M /physics/src/servo.cpp
+
+Better servo dynamics code
+------------------------------------------------------------------------
+r80 | mdda | 2008-08-19 22:13:40 -0700 (Tue, 19 Aug 2008) | 1 line
+Changed paths:
+   M /physics/src/servo.cpp
+
+Servos now with static and dynamic friction, better control logic
+------------------------------------------------------------------------
+r79 | mdda | 2008-08-18 21:15:13 -0700 (Mon, 18 Aug 2008) | 1 line
+Changed paths:
+   M /physics/scite_physics.xml
+   M /physics/src/servo.cpp
+
+Some experimental data extracted from Simloid
+------------------------------------------------------------------------
+r78 | mdda | 2008-08-17 22:21:32 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/src/servo.cpp
+
+Implementation of Torques should be closer to AX-12 logic - SHOULD
+------------------------------------------------------------------------
+r77 | mdda | 2008-08-17 22:18:48 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/include/servo.h
+   M /physics/src/bioloid.cpp
+   M /physics/src/main.cpp
+   M /physics/src/servo.cpp
+
+Implementation of Torques should be closer to AX-12 logic - SHOULD
+------------------------------------------------------------------------
+r76 | mdda | 2008-08-17 17:58:41 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/misc/Bioloid.pl
+   M /physics/src/bioloid.cpp
+
+Some perl control of servos
+------------------------------------------------------------------------
+r75 | mdda | 2008-08-17 17:13:36 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/include/bioloid.h
+   M /physics/include/servo.h
+   M /physics/misc/Bioloid.pl
+   M /physics/src/bioloid.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+
+Polling by Bioloid.pl controller
+------------------------------------------------------------------------
+r74 | mdda | 2008-08-17 15:46:08 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/src/servo.cpp
+
+Fix up SI units
+------------------------------------------------------------------------
+r73 | mdda | 2008-08-17 15:45:13 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/src/servo.cpp
+
+Fix up SI units
+------------------------------------------------------------------------
+r72 | mdda | 2008-08-17 15:43:20 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/src/servo.cpp
+
+Fix up SI units
+------------------------------------------------------------------------
+r71 | mdda | 2008-08-17 14:06:15 -0700 (Sun, 17 Aug 2008) | 1 line
+Changed paths:
+   M /physics/include/world.h
+   M /physics/physics_humanoid.xml
+   M /physics/scite_physics.xml
+   M /physics/src/joint.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+   M /physics/xml-generation/PortugeseHumanoid.txt
+   M /physics/xml-generation/PortugeseHumanoid.xls
+   M /physics/xml-generation/perl-to-xml.pl
+
+Better servo naming (with correct IDs)
+------------------------------------------------------------------------
+r70 | mdda | 2008-07-27 22:02:16 -0700 (Sun, 27 Jul 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   M /physics/include/servo.h
+   M /physics/include/world.h
+   M /physics/physics.conf
+   M /physics/scite_physics.xml
+   M /physics/src/joint.cpp
+   M /physics/src/servo.cpp
+   M /physics/src/world.cpp
+
+Servos now cause robot to writhe
+------------------------------------------------------------------------
+r69 | mdda | 2008-07-27 17:41:17 -0700 (Sun, 27 Jul 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   M /physics/include/bioloid.h
+   A /physics/include/servo.h
+   M /physics/include/world.h
+   M /physics/src/bioloid.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/main.cpp
+   A /physics/src/servo.cpp
+   M /physics/src/world.cpp
+
+Started physical servo code
+------------------------------------------------------------------------
+r68 | mdda | 2008-07-26 22:43:30 -0700 (Sat, 26 Jul 2008) | 1 line
+Changed paths:
+   M /physics/include/bioloid.h
+   M /physics/include/world.h
+   M /physics/physics.conf
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+   M /physics/src/body.cpp
+   M /physics/src/geom.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/main.cpp
+   M /physics/src/world.cpp
+
+Nicer debugging control - servos soon
+------------------------------------------------------------------------
+r67 | rainer_jaekel | 2008-07-26 03:29:11 -0700 (Sat, 26 Jul 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/src/interpolation.cpp
+
+Added AX12_STARTID
+------------------------------------------------------------------------
+r66 | mdda | 2008-07-14 21:05:14 -0700 (Mon, 14 Jul 2008) | 1 line
+Changed paths:
+   M /physics/include/bioloid.h
+   M /physics/include/world.h
+   M /physics/physics_humanoid.xml
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/main.cpp
+
+Bus contains map of devices
+------------------------------------------------------------------------
+r65 | mdda | 2008-07-13 20:20:26 -0700 (Sun, 13 Jul 2008) | 1 line
+Changed paths:
+   M /physics/physics.conf
+   M /physics/src/scene.cpp
+
+Fixed gui.texture configuration param sense
+------------------------------------------------------------------------
+r64 | mdda | 2008-07-13 20:12:20 -0700 (Sun, 13 Jul 2008) | 1 line
+Changed paths:
+   M /physics/include/world.h
+   M /physics/physics.conf
+   M /physics/scite_physics.xml
+   M /physics/src/main.cpp
+   M /physics/src/world.cpp
+
+New .conf file parameters
+------------------------------------------------------------------------
+r63 | mdda | 2008-07-12 21:46:46 -0700 (Sat, 12 Jul 2008) | 1 line
+Changed paths:
+   M /physics/include/bioloid.h
+   M /physics/include/scene.h
+   M /physics/include/world.h
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   M /physics/src/world.cpp
+
+Now GUI is asynchronous, and BBusDevice interprets all instructions
+------------------------------------------------------------------------
+r62 | rainer_jaekel | 2008-07-12 11:42:25 -0700 (Sat, 12 Jul 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /main/bioloid.dev
+   M /main/src/wrapper.cpp
+
+removed variable declaration from switch in main loop (RobotWrapper.cpp)
+------------------------------------------------------------------------
+r61 | rainer_jaekel | 2008-07-12 10:46:38 -0700 (Sat, 12 Jul 2008) | 2 lines
+Changed paths:
+   M /main/include/global.h
+   M /main/include/wrapper.h
+   M /main/src/cmd.cpp
+   M /main/src/global.cpp
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   M /main/src/wrapper.cpp
+   M /viewer/viewer.cpp
+
+changed linux serial initialization code
+
+------------------------------------------------------------------------
+r60 | rainer_jaekel | 2008-07-11 03:20:27 -0700 (Fri, 11 Jul 2008) | 2 lines
+Changed paths:
+   M /main/src/practicalsocket.cpp
+
+include fixed
+
+------------------------------------------------------------------------
+r59 | mdda | 2008-07-06 17:13:40 -0700 (Sun, 06 Jul 2008) | 1 line
+Changed paths:
+   M /physics/src/body.cpp
+   M /physics/src/geom.cpp
+   M /physics/src/joint.cpp
+   M /physics/src/world.cpp
+
+Getting rid of some deprecated conversions
+------------------------------------------------------------------------
+r58 | mdda | 2008-07-05 16:10:52 -0700 (Sat, 05 Jul 2008) | 1 line
+Changed paths:
+   M /physics/src/main.cpp
+
+Debugging fix
+------------------------------------------------------------------------
+r57 | mdda | 2008-07-05 16:08:11 -0700 (Sat, 05 Jul 2008) | 1 line
+Changed paths:
+   M /physics/include/bioloid.h
+   M /physics/include/util.h
+   M /physics/misc/Bioloid.pl
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+   M /physics/src/main.cpp
+   M /physics/src/util.cpp
+
+Queue threading and dispatching working
+------------------------------------------------------------------------
+r56 | rainer_jaekel | 2008-07-05 04:33:24 -0700 (Sat, 05 Jul 2008) | 2 lines
+Changed paths:
+   M /viewer/viewer.cpp
+
+Changed DrawGLScene(GLVoid) to DrawGLScene(void) (ubuntu problem)
+
+------------------------------------------------------------------------
+r55 | mdda | 2008-07-04 23:20:26 -0700 (Fri, 04 Jul 2008) | 1 line
+Changed paths:
+   M /physics/include/bioloid.h
+   M /physics/include/util.h
+   M /physics/misc/Bioloid.pl
+   M /physics/src/bioloid.cpp
+   M /physics/src/main.cpp
+   M /physics/src/util.cpp
+
+Bus device message dispatching
+------------------------------------------------------------------------
+r54 | mdda | 2008-07-03 22:16:10 -0700 (Thu, 03 Jul 2008) | 1 line
+Changed paths:
+   M /physics/include/bioloid.h
+   M /physics/scite_physics.xml
+   M /physics/src/bioloid.cpp
+
+Read Message from BioloidBus
+------------------------------------------------------------------------
+r53 | rainer_jaekel | 2008-07-03 13:49:52 -0700 (Thu, 03 Jul 2008) | 2 lines
+Changed paths:
+   M /main/src/platform.cpp
+   M /main/src/wrapper.cpp
+
+defines for serial timeout added
+
+------------------------------------------------------------------------
+r52 | rainer_jaekel | 2008-07-03 13:16:07 -0700 (Thu, 03 Jul 2008) | 2 lines
+Changed paths:
+   M /main/src/platform.cpp
+   M /main/src/test.cpp
+   M /main/src/wrapper.cpp
+
+fixed glitch in walking algorithm
+
+------------------------------------------------------------------------
+r51 | mdda | 2008-07-02 07:42:12 -0700 (Wed, 02 Jul 2008) | 1 line
+Changed paths:
+   A /physics/misc/Bioloid.pl
+
+Perl client for TCP Bioloid bus
+------------------------------------------------------------------------
+r50 | mdda | 2008-07-01 20:58:50 -0700 (Tue, 01 Jul 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/include/bioloid.h
+   M /physics/include/util.h
+   M /physics/include/world.h
+   M /physics/src/bioloid.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   M /physics/src/util.cpp
+   M /physics/src/world.cpp
+
+Using boost for timer, rather than platform dependent code
+------------------------------------------------------------------------
+r49 | rainer_jaekel | 2008-07-01 04:06:40 -0700 (Tue, 01 Jul 2008) | 2 lines
+Changed paths:
+   M /main/src/global.cpp
+
+Fixed Could not open parameters file error message
+
+------------------------------------------------------------------------
+r48 | mdda | 2008-06-29 18:17:11 -0700 (Sun, 29 Jun 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/include/bioloid.h
+   M /physics/include/scene.h
+   M /physics/physics.conf
+   M /physics/scite_physics.xml
+   M /physics/src/geom.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+
+Added Boost detection and gui configuation
+------------------------------------------------------------------------
+r47 | rainer_jaekel | 2008-06-29 10:25:49 -0700 (Sun, 29 Jun 2008) | 1 line
+Changed paths:
+   M /main/config.xml
+   M /main/include/global.h
+   M /main/include/platform.h
+   M /main/include/wrapper.h
+   M /main/src/cmd.cpp
+   M /main/src/global.cpp
+   M /main/src/platform.cpp
+   M /main/src/util.cpp
+   M /main/src/wrapper.cpp
+
+Added support for USB dongle, set <UseCM5>false</UseCM5> in config.xml
+------------------------------------------------------------------------
+r46 | mdda | 2008-06-21 18:45:35 -0700 (Sat, 21 Jun 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+
+Assumes install of asio-1.0.0
+------------------------------------------------------------------------
+r45 | mdda | 2008-06-21 18:39:19 -0700 (Sat, 21 Jun 2008) | 1 line
+Changed paths:
+   M /physics/src/scene.cpp
+
+Back from vacation with an Eee laden with code
+------------------------------------------------------------------------
+r44 | mdda | 2008-06-21 18:38:57 -0700 (Sat, 21 Jun 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   A /physics/include/bioloid.h
+   A /physics/physics.conf
+   M /physics/scite_physics.xml
+   A /physics/src/bioloid.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   M /physics/src/world.cpp
+
+Back from vacation with an Eee laden with code
+------------------------------------------------------------------------
+r43 | rainer_jaekel | 2008-05-31 20:24:40 -0700 (Sat, 31 May 2008) | 2 lines
+Changed paths:
+   M /main/Makefile
+   M /main/bioloid.dev
+   M /main/config.xml
+   M /main/include/cmd.h
+   M /main/include/global.h
+   A /main/include/practicalsocket.h
+   M /main/src/cmd.cpp
+   M /main/src/global.cpp
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   A /main/src/practicalsocket.cpp
+   M /main/src/test.cpp
+   M /main/src/wrapper.cpp
+
+Added practicalsocket.cpp and practicalsocket.h
+bioloidcontrol can now be configured to pipe its output/input through tcp and/or the serial line (see config.xml, TxD8Buffer)
+------------------------------------------------------------------------
+r42 | mdda | 2008-05-31 07:08:39 -0700 (Sat, 31 May 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/src/scene.cpp
+
+Slight update from EeePC
+------------------------------------------------------------------------
+r41 | mdda | 2008-05-31 06:40:56 -0700 (Sat, 31 May 2008) | 1 line
+Changed paths:
+   A /physics/scite_physics.xml
+   M /physics/src/main.cpp
+
+Tidied up, ready for vacation
+------------------------------------------------------------------------
+r40 | mdda | 2008-05-31 06:38:07 -0700 (Sat, 31 May 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   M /physics/README
+   M /physics/src/main.cpp
+
+mdda on vacation
+------------------------------------------------------------------------
+r39 | mdda | 2008-05-29 20:02:24 -0700 (Thu, 29 May 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/src/main.cpp
+   M /physics/src/world.cpp
+
+Split apart main for cleaner file layout
+------------------------------------------------------------------------
+r38 | mdda | 2008-05-29 19:59:57 -0700 (Thu, 29 May 2008) | 1 line
+Changed paths:
+   M /physics/Makefile.am
+   M /physics/README
+   M /physics/include/main.h
+   A /physics/include/util.h
+   A /physics/include/world.h
+   A /physics/src/body.cpp
+   A /physics/src/geom.cpp
+   A /physics/src/joint.cpp
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   A /physics/src/util.cpp
+   A /physics/src/world.cpp
+
+Split apart main for cleaner file layout
+------------------------------------------------------------------------
+r37 | mdda | 2008-05-28 22:27:27 -0700 (Wed, 28 May 2008) | 1 line
+Changed paths:
+   M /main/src/robot.cpp
+   M /physics/include/scene.h
+   M /physics/src/scene.cpp
+
+Allow drawstuff to accept dReal as both double and float
+------------------------------------------------------------------------
+r36 | mdda | 2008-05-27 22:51:15 -0700 (Tue, 27 May 2008) | 1 line
+Changed paths:
+   M /physics/include/main.h
+   M /physics/physics_humanoid.xml
+   M /physics/src/main.cpp
+   M /physics/src/scene.cpp
+   M /physics/xml-generation/PortugeseHumanoid.txt
+   M /physics/xml-generation/PortugeseHumanoid.xls
+   M /physics/xml-generation/perl-to-xml.pl
+
+Now with (otherwise unconstrained) hinges at each servo location
+------------------------------------------------------------------------
+r35 | mdda | 2008-05-27 19:20:55 -0700 (Tue, 27 May 2008) | 1 line
+Changed paths:
+   A /physics/xml-generation/PortugeseHumanoid.txt
+   A /physics/xml-generation/PortugeseHumanoid.xls
+
+Realized that the source wasn't under SVN - sorry
+------------------------------------------------------------------------
+r34 | mdda | 2008-05-27 07:00:41 -0700 (Tue, 27 May 2008) | 1 line
+Changed paths:
+   M /physics/README
+   M /physics/physics_humanoid.xml
+   M /physics/xml-generation/perl-to-xml.pl
+
+Inertial matrices transformed better(?)
+------------------------------------------------------------------------
+r33 | mdda | 2008-05-26 21:28:07 -0700 (Mon, 26 May 2008) | 1 line
+Changed paths:
+   M /physics/README
+   A /physics/physics_humanoid.xml
+
+First draft of simple physics - no joints yet
+------------------------------------------------------------------------
+r32 | mdda | 2008-05-26 21:24:52 -0700 (Mon, 26 May 2008) | 1 line
+Changed paths:
+   A /physics
+   A /physics/Makefile.am
+   A /physics/README
+   A /physics/autogen.sh
+   A /physics/config.h
+   A /physics/configure.in
+   A /physics/drawstuff
+   A /physics/drawstuff/Makefile.am
+   A /physics/drawstuff/dstest
+   A /physics/drawstuff/dstest/Makefile.am
+   A /physics/drawstuff/dstest/dstest.cpp
+   A /physics/drawstuff/src
+   A /physics/drawstuff/src/Makefile.am
+   A /physics/drawstuff/src/drawstuff.cpp
+   A /physics/drawstuff/src/internal.h
+   A /physics/drawstuff/src/osx.cpp
+   A /physics/drawstuff/src/resource.h
+   A /physics/drawstuff/src/windows.cpp
+   A /physics/drawstuff/src/x11.cpp
+   A /physics/drawstuff/textures
+   A /physics/drawstuff/textures/ground.ppm
+   A /physics/drawstuff/textures/sky.ppm
+   A /physics/drawstuff/textures/wood.ppm
+   A /physics/include
+   A /physics/include/drawstuff
+   A /physics/include/drawstuff/drawstuff.h
+   A /physics/include/drawstuff/version.h
+   A /physics/include/main.h
+   A /physics/include/scene.h
+   A /physics/misc
+   A /physics/misc/dh_XML_to_delimited.pl
+   A /physics/misc/simloid_C_to_delimited.pl
+   A /physics/src
+   A /physics/src/main.cpp
+   A /physics/src/scene.cpp
+   A /physics/xml-generation
+   A /physics/xml-generation/perl-to-xml.pl
+
+First draft of simple physics - no joints yet
+------------------------------------------------------------------------
+r31 | rainer_jaekel | 2008-05-24 09:50:41 -0700 (Sat, 24 May 2008) | 2 lines
+Changed paths:
+   M /main/src/cmd.cpp
+   M /main/src/motion.cpp
+
+added range check to cmd_dh
+bugfix: items were deleted twice in motioncontainer::clear
+------------------------------------------------------------------------
+r30 | rainer_jaekel | 2008-05-21 06:02:55 -0700 (Wed, 21 May 2008) | 1 line
+Changed paths:
+   M /main/bioloid.dev
+
+changed dev-c++ file in order to reflect changes in source code structure
+------------------------------------------------------------------------
+r29 | rainer_jaekel | 2008-05-21 05:57:24 -0700 (Wed, 21 May 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.hex
+   M /controller/include/interpolation.h
+   M /controller/src/interpolation.cpp
+
+set default value of interpolation points buffer length to 12
+------------------------------------------------------------------------
+r28 | mdda | 2008-05-18 21:42:27 -0700 (Sun, 18 May 2008) | 1 line
+Changed paths:
+   M /main/src/list.cpp
+
+Reuse of CList and CListIterator in physics module
+------------------------------------------------------------------------
+r27 | mdda | 2008-05-18 21:27:11 -0700 (Sun, 18 May 2008) | 1 line
+Changed paths:
+   M /main/src/list.cpp
+
+Clean up redundant CListIterator : CIterator
+------------------------------------------------------------------------
+r26 | mdda | 2008-05-18 21:25:40 -0700 (Sun, 18 May 2008) | 1 line
+Changed paths:
+   M /main/include/configuration.h
+   M /main/include/list.h
+   M /main/src/list.cpp
+   M /main/src/motion.cpp
+
+Clean up redundant CListIterator : CIterator
+------------------------------------------------------------------------
+r25 | mdda | 2008-05-18 15:48:17 -0700 (Sun, 18 May 2008) | 1 line
+Changed paths:
+   M /main/Makefile
+   A /main/include/configuration.h
+   M /main/include/global.h
+   A /main/src/configuration.cpp
+   M /main/src/global.cpp
+
+Split out configuration.cpp - for reuse in 'physics'
+------------------------------------------------------------------------
+r24 | mdda | 2008-05-18 14:58:15 -0700 (Sun, 18 May 2008) | 1 line
+Changed paths:
+   M /main/src/cmd.cpp
+   M /main/src/interpolation.cpp
+   M /main/src/test.cpp
+   M /main/src/wrapper.cpp
+
+Added casts to eliminate compilation warnings
+------------------------------------------------------------------------
+r23 | rainer_jaekel | 2008-05-18 09:16:38 -0700 (Sun, 18 May 2008) | 1 line
+Changed paths:
+   M /main/include/global.h
+   M /main/src/global.cpp
+
+bugfix
+------------------------------------------------------------------------
+r22 | rainer_jaekel | 2008-05-18 04:55:29 -0700 (Sun, 18 May 2008) | 3 lines
+Changed paths:
+   M /main/bioloid.dev
+   M /main/include/cmd.h
+   M /main/include/global.h
+   M /main/include/interpolation.h
+   M /main/include/platform.h
+   M /main/include/test.h
+   M /main/include/wrapper.h
+   M /main/main.cpp
+   M /main/src/cmd.cpp
+   M /main/src/crc.cpp
+   M /main/src/global.cpp
+   M /main/src/interpolation.cpp
+   M /main/src/motion.cpp
+   M /main/src/platform.cpp
+   M /main/src/test.cpp
+   M /main/src/wrapper.cpp
+
+filenames are now absolute, therefore path of executable is extracted
+fixed sinoidal and rectangular scurve calculations
+fixed defines in cmd (if simpleconsole is defined ncurses wont be included anymore)
+------------------------------------------------------------------------
+r21 | rainer_jaekel | 2008-05-18 03:52:17 -0700 (Sun, 18 May 2008) | 1 line
+Changed paths:
+   M /main/Makefile
+
+removed src/aufgaben from Makefile
+------------------------------------------------------------------------
+r20 | rainer_jaekel | 2008-05-06 02:41:49 -0700 (Tue, 06 May 2008) | 1 line
+Changed paths:
+   M /viewer/Makefile
+
+wrong binary file in makefile
+------------------------------------------------------------------------
+r19 | rainer_jaekel | 2008-05-03 17:30:49 -0700 (Sat, 03 May 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /controller/include/interpolation.h
+   M /controller/src/crc.cpp
+   M /controller/src/interpolation.cpp
+
+std interpolation values changed
+------------------------------------------------------------------------
+r18 | rainer_jaekel | 2008-05-03 15:18:25 -0700 (Sat, 03 May 2008) | 4 lines
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /controller/include/communication.h
+   M /controller/include/interpolation.h
+   M /controller/src/communication.cpp
+   M /controller/src/crc.cpp
+   M /controller/src/interpolation.cpp
+   M /controller/src/recharge.cpp
+   M /main/Makefile
+   M /main/bioloid.dev
+   M /main/config.xml
+   M /main/config_hexapod.xml
+   M /main/config_humanoid.xml
+   M /main/config_test.xml
+   M /main/dh_hexapod.xml
+   M /main/include/cmd.h
+   M /main/include/global.h
+   M /main/include/interpolation.h
+   M /main/include/motion.h
+   M /main/include/parser.h
+   M /main/include/wrapper.h
+   M /main/scripts/disttest.s
+   M /main/scripts/hex_stand.s
+   M /main/scripts/hex_walk.s
+   M /main/src/cmd.cpp
+   M /main/src/crc.cpp
+   M /main/src/global.cpp
+   M /main/src/interpolation.cpp
+   M /main/src/lex.yy.c
+   M /main/src/motion.cpp
+   M /main/src/parser.cpp
+   M /main/src/test.cpp
+   M /main/src/wrapper.cpp
+   M /main/src/y.tab.c
+   M /parser/parser.l
+   M /parser/parser.y
+
+controller: 
+added structs for interpolation, message and robot data
+added interpolation between last target and current target (smoother)
+automatic reduction of readPause if writebuffer is full
+------------------------------------------------------------------------
+r17 | rainer_jaekel | 2008-05-01 16:02:52 -0700 (Thu, 01 May 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /controller/RobotWrapper.pnproj
+   M /controller/include/communication.h
+   M /controller/include/interpolation.h
+   A /controller/include/recharge.h
+   M /controller/makefile
+   M /controller/src/interpolation.cpp
+   A /controller/src/recharge.cpp
+   M /controller/src/timer.cpp
+
+improved ptp functions
+------------------------------------------------------------------------
+r16 | rainer_jaekel | 2008-05-01 06:18:54 -0700 (Thu, 01 May 2008) | 2 lines
+Changed paths:
+   M /main/src/platform.cpp
+
+fixed serial initialisation (linux)
+
+------------------------------------------------------------------------
+r15 | rainer_jaekel | 2008-04-25 08:30:08 -0700 (Fri, 25 Apr 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /main/config_hexapod.xml
+   M /main/include/wrapper.h
+   M /main/src/test.cpp
+   M /main/src/wrapper.cpp
+
+controller & main: improved battery recharging
+------------------------------------------------------------------------
+r14 | rainer_jaekel | 2008-04-25 06:46:03 -0700 (Fri, 25 Apr 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /controller/include/interpolation.h
+   M /controller/src/interpolation.cpp
+
+corrected error in ptp functions (thanks to bullit), tb calculation was flawed resulting in tb = 1 and te = 2 -> no constant velocity phase
+------------------------------------------------------------------------
+r13 | rainer_jaekel | 2008-04-24 05:34:13 -0700 (Thu, 24 Apr 2008) | 1 line
+Changed paths:
+   M /main/bioloid.dev
+
+command line argument fix
+------------------------------------------------------------------------
+r12 | rainer_jaekel | 2008-04-24 04:49:16 -0700 (Thu, 24 Apr 2008) | 1 line
+Changed paths:
+   M /main/config.xml
+   M /main/config_hexapod.xml
+   M /main/config_humanoid.xml
+   M /main/include/cmd.h
+   M /main/include/platform.h
+   M /main/include/wrapper.h
+   M /main/src/cmd.cpp
+   M /main/src/global.cpp
+   M /main/src/platform.cpp
+   M /main/src/test.cpp
+   M /main/src/wrapper.cpp
+
+rechargeBatteries function added (experimental)
+------------------------------------------------------------------------
+r11 | rainer_jaekel | 2008-04-24 04:23:28 -0700 (Thu, 24 Apr 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+
+added battery recharge function (experimental)
+------------------------------------------------------------------------
+r10 | rainer_jaekel | 2008-04-24 04:17:40 -0700 (Thu, 24 Apr 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   M /controller/RobotWrapper.pnproj
+   A /controller/include/interpolation.h
+   M /controller/makefile
+   A /controller/src/interpolation.cpp
+
+interpolation: sinus curve acceleration profile added (setrobot 2 3)
+------------------------------------------------------------------------
+r9 | rainer_jaekel | 2008-04-23 06:30:54 -0700 (Wed, 23 Apr 2008) | 3 lines
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+   A /controller/readme.txt
+
+readme.txt added
+
+synchronous ptp added (new robot parameter added: readParam, setrobot 5 x)
+------------------------------------------------------------------------
+r8 | rainer_jaekel | 2008-04-23 03:13:58 -0700 (Wed, 23 Apr 2008) | 1 line
+Changed paths:
+   M /main/config_hexapod.xml
+
+Torque PID Controller is now enabled by default
+------------------------------------------------------------------------
+r7 | rainer_jaekel | 2008-04-22 12:32:01 -0700 (Tue, 22 Apr 2008) | 1 line
+Changed paths:
+   A /viewer/readme.txt
+   M /viewer/viewer.cpp
+   M /viewer/viewerwin.cpp
+
+Added readme.txt, renamed KEY_BINDING enum
+------------------------------------------------------------------------
+r6 | rainer_jaekel | 2008-04-22 07:49:34 -0700 (Tue, 22 Apr 2008) | 1 line
+Changed paths:
+   M /main/src/cmd.cpp
+   M /main/src/motion.cpp
+   M /main/src/parser.cpp
+
+Humanoid rotation angle offset (fix). Todo: add tcp coord to dh file
+------------------------------------------------------------------------
+r5 | rainer_jaekel | 2008-04-22 05:48:16 -0700 (Tue, 22 Apr 2008) | 1 line
+Changed paths:
+   M /main/config.xml
+   M /main/config_humanoid.xml
+   M /main/dh_humanoid.xml
+   M /main/scripts/hum_knees.s
+   M /main/scripts/hum_kneesdown.s
+   M /main/scripts/hum_kneesup.s
+   M /main/scripts/hum_stand.s
+   D /main/scripts/hum_stopwalk.s
+   M /main/src/cmd.cpp
+
+Fixed humanoid configuration files and scripts
+------------------------------------------------------------------------
+r4 | rainer_jaekel | 2008-04-22 05:43:07 -0700 (Tue, 22 Apr 2008) | 1 line
+Changed paths:
+   M /controller/RobotWrapper.cpp
+   M /controller/RobotWrapper.hex
+
+Added simple interpolation (other interpolation types don't work properly on humanoid)
+------------------------------------------------------------------------
+r3 | rainer_jaekel | 2008-04-22 03:06:04 -0700 (Tue, 22 Apr 2008) | 2 lines
+Changed paths:
+   M /main/config_humanoid.xml
+   M /main/dh_humanoid.xml
+   M /main/src/cmd.cpp
+   M /main/src/motion.cpp
+   M /main/src/robot.cpp
+
+Loading of Collision objects fixed
+Collision information for humanoid robot added
+------------------------------------------------------------------------
+r2 | rainer_jaekel | 2008-04-21 16:31:14 -0700 (Mon, 21 Apr 2008) | 1 line
+Changed paths:
+   M /main/src/wrapper.cpp
+
+obsolete include file removed
+------------------------------------------------------------------------
+r1 | rainer_jaekel | 2008-04-21 15:55:34 -0700 (Mon, 21 Apr 2008) | 1 line
+Changed paths:
+   A /controller
+   A /controller/RobotWrapper.cpp
+   A /controller/RobotWrapper.hex
+   A /controller/RobotWrapper.pnproj
+   A /controller/gpl.txt
+   A /controller/include
+   A /controller/include/cmd.h
+   A /controller/include/communication.h
+   A /controller/include/constants.h
+   A /controller/include/crc.h
+   A /controller/include/timer.h
+   A /controller/include/types.h
+   A /controller/include/uart.h
+   A /controller/include/wrapper.h
+   A /controller/makefile
+   A /controller/src
+   A /controller/src/communication.cpp
+   A /controller/src/crc.cpp
+   A /controller/src/timer.cpp
+   A /controller/src/uart.cpp
+   A /controller/src/wrapper.cpp
+   A /main
+   A /main/Doxyfile
+   A /main/Makefile
+   A /main/autosave
+   A /main/bioloid.dev
+   A /main/config.xml
+   A /main/config_hexapod.xml
+   A /main/config_humanoid.xml
+   A /main/config_test.xml
+   A /main/dh_hexapod.xml
+   A /main/dh_humanoid.xml
+   A /main/dh_test.xml
+   A /main/gpl.txt
+   A /main/include
+   A /main/include/cmd.h
+   A /main/include/commands.h
+   A /main/include/constants.h
+   A /main/include/crc.h
+   A /main/include/global.h
+   A /main/include/interpolation.h
+   A /main/include/list.h
+   A /main/include/motion.h
+   A /main/include/parser.h
+   A /main/include/platform.h
+   A /main/include/robot.h
+   A /main/include/test.h
+   A /main/include/tinystr.h
+   A /main/include/tinyxml.h
+   A /main/include/types.h
+   A /main/include/util.h
+   A /main/include/vars.h
+   A /main/include/vecmath.h
+   A /main/include/wrapper.h
+   A /main/include/y.tab.h
+   A /main/main.cpp
+   A /main/motion.mtn
+   A /main/motions
+   A /main/motions/human_arm.xml
+   A /main/motions/human_kick.xml
+   A /main/motions/human_stand.xml
+   A /main/motions/human_walk.xml
+   A /main/scripts
+   A /main/scripts/angletest.s
+   A /main/scripts/disttest.s
+   A /main/scripts/hex_shift.s
+   A /main/scripts/hex_stand.s
+   A /main/scripts/hex_stand2.s
+   A /main/scripts/hex_walk.s
+   A /main/scripts/hex_walk2.s
+   A /main/scripts/hex_walk3.s
+   A /main/scripts/hex_walk4.s
+   A /main/scripts/hex_walk4b.s
+   A /main/scripts/hex_walk5.s
+   A /main/scripts/hum_knees.s
+   A /main/scripts/hum_kneesdown.s
+   A /main/scripts/hum_kneesup.s
+   A /main/scripts/hum_playshow.s
+   A /main/scripts/hum_stand.s
+   A /main/scripts/hum_stopwalk.s
+   A /main/scripts/lighttest.s
+   A /main/show
+   A /main/show/bezier.test
+   A /main/show/bow.test
+   A /main/show/bow0.test
+   A /main/show/bow1.test
+   A /main/show/bowGOOD.test
+   A /main/show/clap0.test
+   A /main/show/clap1.test
+   A /main/show/clap2.test
+   A /main/show/clap3.test
+   A /main/show/fight0.test
+   A /main/show/fight1.test
+   A /main/show/fight2.test
+   A /main/show/fight3.test
+   A /main/show/fight4.test
+   A /main/show/laufen.test
+   A /main/show/laufenr.test
+   A /main/show/playshow.s
+   A /main/show/stand.test
+   A /main/show/swing.test
+   A /main/show/swing0.test
+   A /main/show/swing1.test
+   A /main/show/swing2.test
+   A /main/src
+   A /main/src/cmd.cpp
+   A /main/src/commands.cpp
+   A /main/src/crc.cpp
+   A /main/src/global.cpp
+   A /main/src/interpolation.cpp
+   A /main/src/lex.yy.c
+   A /main/src/list.cpp
+   A /main/src/motion.cpp
+   A /main/src/parser.cpp
+   A /main/src/platform.cpp
+   A /main/src/robot.cpp
+   A /main/src/test.cpp
+   A /main/src/tinystr.cpp
+   A /main/src/tinyxml.cpp
+   A /main/src/tinyxmlerror.cpp
+   A /main/src/tinyxmlparser.cpp
+   A /main/src/util.cpp
+   A /main/src/vecmath.cpp
+   A /main/src/wrapper.cpp
+   A /main/src/y.tab.c
+   A /parser
+   A /parser/bison.exe
+   A /parser/bison.hairy
+   A /parser/bison.simple
+   A /parser/flex.exe
+   A /parser/gpl.txt
+   A /parser/parser.l
+   A /parser/parser.y
+   A /parser/readme.txt
+   A /viewer
+   A /viewer/Makefile
+   A /viewer/gpl.txt
+   A /viewer/viewer.cpp
+   A /viewer/viewer.dev
+   A /viewer/viewerwin.cpp
+
+Initial Release (Version 0.1)
+------------------------------------------------------------------------

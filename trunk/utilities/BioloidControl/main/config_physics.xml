@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<Configuration>
+	<General>
+		<SaveOnExit>false</SaveOnExit>
+	</General>
+	<Hardware>
+		<__WriteToRobot>false</__WriteToRobot>
+		<WriteToRobot>true</WriteToRobot>
+		<Ax12>
+			<CWMargin id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1</CWMargin>
+			<CCWMargin id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1</CCWMargin>
+			<CWSlope id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</CWSlope>
+			<CCWSlope id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</CCWSlope>
+			<Punch id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</Punch>
+			<Status id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >4</Status>
+			<Speed id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >100</Speed>
+			<Torque id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1023</Torque>
+		</Ax12>
+		<AxS1>
+		</AxS1>
+		<__ControlTorque>false</__ControlTorque>
+		<__ControlSpeed>false</__ControlSpeed>
+		<ControlTorque>true</ControlTorque>
+		<ControlSpeed>true</ControlSpeed>
+		<Controller>
+			<Torque id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" time="1" p="10" i="0.5" d="0" offset="100" />
+		</Controller>
+	</Hardware>
+	<Software>
+		<ComEnabled>false</ComEnabled>
+    <ComPort>COM4</ComPort>
+		<ComSpeed>115200</ComSpeed>
+
+		<TcpEnabled>true</TcpEnabled>
+		<TcpPortIn>7777</TcpPortIn>
+		<TcpPortOut>7777</TcpPortOut>
+		<TcpHostname>localhost</TcpHostname>
+
+		<StopOnCollisionRead>false</StopOnCollisionRead>
+		<StopOnCollisionWrite>false</StopOnCollisionWrite>
+		<AddMotionsWithCollision>true</AddMotionsWithCollision>
+
+  <RobotConfigFile>dh_humanoid.xml</RobotConfigFile>
+
+  <Debug>true</Debug>
+
+  <RobotIsPresent>true</RobotIsPresent>
+  <WriteToRobot>true</WriteToRobot>
+		<ReadFromRobot>true</ReadFromRobot>
+
+		<OldMtnFiles>true</OldMtnFiles>
+	
+		<UseCM5>false</UseCM5>
+
+	</Software>
+</Configuration>
+

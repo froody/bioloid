@@ -1,0 +1,32 @@
+ May need to do the SSH authentication stuff first...? 
+ 
+ 
+ # See the following (SSH access is no longer available) :
+ # http://alexandria.wiki.sourceforge.net/Project+Web,+Shell,+VHOST+and+Database+Services
+ 
+ # Example :
+ sftp hinojosa,toast@web.sourceforge.net
+ cd htdocs
+ put index.html
+ bye
+ 
+ 
+ -------  Announcement Text -------  
+
+There's now a physics simulator in the bioloidcontrol project.  It is a close-to-realistic simulation of the bioloid humanoid robot.  Here are some key features :
+
+* Written in C++ : with a decent object hierarchy (IMHO)
+* Complete bioloid bus simulator drivable via TCP (all commands)
+* Realistic physics : dimensions, masses, inertias taken from Portugeuse research group
+* Robot parameters created from Excel file (via a perl-to-XML translator)
+* Bioloid components (servos, IMUs, etc) react to bioloid message packets realistically
+* Code is readable and extensible (and open source)
+
+At the moment it's just accessible via SVN, and only tested on Linux.  There are full instructions on building and running the simulator at :
+http://bioloidcontrol.sourceforge.net/index_new.php?category=11
+
+If there are problems it's probably my fault, and I'd be happy to help out with any vitual robot problems : BioloidControl (at) PLATFORMedia.com
+
+Have fun!
+Martin
+:-)

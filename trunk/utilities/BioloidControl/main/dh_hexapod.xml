@@ -1,0 +1,187 @@
+<?xml version="1.0" ?>
+<Robot>
+	<Name>CARAUSIUSMOROSUS</Name>
+        <UseLoadFunction>false</UseLoadFunction>
+	<Frames>
+		<Frame name="cam" base="" a="0" b="180" g="0" x="0" y="0" z="0" />
+		<Frame name="headbase" base="0" a="0" b="0" g="0" x="0" y="92" z="0" />
+		<Frame name="l1base" base="0" a="0" b="0" g="0" x="67" y="92" z="0" />
+		<Frame name="l2base" base="0" a="0" b="0" g="0" x="67" y="0" z="0" />
+		<Frame name="l3base" base="0" a="0" b="0" g="0" x="67" y="-92" z="0" />
+		<Frame name="r1base" base="0" a="0" b="0" g="0" x="-67" y="92" z="0" />
+		<Frame name="r2base" base="0" a="0" b="0" g="0" x="-67" y="0" z="0" />
+		<Frame name="r3base" base="0" a="0" b="0" g="0" x="-67" y="-92" z="0" />
+	</Frames>
+	<KinematicChains len="6">
+		<chain name= "l1" base="l1base" len="3">
+			<dh rotz="0" 		transz="0" rotx="90" 	transx="25" id="10" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="12" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="6" sgn="1" />
+		</chain>
+		<chain name= "l2" base="l2base" len="3">
+			<dh rotz="0" 		transz="0" rotx="90" 	transx="25" id="9" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="11" sgn="-1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="5" sgn="1" />
+		</chain>
+		<chain name= "l3" base="l3base" len="3">
+			<dh rotz="0" 		transz="0" rotx="90" 	transx="25" id="18" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="16" sgn="-1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="14" sgn="-1" />
+		</chain>
+		<chain name= "r1" base="r1base" len="3">
+			<dh rotz="0" 		transz="0" rotx="90" 	transx="-25" id="17" sgn="1" />
+			<dh rotz="180" 		transz="0" rotx="0" 	transx="90" id="15" sgn="-1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="13" sgn="-1" />
+		</chain>
+		<chain name= "r2" base="r2base" len="3">
+			<dh rotz="0" 		transz="0" rotx="90" 	transx="-25" id="1" sgn="1" />
+			<dh rotz="180" 		transz="0" rotx="0" 	transx="90" id="4" sgn="-1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="2" sgn="-1" />
+		</chain>
+		<chain name= "r3" base="r3base" len="3">
+			<dh rotz="0" 		transz="0" rotx="90" 	transx="-25" id="8" sgn="1" />
+			<dh rotz="180" 		transz="0" rotx="0" 	transx="90" id="7" sgn="-1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="90" id="3" sgn="1" />
+		</chain>
+	</KinematicChains>
+	<Geometry>
+                <Box name="head" width="40" depth="50" height="40" x="0" y="25" z="10" mass="0">
+                        <Frame base="headbase" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="mainbody" width="76" depth="194" height="50" x="0" y="0" z="10" mass="0">
+                        <Frame base="" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.5" g="0.5" b="0.5" />
+                </Box>
+                <Box name="l1" width="48" depth="70" height="40" x="-20" y="10" z="0" mass="0">
+                        <Frame base="l1:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="l1" width="70" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="l1:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="l1" width="40" depth="35" height="40" x="-10" y="0" z="0" mass="0">
+                        <Frame base="l1:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="l1" width="80" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="l1:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="l1" width="30" depth="30" height="30" x="-10" y="-5" z="0" mass="0">
+                        <Frame base="l1:2" a="0" b="0" g="-20" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="l2" width="48" depth="70" height="40" x="-20" y="10" z="0" mass="0">
+                        <Frame base="l2:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="l2" width="70" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="l2:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="l2" width="40" depth="35" height="40" x="-10" y="0" z="0" mass="0">
+                        <Frame base="l2:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+
+                <Box name="l2" width="80" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="l2:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="l2" width="30" depth="30" height="30" x="-10" y="-5" z="0" mass="0">
+                        <Frame base="l2:2" a="0" b="0" g="-20" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="l3" width="48" depth="70" height="40" x="-20" y="10" z="0" mass="0">
+                        <Frame base="l3:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="l3" width="70" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="l3:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="l3" width="40" depth="35" height="40" x="-10" y="0" z="0" mass="0">
+                        <Frame base="l3:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="l3" width="80" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="l3:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="l3" width="30" depth="30" height="30" x="-10" y="-5" z="0" mass="0">
+                        <Frame base="l3:2" a="0" b="0" g="-20" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r1" width="48" depth="70" height="40" x="20" y="10" z="0" mass="0">
+                        <Frame base="r1:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r1" width="70" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="r1:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="r1" width="40" depth="35" height="40" x="-10" y="0" z="0" mass="0">
+                        <Frame base="r1:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r1" width="80" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="r1:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="r1" width="30" depth="30" height="30" x="-10" y="5" z="0" mass="0">
+                        <Frame base="r1:2" a="0" b="0" g="20" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r2" width="48" depth="70" height="40" x="20" y="10" z="0" mass="0">
+                        <Frame base="r2:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r2" width="70" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="r2:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="r2" width="40" depth="35" height="40" x="-10" y="0" z="0" mass="0">
+                        <Frame base="r2:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r2" width="80" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="r2:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="r2" width="30" depth="30" height="30" x="-10" y="5" z="0" mass="0">
+                        <Frame base="r2:2" a="0" b="0" g="20" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r3" width="48" depth="70" height="40" x="20" y="10" z="0" mass="0">
+                        <Frame base="r3:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r3" width="70" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="r3:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="r3" width="40" depth="35" height="40" x="-10" y="0" z="0" mass="0">
+                        <Frame base="r3:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+                <Box name="r3" width="80" depth="30" height="35" x="-60" y="0" z="0" mass="0">
+                        <Frame base="r3:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.85" g="0.85" b="0.85" />
+                </Box>
+                <Box name="r3" width="30" depth="30" height="30" x="-10" y="5" z="0" mass="0">
+                        <Frame base="r3:2" a="0" b="0" g="20" x="0" y="0" z="0" />
+                        <Color r="0.1" g="0.1" b="0.1" />
+                </Box>
+	</Geometry>
+	<Collisions>
+		<Collision first="l1" second="l2" />
+		<Collision first="l2" second="l3" />
+		<Collision first="r1" second="r2" />
+		<Collision first="r2" second="r3" />
+	</Collisions>
+</Robot>
+
+
+

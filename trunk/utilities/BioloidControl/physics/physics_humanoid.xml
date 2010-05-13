@@ -1,0 +1,304 @@
+<?xml version="1.1" ?>
+<Robot>
+ <Name>HUMANOID</Name>
+ <UseLoadFunction>false</UseLoadFunction>
+ <physics length_to_m="0.00100000" mass_to_kg="0.00100000" inertia_to_si="0.00001000">
+  <body body="FootLeft" base="FootLeft">
+   <cog x="7.47" y="38.66" z="5.91000000000003" mass="37.4" />
+   <inertia xx="115.8" xy="-6" xz="8.1" yx="-6" yy="337" yz="-7.8" zx="8.1" zy="-7.8" zz="394.8" />
+  </body>
+  <body body="FootRight" base="FootRight">
+   <cog x="7.47" y="-38.66" z="5.91000000000003" mass="37.4" />
+   <inertia xx="115.8" xy="-6" xz="8.1" yx="-6" yy="337" yz="-7.8" zx="8.1" zy="-7.8" zz="394.8" />
+  </body>
+  <body body="AnkleLeft" base="AnkleLeft">
+   <cog x="2.6" y="32.54" z="48.03" mass="137" />
+   <inertia xx="110.7" xy="10.1" xz="14.4" yx="10.1" yy="529.7" yz="-1.1" zx="14.4" zy="-1.1" zz="542.4" />
+  </body>
+  <body body="AnkleRight" base="AnkleRight">
+   <cog x="2.6" y="-32.54" z="48.03" mass="137" />
+   <inertia xx="110.7" xy="10.1" xz="14.4" yx="10.1" yy="529.7" yz="-1.1" zx="14.4" zy="-1.1" zz="542.4" />
+  </body>
+  <body body="LowerLegLeft" base="LowerLegLeft">
+   <cog x="19.13" y="32.27" z="97.41" mass="86.5" />
+   <inertia xx="435.2" xy="1" xz="-1.52" yx="1" yy="372.1" yz="-7" zx="-1.52" zy="-7" zz="135.2" />
+  </body>
+  <body body="LowerLegRight" base="LowerLegRight">
+   <cog x="19.13" y="-32.27" z="97.41" mass="86.5" />
+   <inertia xx="435.2" xy="1" xz="-1.52" yx="1" yy="372.1" yz="-7" zx="-1.52" zy="-7" zz="135.2" />
+  </body>
+  <body body="UpperLegLeft" base="UpperLegLeft">
+   <cog x="17.56" y="33" z="139.6" mass="31.2" />
+   <inertia xx="253.6" xy="0" xz="-13.9" yx="0" yy="169.2" yz="0" zx="-13.9" zy="0" zz="138.2" />
+  </body>
+  <body body="UpperLegRight" base="UpperLegRight">
+   <cog x="17.56" y="-33" z="139.6" mass="31.2" />
+   <inertia xx="253.6" xy="0" xz="-13.9" yx="0" yy="169.2" yz="0" zx="-13.9" zy="0" zz="138.2" />
+  </body>
+  <body body="HipLeft" base="HipLeft">
+   <cog x="2.73" y="11.54" z="168.97" mass="137" />
+   <inertia xx="110.7" xy="10.1" xz="-14.4" yx="10.1" yy="529.7" yz="1.1" zx="-14.4" zy="1.1" zz="542.4" />
+  </body>
+  <body body="HipRight" base="HipRight">
+   <cog x="2.73" y="-11.54" z="168.97" mass="137" />
+   <inertia xx="110.7" xy="10.1" xz="-14.4" yx="10.1" yy="529.7" yz="1.1" zx="-14.4" zy="1.1" zz="542.4" />
+  </body>
+  <body body="GroinLeft" base="GroinLeft">
+   <cog x="1.23" y="33" z="203.03" mass="15.1" />
+   <inertia xx="27.8" xy="0" xz="-1.1" yx="0" yy="139.9" yz="0" zx="-1.1" zy="0" zz="133.6" />
+  </body>
+  <body body="GroinRight" base="GroinRight">
+   <cog x="1.23" y="-33" z="203.03" mass="15.1" />
+   <inertia xx="27.8" xy="0" xz="-1.1" yx="0" yy="139.9" yz="0" zx="-1.1" zy="0" zz="133.6" />
+  </body>
+  <body body="Torso" base="Torso">
+   <cog x="0" y="-0.52" z="273.085" mass="695.4" />
+   <inertia xx="10686.2" xy="-71.4" xz="1220.1" yx="-71.4" yy="8636.2" yz="-30.4" zx="1220.1" zy="-30.4" zz="8084.2" />
+  </body>
+  <body body="UpperArmLeft" base="UpperArmLeft">
+   <cog x="32.77" y="98.58" z="297.005" mass="76.5" />
+   <inertia xx="238.7" xy="0" xz="0" yx="0" yy="77.5" yz="-3.6" zx="0" zy="-3.6" zz="190.4" />
+  </body>
+  <body body="UpperArmRight" base="UpperArmRight">
+   <cog x="32.77" y="-98.58" z="297.005" mass="76.5" />
+   <inertia xx="238.7" xy="0" xz="0" yx="0" yy="77.5" yz="-3.6" zx="0" zy="-3.6" zz="190.4" />
+  </body>
+  <body body="LowerArmLeft" base="LowerArmLeft">
+   <cog x="31.79" y="167.94" z="297.095" mass="76.7" />
+   <inertia xx="284.3" xy="32.1" xz="-0.3" yx="32.1" yy="54.2" yz="-5.1" zx="-0.3" zy="-5.1" zz="267" />
+  </body>
+  <body body="LowerArmRight" base="LowerArmRight">
+   <cog x="31.79" y="-167.94" z="297.095" mass="76.7" />
+   <inertia xx="284.3" xy="32.1" xz="-0.3" yx="32.1" yy="54.2" yz="-5.1" zx="-0.3" zy="-5.1" zz="267" />
+  </body>
+  <body body="ShoulderLeft" base="ShoulderLeft">
+   <cog x="21.83" y="63.64" z="338.175" mass="11.9" />
+   <inertia xx="51.7" xy="-4.7" xz="0" yx="-4.7" yy="53" yz="0" zx="0" zy="0" zz="22.1" />
+  </body>
+  <body body="ShoulderRight" base="ShoulderRight">
+   <cog x="21.83" y="-63.64" z="338.175" mass="11.9" />
+   <inertia xx="51.7" xy="-4.7" xz="0" yx="-4.7" yy="53" yz="0" zx="0" zy="0" zz="22.1" />
+  </body>
+  <joint name="LeftAnkle" body1="AnkleLeft" body2="LowerLegLeft">
+   <center x="18.64" y="33" z="33" />
+   <axis x="0" y="21" z="0" />
+  </joint>
+  <joint name="RightAnkle" body1="AnkleRight" body2="LowerLegRight">
+   <center x="18.64" y="-33" z="33" />
+   <axis x="0" y="-21" z="0" />
+  </joint>
+  <joint name="LeftFootLean" body1="FootLeft" body2="AnkleLeft">
+   <center x="1.64" y="33" z="33" />
+   <axis x="-36" y="0" z="0" />
+  </joint>
+  <joint name="RightFootLean" body1="FootRight" body2="AnkleRight">
+   <center x="1.64" y="-33" z="33" />
+   <axis x="-36" y="0" z="0" />
+  </joint>
+  <joint name="LeftLegTwist" body1="GroinLeft" body2="Torso">
+   <center x="1.77" y="33" z="209.425" />
+   <axis x="-0" y="0" z="-25.425" />
+  </joint>
+  <joint name="RightLegTwist" body1="GroinRight" body2="Torso">
+   <center x="1.77" y="-33" z="209.425" />
+   <axis x="-0" y="0" z="-25.425" />
+  </joint>
+  <joint name="LeftLegLean" body1="HipLeft" body2="GroinLeft">
+   <center x="1.77" y="33" z="184" />
+   <axis x="36" y="0" z="0" />
+  </joint>
+  <joint name="RightLegLean" body1="HipRight" body2="GroinRight">
+   <center x="1.77" y="-33" z="184" />
+   <axis x="36" y="0" z="0" />
+  </joint>
+  <joint name="LeftElbow" body1="LowerArmLeft" body2="UpperArmLeft">
+   <center x="32.77" y="144" z="296.175" />
+   <axis x="0" y="0" z="-21" />
+  </joint>
+  <joint name="RightElbow" body1="LowerArmRight" body2="UpperArmRight">
+   <center x="32.77" y="-144" z="296.175" />
+   <axis x="0" y="0" z="-21" />
+  </joint>
+  <joint name="LeftKnee" body1="LowerLegLeft" body2="UpperLegLeft">
+   <center x="3.89" y="33" z="108.5" />
+   <axis x="0" y="21" z="0" />
+  </joint>
+  <joint name="RightKnee" body1="LowerLegRight" body2="UpperLegRight">
+   <center x="3.89" y="-33" z="108.5" />
+   <axis x="0" y="-21" z="0" />
+  </joint>
+  <joint name="LeftShoulderSwing" body1="ShoulderLeft" body2="Torso">
+   <center x="17.77" y="53" z="296.175" />
+   <axis x="-0" y="23" z="-0" />
+  </joint>
+  <joint name="RightShoulderSwing" body1="ShoulderRight" body2="Torso">
+   <center x="17.77" y="-53" z="296.175" />
+   <axis x="-0" y="-23" z="-0" />
+  </joint>
+  <joint name="LeftShoulderLift" body1="UpperArmLeft" body2="ShoulderLeft">
+   <center x="32.77" y="76" z="296.175" />
+   <axis x="0" y="0" z="-21" />
+  </joint>
+  <joint name="RightShoulderLift" body1="UpperArmRight" body2="ShoulderRight">
+   <center x="32.77" y="-76" z="296.175" />
+   <axis x="0" y="0" z="-21" />
+  </joint>
+  <joint name="LeftLegSwing" body1="UpperLegLeft" body2="HipLeft">
+   <center x="18.77" y="33" z="184" />
+   <axis x="-0" y="-21" z="0" />
+  </joint>
+  <joint name="RightLegSwing" body1="UpperLegRight" body2="HipRight">
+   <center x="18.77" y="-33" z="184" />
+   <axis x="-0" y="21" z="0" />
+  </joint>
+ </physics>
+ <electronics>
+  <servo id="1" name="RightShoulderSwingServo" type="ax12">
+   <attached joint="RightShoulderSwing" />
+  </servo>
+  <servo id="2" name="LeftShoulderSwingServo" type="ax12">
+   <attached joint="LeftShoulderSwing" />
+  </servo>
+  <servo id="3" name="RightShoulderLiftServo" type="ax12">
+   <attached joint="RightShoulderLift" />
+  </servo>
+  <servo id="4" name="LeftShoulderLiftServo" type="ax12">
+   <attached joint="LeftShoulderLift" />
+  </servo>
+  <servo id="5" name="RightElbowServo" type="ax12">
+   <attached joint="RightElbow" />
+  </servo>
+  <servo id="6" name="LeftElbowServo" type="ax12">
+   <attached joint="LeftElbow" />
+  </servo>
+  <servo id="7" name="RightLegTwistServo" type="ax12">
+   <attached joint="RightLegTwist" />
+  </servo>
+  <servo id="8" name="LeftLegTwistServo" type="ax12">
+   <attached joint="LeftLegTwist" />
+  </servo>
+  <servo id="9" name="RightLegLeanServo" type="ax12">
+   <attached joint="RightLegLean" />
+  </servo>
+  <servo id="10" name="LeftLegLeanServo" type="ax12">
+   <attached joint="LeftLegLean" />
+  </servo>
+  <servo id="11" name="RightLegSwingServo" type="ax12">
+   <attached joint="RightLegSwing" initial_degrees=12 />
+  </servo>
+  <servo id="12" name="LeftLegSwingServo" type="ax12">
+   <attached joint="LeftLegSwing" initial_degrees=-12 />
+  </servo>
+  <servo id="13" name="RightKneeServo" type="ax12">
+   <attached joint="RightKnee" initial_degrees=20 />
+  </servo>
+  <servo id="14" name="LeftKneeServo" type="ax12">
+   <attached joint="LeftKnee" initial_degrees=-20 />
+  </servo>
+  <servo id="15" name="RightAnkleServo" type="ax12">
+   <attached joint="RightAnkle" initial_degrees=-10 />
+  </servo>
+  <servo id="16" name="LeftAnkleServo" type="ax12">
+   <attached joint="LeftAnkle" initial_degrees=10 />
+  </servo>
+  <servo id="17" name="RightFootLeanServo" type="ax12">
+   <attached joint="RightFootLean" />
+  </servo>
+  <servo id="18" name="LeftFootLeanServo" type="ax12">
+   <attached joint="LeftFootLean" />
+  </servo>
+  <sensor id="100" name="TorsoIMU" type="imu" version="ideal">
+   <attached body="Torso" />
+  </sensor>
+ </electronics>
+ <geometry>
+  <Box body="FootLeft" name="FootLeftFootPlate" x="8.32000000000001" y="41.04" z="4" depth="100" width="60" height="8">
+   <Frame base="FootLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.6667" g="0.6667" b="0.6667" />
+  </Box>
+  <Box body="FootRight" name="FootRightFootPlate" x="8.32000000000001" y="-41.04" z="4" depth="100" width="-60" height="8">
+   <Frame base="FootRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.6667" g="0.6667" b="0.6667" />
+  </Box>
+  <Box body="AnkleLeft" name="AnkleLeftFootBox" x="-13.36" y="33" z="45" depth="40" width="32" height="48">
+   <Frame base="AnkleLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="AnkleLeft" name="AnkleLeftAnkleBox" x="18.64" y="33" z="45" depth="32" width="38" height="48">
+   <Frame base="AnkleLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="AnkleRight" name="AnkleRightFootBox" x="-13.36" y="-33" z="45" depth="40" width="-32" height="48">
+   <Frame base="AnkleRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="AnkleRight" name="AnkleRightAnkleBox" x="18.64" y="-33" z="45" depth="32" width="-38" height="48">
+   <Frame base="AnkleRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="LowerLegLeft" name="LowerLegLeftKnee" x="15.89" y="33" z="108.5" depth="48" width="-40" height="32">
+   <Frame base="LowerLegLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="LowerLegRight" name="LowerLegRightKnee" x="15.89" y="-33" z="108.5" depth="48" width="40" height="32">
+   <Frame base="LowerLegRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="HipLeft" name="HipLeftSwingBox" x="18.77" y="33" z="172" depth="-32" width="-38" height="48">
+   <Frame base="HipLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="HipLeft" name="HipLeftLeanBox" x="-13.23" y="33" z="172" depth="-38" width="-32" height="48">
+   <Frame base="HipLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="HipRight" name="HipRightSwingBox" x="18.77" y="-33" z="172" depth="-32" width="38" height="48">
+   <Frame base="HipRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="HipRight" name="HipRightLeanBox" x="-13.23" y="-33" z="172" depth="-38" width="32" height="48">
+   <Frame base="HipRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="Torso" name="TorsoLeftLegTwistServo" x="13.77" y="33" z="231.8" depth="-48" width="-24" height="44.75">
+   <Frame base="Torso" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="Torso" name="TorsoRightLegTwistServo" x="13.77" y="-33" z="231.8" depth="-48" width="-24" height="44.75">
+   <Frame base="Torso" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="Torso" name="TorsoChest" x="-5.855" y="0" z="283.175" depth="-87.25" width="-106" height="58">
+   <Frame base="Torso" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.6667" g="0.6667" b="0.6667" />
+  </Box>
+  <Box body="Torso" name="TorsoHead" x="6.27" y="0" z="331.175" depth="-47" width="-30" height="38">
+   <Frame base="Torso" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="UpperArmLeft" name="UpperArmLeftServo" x="32.77" y="88" z="296.175" depth="24" width="48" height="40">
+   <Frame base="UpperArmLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="UpperArmRight" name="UpperArmRightServo" x="32.77" y="-88" z="296.175" depth="24" width="-48" height="40">
+   <Frame base="UpperArmRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="LowerArmLeft" name="LowerArmLeftServo" x="32.77" y="156" z="296.175" depth="24" width="48" height="40">
+   <Frame base="LowerArmLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="LowerArmLeft" name="LowerArmLeftHand" x="30.77" y="214.165" z="297.175" depth="4" width="58.33" height="28">
+   <Frame base="LowerArmLeft" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.6667" g="0.6667" b="0.6667" />
+  </Box>
+  <Box body="LowerArmRight" name="LowerArmRightServo" x="32.77" y="-156" z="296.175" depth="24" width="-48" height="40">
+   <Frame base="LowerArmRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.2000" g="0.2000" b="0.2000" />
+  </Box>
+  <Box body="LowerArmRight" name="LowerArmRightHand" x="30.77" y="-214.165" z="297.175" depth="4" width="-58.33" height="28">
+   <Frame base="LowerArmRight" a="0" b="0" g="0" x="0" y="0" z="0" />
+   <Color r="0.6667" g="0.6667" b="0.6667" />
+  </Box>
+ </geometry>
+</Robot>

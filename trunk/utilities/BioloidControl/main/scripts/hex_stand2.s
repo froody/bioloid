@@ -1,0 +1,10 @@
+t = 5000;
+t2 = 2000;
+sleep(t2);
+script("hstand.s");
+sleep(t);
+script("hstand.s");
+sleep(t);
+script("hstand.s");
+sleep(t);
+script("hstand.s");
