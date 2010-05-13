@@ -1,0 +1,306 @@
+dnl Initial configure.in by Martin Andrews
+
+dnl AC_INIT does not take a macro as a version nr: set it separately! - Martin
+dnl BCP = bioloidcontrolphysics
+AC_INIT(BCP,0.0.1,Martin.Andrews@PLATFORMedia.com)
+
+dnl When upgrading version nr, also change the AC_INIT line! - Martin
+BCP_CURRENT=0
+BCP_REVISION=0
+BCP_AGE=1
+BCP_RELEASE=[$BCP_CURRENT].[$BCP_REVISION].[$BCP_AGE]
+AC_CANONICAL_HOST
+AC_CANONICAL_TARGET
+
+AM_INIT_AUTOMAKE(BCP,[$BCP_RELEASE])
+AM_CONFIG_HEADER(config.h)
+
+dnl Set CFLAGS to zero, so that we avoid getting the gratis -g -O2
+CFLAGS=
+CXXFLAGS=
+AC_C_BIGENDIAN
+AC_PATH_X
+AC_PATH_XTRA
+
+# ODE_SONAME=libode.so.[$ODE_CURRENT]
+
+AC_SUBST(BCP_CURRENT)
+AC_SUBST(BCP_REVISION)
+AC_SUBST(BCP_AGE)
+AC_SUBST(BCP_RELEASE)
+AC_SUBST(BCP_SONAME)
+
+dnl This is needed because we have subdirectories
+AC_PROG_MAKE_SET
+
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_CHECK_TOOLS([WINDRES], [windres])
+AC_C_CONST 
+AC_C_INLINE
+AC_C_VOLATILE
+AC_HEADER_STDBOOL
+AC_PROG_RANLIB
+AC_TYPE_SIZE_T
+
+dnl AC_LIBTOOL_WIN32_DLL
+dnl AC_PROG_LIBTOOL
+
+
+dnl Check if using sonames is requested
+dnl THIS IS TEMPORARY!
+AC_MSG_CHECKING(if a soname should be set)
+AC_ARG_ENABLE(soname,AC_HELP_STRING([--enable-soname],
+[Configure BCP shared library to set the soname field on ELF files]),
+use_soname=$enableval,use_soname=no)
+AC_MSG_RESULT($use_soname)
+AM_CONDITIONAL(USE_SONAME, test x$use_soname = xyes)
+
+
+dnl Check if we want to build demos
+AC_MSG_CHECKING(if tests should be built)
+AC_ARG_ENABLE(demos,AC_HELP_STRING([--enable-demos], [build tests]), enable_demos=$enableval,enable_demos=yes)
+AC_MSG_RESULT($enable_demos)
+AM_CONDITIONAL(ENABLE_DEMOS, test x$enable_demos = xyes)
+
+
+AC_ARG_WITH(arch,AC_HELP_STRING([--with-arch=[arch]],
+[build for $arch, where arch is any of the -march flags passed to gcc, without the -march, for example --with-arch=pentium3]),
+arch=$withval,arch=no)
+ARCHFLAGS=""
+if test "x$arch" != xno
+then
+    ARCHFLAGS="-march=$arch"
+fi
+AC_SUBST(ARCHFLAGS)
+
+dnl check for required headers
+AC_CHECK_HEADERS( alloca.h ieeefp.h stdio.h stdlib.h math.h string.h stdarg.h malloc.h values.h float.h time.h sys/time.h ode/ode.h)
+
+dnl Check variable type sizes
+AC_CHECK_SIZEOF(char)
+AC_CHECK_SIZEOF(int)
+AC_CHECK_SIZEOF(short)
+AC_CHECK_SIZEOF(long int)
+AC_CHECK_SIZEOF(void*)
+
+dnl Set some Platform Specific Variables
+case "$host_os" in
+  cygwin* | mingw*)
+    so_ext=".dll"
+    DLLDEFINE="-DODE_DLL"
+    SHARED_LDFLAGS="-shared"
+    drawstuff="Win32" # if in a Windows enviroment
+    ;;
+  *apple* | *darwin*) # For Mac OS X
+    so_ext=".dylib"
+    DLLDEFINE=""
+    SHARED_LDFLAGS="-dynamiclib"
+    drawstuff="OSX"
+    dnl We need to use C++ compilation and linking for ode on Mac
+    dnl Might as well do it for all code.
+    CC="$CXX"
+    LINK="$CXXLINK"
+    ;;
+  *)
+   drawstuff="X11" # if anything else default to X11
+    if test x$use_soname = xyes; then
+      so_ext=".so.$ODE_RELEASE"
+    else
+      so_ext=".so"
+    fi
+    DLLDEFINE=""
+    SHARED_LDFLAGS="-shared"
+    ;;
+esac
+
+dnl Set Conditionals
+dnl AC_PROG_LIBTOOL
+
+AM_CONDITIONAL(WIN32, test x$drawstuff = xWin32)
+AM_CONDITIONAL(X11, test x$drawstuff = xX11)
+AM_CONDITIONAL(OSX, test x$drawstuff = xOSX)
+
+AC_SUBST(EXTRA_LIBTOOL_LDFLAGS)
+AM_CONDITIONAL(ENABLE_DRAWSTUFF, test x$drawstuff != xnone)
+
+dnl Set Drawstuff variables
+AC_MSG_CHECKING(which drawstuff lib to build)
+AC_MSG_RESULT($drawstuff)
+AC_SUBST(DRAWSTUFF)
+
+dnl Set shared library variables
+AC_MSG_CHECKING(for the suffix of shared libraries)
+AC_MSG_RESULT($so_ext)
+AC_DEFINE_UNQUOTED(SO_EXT,"$so_ext",[The extension for shared libraries.])
+AC_SUBST(so_ext)
+AC_SUBST(SHARED_LDFLAGS)
+
+dnl Check for AC_PATH_X variables
+if test "X$x_includes" != "XNONE"; then
+	CFLAGS="$CFLAGS -I$x_includes"
+	CXXFLAGS="$CXXFLAGS -I$x_includes"
+fi
+if test "X$x_libraries" != "XNONE"; then
+	CFLAGS="$CFLAGS -L$x_libraries"
+	CXXFLAGS="$CXXFLAGS -L$x_libraries"
+fi
+
+dnl Check for OpenGL
+if test "x$drawstuff" = "xOSX"; then
+  AC_DEFINE([HAVE_APPLE_OPENGL_FRAMEWORK], [1],
+            [Use the Apple OpenGL framework.])
+  GL_LIBS="-framework OpenGL -framework Carbon -framework AGL"
+else
+  AC_CHECK_HEADERS(GL/gl.h GL/glu.h GL/glext.h,,,
+       [[#if HAVE_GL_GL_H
+         #include <GL/gl.h>
+         #endif
+  	   #if HAVE_GL_GLU_H
+         #include <GL/glu.h>
+         #endif
+       ]])
+  AC_CHECK_LIB(GL, main,[GL_LIBS="$GL_LIBS -lGL"])
+  TEMP_LDFLAGS="$LDFLAGS"
+  LDFLAGS="$LDFLAGS $GL_LIBS"
+  AC_CHECK_LIB(GLU, main,[GL_LIBS="$GL_LIBS -lGLU"])
+  LDFLAGS="$TEMP_LDFLAGS"
+  AC_CHECK_LIB(opengl32, main,[GL_LIBS="$GL_LIBS -lopengl32"])
+  AC_CHECK_LIB(glu32, main,[GL_LIBS="$GL_LIBS -lglu32"])
+  AC_CHECK_LIB(Xmu, main,[GL_LIBS="$GL_LIBS -lXmu"])
+  AC_CHECK_LIB(Xi, main,[GL_LIBS="$GL_LIBS -lXi"])
+  AC_CHECK_LIB(X, main,[GL_LIBS="$GL_LIBS -lX"])
+  AC_CHECK_LIB(X11, main,[GL_LIBS="$GL_LIBS -lX11"])
+fi
+AC_SUBST(GL_LIBS)
+
+dnl Add some Windows libraries if found
+AC_CHECK_LIB(comctl32,main,[LIBS="$LIBS -lcomctl32"])
+AC_CHECK_LIB(kernel32,main,[LIBS="$LIBS -lkernel32"])
+AC_CHECK_LIB(user32,main,[LIBS="$LIBS -luser32"])
+AC_CHECK_LIB(gdi32,main,[LIBS="$LIBS -lgdi32"])
+AC_CHECK_LIB(winmm,main,[LIBS="$LIBS -lwinmm"])
+
+dnl Add math and standard c++ lib just in case
+AC_CHECK_LIB(stdc++,main,[LIBS="$LIBS -lstdc++"])
+AC_CHECK_LIB(m,main,[LIBS="$LIBS -lm"])
+AC_CHECK_LIB(pthread,main,[LIBS="$LIBS -lpthread"])
+
+
+TOPDIR=`cd $srcdir;pwd`
+AC_SUBST(TOPDIR)
+
+dnl Check for autoscan sugested functions
+AC_CHECK_FUNCS([floor memmove memset select sqrt sqrtf sinf cosf fabsf atan2f fmodf copysignf copysign snprintf vsnprintf gettimeofday isnan isnanf _isnan _isnanf __isnan __isnanf])
+if test "$build_os" == "$target_os"
+then
+AC_FUNC_ALLOCA 
+AC_FUNC_MALLOC
+AC_FUNC_OBSTACK 
+AC_FUNC_REALLOC
+AC_FUNC_SELECT_ARGTYPES
+AC_FUNC_VPRINTF
+fi
+
+dnl include found system headers into config.h
+AH_TOP([
+#ifndef BCP_CONFIG_H
+#define BCP_CONFIG_H
+])
+AH_BOTTOM([
+
+#ifdef HAVE_ALLOCA_H
+#include <alloca.h>
+#endif
+#if defined(HAVE_IEEEFP_H) && !defined(__CYGWIN__)
+// This header creates conflicts with math.h in Cygwin.
+#include <ieeefp.h>
+#endif
+#ifdef HAVE_STDIO_H
+#include <stdio.h>
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+#ifdef HAVE_MATH_H
+#include <math.h>
+#endif
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+#ifdef HAVE_STDARG_H
+#include <stdarg.h>
+#endif
+#ifdef HAVE_MALLOC_H
+#include <malloc.h>
+#endif
+#ifdef HAVE_VALUES_H
+#include <values.h>
+#endif
+#ifdef HAVE_FLOAT_H
+#include <float.h>
+#endif
+#if SIZEOF_CHAR == 1
+typedef char int8;
+typedef unsigned char uint8;
+#else
+#error "expecting sizeof(char) == 1"
+#endif
+#if SIZEOF_SHORT == 2
+typedef short int16;
+typedef unsigned short uint16;
+#else
+#error "can not find 2 byte integer type"
+#endif
+/* integer types (we assume int >= 32 bits) */
+#if SIZEOF_INT == 4
+typedef short int32;
+typedef unsigned short uint32;
+#else
+#error "can not find 4 byte integer type"
+#endif
+/* an integer type that we can safely cast a pointer to and
+ * from without loss of bits.
+ */
+#if SIZEOF_SHORT == SIZEOF_VOIDP
+typedef unsigned short intP;
+#elif SIZEOF_INT == SIZEOF_VOIDP
+typedef unsigned int intP;
+#elif SIZEOF_LONG_INT == SIZEOF_VOIDP
+typedef unsigned long int intP;
+#endif
+
+#endif /* #define BCP_CONFIG_H */
+])
+
+
+dnl Finally write our Makefiles
+AC_OUTPUT([
+ Makefile
+ drawstuff/Makefile
+ drawstuff/src/Makefile
+ drawstuff/dstest/Makefile
+ ])
+# include/Makefile
+# include/ode/Makefile
+# ode/Makefile
+# ode/src/Makefile
+# ode/demo/Makefile
+# tests/Makefile
+# tests/CppTestHarness/Makefile
+# ode-config
+
+#chmod +x ode-config
+
+dnl Print some useful information
+echo "Configuration:"
+echo "  Target system type:      $target"
+echo "  Build  system type:      $build"
+echo "  Host   system type:      $host"
+echo "  Use double precision:    $precision"
+
+#if test $gimpact = yes -a $precision = yes
+#then
+#  echo "WARNING! Double precision not yet supported for GIMPACT"
+#fi
+

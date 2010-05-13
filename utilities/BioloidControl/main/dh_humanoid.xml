@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+<Robot>
+	<Name>HUMANOID_INVERSE_HIP</Name>
+        <UseLoadFunction>false</UseLoadFunction>
+	<KinematicChains len="4">
+		<chain name= "legl" base="" len="7">
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="32.5" id="0" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="-90" 	transx="0" id="8" sgn="1" />
+			<dh rotz="90" 		transz="0" rotx="90" 	transx="0" id="10" sgn="1" />
+			<dh rotz="10.15" 	transz="0" rotx="180" 	transx="80" id="12" sgn="1" />
+			<dh rotz="20.3" 	transz="0" rotx="0" 	transx="80" id="14" sgn="1" />
+			<dh rotz="-10.15" 	transz="0" rotx="-90" 	transx="0" id="16" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="27.5" id="18" sgn="1" />
+		</chain>
+		<chain name="legr" base="" len="7">
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="-32.5" id="0" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="-90" 	transx="0" id="7" sgn="1" />
+			<dh rotz="90" 		transz="0" rotx="-90" 	transx="0" id="9" sgn="1" />
+			<dh rotz="-10.15" 	transz="0" rotx="180" 	transx="80" id="11" sgn="1" />
+			<dh rotz="-20.3" 	transz="0" rotx="0" 	transx="80" id="13" sgn="1" />
+			<dh rotz="10.15" 	transz="0" rotx="90" 	transx="0" id="15" sgn="1" />
+			<dh rotz="0" 		transz="0" rotx="0" 	transx="27.5" id="17" sgn="1" />
+		</chain>
+		<chain name="arml" base="" len="4">
+			<dh rotz="-90" 	transz="117" rotx="90"  transx="0" id="0" sgn="1" />
+			<dh rotz="0" 	transz="-73" rotx="-90" transx="15" id="2" sgn="1" />
+			<dh rotz="90" 	transz="0" 	 rotx="0"   transx="67.5" id="4" sgn="1" />
+			<dh rotz="0" 	transz="0"   rotx="0"   transx="98" id="6" sgn="1" />
+		</chain>
+		<chain name="armr" base="" len="4">
+			<dh rotz="-90" 	transz="117" rotx="-90" transx="0" id="0" sgn="1" />
+			<dh rotz="0" 	transz="-73" rotx="90" 	transx="15" id="1" sgn="1" />
+			<dh rotz="-90" 	transz="0"   rotx="0" 	transx="67.5" id="3" sgn="1" />
+			<dh rotz="0" 	transz="0"   rotx="0" 	transx="98" id="5" sgn="1" /> 
+		</chain>
+	</KinematicChains>
+	<Frames>
+		<Frame name="base" base="0" a="0" b="0" g="0" x="0" y="0" z="0" />
+	</Frames>
+	<Geometry>
+                <Box name="Brust" width="100.8" depth="50.4" height="42" x="-32.5" y="13" z="52.5" mass="0">
+                        <Frame base="legl:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Huefte links" width="28.35" depth="42" height="-84" x="0" y="-9" z="16" mass="0">
+                        <Frame base="legl:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Huefte links" width="-51.45" depth="-73.5" height="38.85" x="15" y="16" z="0" mass="0">
+                        <Frame base="legl:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Linker Oberschenkel" width="95.55" depth="30.45" height="52.5" x="-40" y="-13" z="0" mass="0">
+                        <Frame base="legl:3" a="0" b="0" g="0" x="0" y="13" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Linkes Knie" width="-33.075" depth="-53.55" height="-48.3" x="-80" y="1.5" z="0" mass="0">
+                        <Frame base="legl:4" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Linker Unterschenkel" width="95.55" depth="30.45" height="52.5" x="-40" y="0" z="0" mass="0">
+                        <Frame base="legl:4" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Linker Knoechel" width="51.45" depth="38.85" height="73.5" x="-15" y="0" z="-16" mass="0">
+                        <Frame base="legl:5" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Linker Fuss" width="42" depth="28.35" height="84" x="-20" y="0" z="-16" mass="0">
+                        <Frame base="legl:6" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Linke Fussplatte" width="8.4" depth="61.95" height="105" x="0" y="6.5" z="-5" mass="0">
+                        <Frame base="legl:6" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.67" g="0.67" b="0.67" />
+                </Box>
+                <Box name="Oberkoerper" width="-107.1" depth="93.45" height="67.2" x="32.5" y="19.5" z="104.5" mass="0">
+                        <Frame base="legr:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.67" g="0.67" b="0.67" />
+                </Box>
+                <Box name="Huefte rechts" width="-28.35" depth="42" height="-84" x="0" y="-9" z="16" mass="0">
+                        <Frame base="legr:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Huefte rechts" width="-51.45" depth="73.5" height="38.85" x="15" y="-16" z="0" mass="0">
+                        <Frame base="legr:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Rechter Oberschenkel" width="95.55" depth="-30.45" height="52.5" x="-40" y="13" z="0" mass="0">
+                        <Frame base="legr:3" a="0" b="0" g="0" x="0" y="-13" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Rechtes Knie" width="-33.075" depth="53.55" height="-48.3" x="-80" y="1.5" z="0" mass="0">
+                        <Frame base="legr:4" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Rechter Unterschenkel" width="95.55" depth="-30.45" height="52.5" x="-40" y="0" z="0" mass="0">
+                        <Frame base="legr:4" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Rechter Knoechel" width="51.45" depth="-38.85" height="73.5" x="-15" y="0" z="-16" mass="0">
+                        <Frame base="legr:5" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Rechter Fuss" width="42" depth="-28.35" height="84" x="-20" y="0" z="-16" mass="0">
+                        <Frame base="legr:6" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Rechte Fussplatte" width="8.4" depth="-61.95" height="105" x="0" y="-6.5" z="-5" mass="0">
+                        <Frame base="legr:6" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.67" g="0.67" b="0.67" />
+                </Box>
+                <Box name="Linke Schulter" width="29.4" depth="27.3" height="45.15" x="-11" y="-7" z="0" mass="0">
+                        <Frame base="arml:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Linker Oberarm" width="40.95" depth="35.7" height="45.15" x="-9.5" y="0" z="0" mass="0">
+                        <Frame base="arml:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Linker Unterarm" width="59.85" depth="33.6" height="-39.9" x="-81.5" y="0" z="0" mass="0">
+                        <Frame base="arml:3" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Rechte Schulter" width="29.4" depth="27.3" height="45.15" x="-11" y="7" z="0" mass="0">
+                        <Frame base="armr:1" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Rechter Oberarm" width="40.95" depth="-35.7" height="45.15" x="-9.5" y="0" z="0" mass="0">
+                        <Frame base="armr:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.8" g="0.8" b="0.8" />
+                </Box>
+                <Box name="Rechter Unterarm" width="59.85" depth="-33.6" height="-39.9" x="-81.5" y="0" z="0" mass="0">
+                        <Frame base="armr:3" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Kopf" width="32.55" depth="-50.4" height="42" x="0" y="10" z="156.6" mass="0">
+                        <Frame base="" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+                </Box>
+                <Box name="Linke Hand" width="60.9" depth="18.9" height="-33.6" x="-26.5" y="4" z="0" mass="0">
+                        <Frame base="arml:3" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.67" g="0.67" b="0.67" />
+                </Box>
+                <Box name="Rechte Hand" width="60.9" depth="-18.9" height="-33.6" x="-26.5" y="-4" z="0" mass="0">
+                        <Frame base="armr:3" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.67" g="0.67" b="0.67" />
+                </Box>
+                <Box name="Linker Oberarm 2" width="50" depth="31" height="38" x="-54" y="0" z="0" mass="0">
+        			<Frame base="arml:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+		    </Box>
+		    <Box name="Rechter Oberarm 2" width="50" depth="31" height="38" x="-54" y="0" z="0" mass="0">
+        			<Frame base="armr:2" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="0.07" g="0.07" b="0.07" />
+		    </Box>
+	</Geometry>
+	<Collisions>
+		<Collision first="Linke Hand" second="Brust,Huefte links,Huefte rechts,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte,Oberkoerper,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte,Rechte Schulter,Rechter Oberarm,Rechter Unterarm,Kopf,Rechte Hand,Rechter Oberarm 2" />
+		<Collision first="Rechte Hand" second="Brust,Huefte links,Huefte rechts,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte,Oberkoerper,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte,Linke Schulter,Linker Oberarm,Linker Unterarm,Kopf,Linke Hand,Linker Oberarm 2" />
+		<Collision first="Linker Oberarm" second="Brust,Huefte links,Huefte rechts,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte,Rechte Schulter,Rechter Oberarm,Rechter Unterarm,Kopf,Rechte Hand,Rechter Oberarm 2" />
+		<Collision first="Rechter Oberarm" second="Brust,Huefte links,Huefte rechts,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte,Linke Schulter,Linker Oberarm,Linker Unterarm,Kopf,Linke Hand,Linker Oberarm 2" />		
+		<Collision first="Linker Oberarm 2" second="Brust,Huefte links,Huefte rechts,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte,Rechte Schulter,Rechter Oberarm,Rechter Unterarm,Kopf,Rechte Hand,Rechter Oberarm 2" />
+		<Collision first="Rechter Oberarm 2" second="Brust,Huefte links,Huefte rechts,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte,Linke Schulter,Linker Oberarm,Linker Unterarm,Kopf,Linke Hand,Linker Oberarm 2" />
+
+		<Collision first="Linker Fuss" second="Huefte links,Huefte rechts,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte" />
+		<Collision first="Linke Fussplatte" second="Huefte links,Huefte rechts,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte" />
+		<Collision first="Linker Knoechel" second="Huefte links,Huefte rechts,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte" />
+		<Collision first="Linker Unterschenkel" second="Huefte links,Huefte rechts,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte" />
+		<Collision first="Linkes Knie" second="Huefte rechts,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte" />
+		<Collision first="Linker Oberschenkel" second="Huefte rechts,Huefte,Huefte,Rechter Oberschenkel,Rechtes Knie,Rechter Unterschenkel,Rechter Knoechel,Rechter Fuss,Rechte Fussplatte" />
+
+		<Collision first="Rechter Fuss" second="Huefte links,Huefte rechts,Huefte,Huefte,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte" />
+		<Collision first="Rechte Fussplatte" second="Huefte links,Huefte rechts,Huefte,Huefte,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte" />
+		<Collision first="Rechter Knoechel" second="Huefte links,Huefte rechts,Huefte,Huefte,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte" />
+		<Collision first="Rechter Unterschenkel" second="Huefte links,Huefte rechts,Huefte,Huefte,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte" />
+		<Collision first="Rechtes Knie" second="Huefte links,Huefte,Huefte,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte" />
+		<Collision first="Rechter Oberschenkel" second="Huefte links,Huefte,Huefte,Linker Oberschenkel,Linkes Knie,Linker Unterschenkel,Linker Knoechel,Linker Fuss,Linke Fussplatte" />
+</Collisions>
+</Robot>
+
+
+
+

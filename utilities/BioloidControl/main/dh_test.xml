@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<Robot>
+	<Name>TEST</Name>
+      <UseLoadFunction>false</UseLoadFunction>
+	<KinematicChains len="18">
+		<chain name= "servo1" base="b1" len="1">
+			<dh rotz="0" transz="100" rotx="0" transx="0" id="1" sgn="1" />
+		</chain>
+		<chain name= "servo2" base="b1" len="1">
+			<dh rotz="0" transz="200" rotx="0" transx="0" id="2" sgn="1" />
+		</chain>
+		<chain name= "servo3" base="b1" len="1">
+			<dh rotz="0" transz="300" rotx="0" transx="0" id="3" sgn="1" />
+		</chain>
+		<chain name= "servo4" base="b1" len="1">
+			<dh rotz="0" transz="400" rotx="0" transx="0" id="4" sgn="1" />
+		</chain>
+		<chain name= "servo5" base="b2" len="1">
+			<dh rotz="0" transz="100" rotx="0" transx="0" id="5" sgn="1" />
+		</chain>
+		<chain name= "servo6" base="b2" len="1">
+			<dh rotz="0" transz="200" rotx="0" transx="0" id="6" sgn="1" />
+		</chain>
+		<chain name= "servo7" base="b2" len="1">
+			<dh rotz="0" transz="300" rotx="0" transx="0" id="7" sgn="1" />
+		</chain>
+		<chain name= "servo8" base="b2" len="1">
+			<dh rotz="0" transz="400" rotx="0" transx="0" id="8" sgn="1" />
+		</chain>
+		<chain name= "servo9" base="b3" len="1">
+			<dh rotz="0" transz="100" rotx="0" transx="0" id="9" sgn="1" />
+		</chain>
+		<chain name= "servo10" base="b3" len="1">
+			<dh rotz="0" transz="200" rotx="0" transx="0" id="10" sgn="1" />
+		</chain>
+		<chain name= "servo11" base="b3" len="1">
+			<dh rotz="0" transz="300" rotx="0" transx="0" id="11" sgn="1" />
+		</chain>
+		<chain name= "servo12" base="b3" len="1">
+			<dh rotz="0" transz="400" rotx="0" transx="0" id="12" sgn="1" />
+		</chain>
+		<chain name= "servo13" base="b4" len="1">
+			<dh rotz="0" transz="100" rotx="0" transx="0" id="13" sgn="1" />
+		</chain>
+		<chain name= "servo14" base="b4" len="1">
+			<dh rotz="0" transz="200" rotx="0" transx="0" id="14" sgn="1" />
+		</chain>
+		<chain name= "servo15" base="b4" len="1">
+			<dh rotz="0" transz="300" rotx="0" transx="0" id="15" sgn="1" />
+		</chain>
+		<chain name= "servo16" base="b4" len="1">
+			<dh rotz="0" transz="400" rotx="0" transx="0" id="16" sgn="1" />
+		</chain>
+		<chain name= "servo17" base="b5" len="1">
+			<dh rotz="0" transz="100" rotx="0" transx="0" id="17" sgn="1" />
+		</chain>
+		<chain name= "servo18" base="b5" len="1">
+			<dh rotz="0" transz="200" rotx="0" transx="0" id="18" sgn="1" />
+		</chain>
+	</KinematicChains>
+	<Frames>
+		<Frame name="base" base="" a="0" b="0" g="0" x="0" y="0" z="0" />
+		<Frame name="b1" base="" a="0" b="0" g="0" x="0" y="0" z="0" />
+		<Frame name="b2" base="" a="0" b="0" g="0" x="200" y="0" z="0" />
+		<Frame name="b3" base="" a="0" b="0" g="0" x="400" y="0" z="0" />
+		<Frame name="b4" base="" a="0" b="0" g="0" x="600" y="0" z="0" />
+		<Frame name="b5" base="" a="0" b="0" g="0" x="800" y="0" z="0" />
+	</Frames>
+	<Geometry>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo1:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo2:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo3:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo4:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo5:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo6:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo7:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo8:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo9:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo10:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo11:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo12:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo13:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo14:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo15:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo16:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo17:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+                <Box name="" width="100" depth="50" height="50" x="0" y="0" z="0" mass="0">
+                        <Frame base="servo18:0" a="0" b="0" g="0" x="0" y="0" z="0" />
+                        <Color r="1.0" g="0.0" b="0.0" />
+                </Box>
+	</Geometry>
+</Robot>
+
+
+
+
+

@@ -1,0 +1,79 @@
+<root>
+	<file>./README</file>
+	<group name='Physics' expanded='TRUE'>
+		<file>./physics.conf</file>
+		<file>./src/main.cpp</file>
+		<file>./include/main.h</file>
+		<group name='World' expanded='FALSE'>
+			<file>./src/world.cpp</file>
+			<file>./src/body.cpp</file>
+			<file>./src/joint.cpp</file>
+			<file>./src/geom.cpp</file>
+			<file>./include/world.h</file>
+			<file>./src/servo.cpp</file>
+			<file>./include/servo.h</file>
+			<file>./src/sensor.cpp</file>
+			<file>./include/sensor.h</file>
+		</group>
+		<group name='BioloidDevices' expanded='FALSE'>
+			<file>./src/bioloid.cpp</file>
+			<file>./src/bioloid_devices.cpp</file>
+			<file>./include/bioloid.h</file>
+			<file>./misc/Bioloid.pl</file>
+			<file>./../main/include/constants.h</file>
+		</group>
+		<group name='GUI' expanded='FALSE'>
+			<file>./src/scene.cpp</file>
+			<file>./include/scene.h</file>
+			<file>./src/util.cpp</file>
+			<file>./include/util.h</file>
+		</group>
+	</group>
+	<group name='XML' expanded='FALSE'>
+		<file>./../main/dh_humanoid.xml</file>
+		<file>./../main/src/tinystr.cpp</file>
+		<file>./../main/src/tinyxml.cpp</file>
+		<file>./../main/src/tinyxmlerror.cpp</file>
+		<file>./../main/src/tinyxmlparser.cpp</file>
+		<file>./../main/include/configuration.h</file>
+		<file>./../main/src/configuration.cpp</file>
+	</group>
+	<group name='View' expanded='FALSE'>
+		<file>./drawstuff/src/drawstuff.cpp</file>
+		<file>./drawstuff/dstest/dstest.cpp</file>
+	</group>
+	<group name='Misc' expanded='FALSE'>
+	</group>
+	<group name='XML-Generation' expanded='FALSE'>
+		<file>./xml-generation/PortugeseHumanoid.txt</file>
+		<file>./xml-generation/perl-to-xml.pl</file>
+		<file>./physics_humanoid.xml</file>
+	</group>
+	<group name='Main - Bioloid' expanded='FALSE'>
+		<file>./../main/config_physics.xml</file>
+		<file>./../main/config_humanoid.xml</file>
+		<file>./../main/include/cmd.h</file>
+		<file>./../main/include/platform.h</file>
+		<file>./../main/include/practicalsocket.h</file>
+		<file>./../main/src/platform.cpp</file>
+		<file>./../main/src/practicalsocket.cpp</file>
+		<file>./../main/include/motion.h</file>
+		<file>./../main/src/motion.cpp</file>
+		<group name='Simloid' expanded='FALSE'>
+			<file>./../../../Simloid-v1.50-mdda/src/build/Primitives.cpp</file>
+			<file>./../../../Simloid-v1.50-mdda/src/build/Bioloid.cpp</file>
+			<file>./../../../Simloid-v1.50-mdda/src/basic/Defines.h</file>
+			<file>./../../../Simloid-v1.50-mdda/src/Main.cpp</file>
+		</group>
+	</group>
+	<group name='CMake' expanded='FALSE'>
+		<file>./../build/README.txt</file>
+		<file>./../CMakeLists.txt</file>
+		<file>./CMakeLists.txt</file>
+	</group>
+	<group name='Docs' expanded='TRUE'>
+		<file>./doc/physics_about.php</file>
+		<file>./doc/physics_building.php</file>
+		<file>./doc/physics_running.php</file>
+	</group>
+</root>

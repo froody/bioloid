@@ -1,0 +1,61 @@
+Look at the documentation (in HTML) in the docs directory for :
+* about
+* building 
+* running
+
+The remainder of this file is stuff that didn't get documented yet....
+
+
+############ IGNORE :-) ############ 
+
+############ Notes ############ 
+
+## Recursively adding to SVN :
+svn add `find -iname '*.h'`
+## SVN directory add (non-recursive) :
+svn add -N directory/
+
+
+############ Scite user props ############ 
+find.files=*.p?|*.js|*.[ch]*
+if PLAT_GTK
+ find.command=grep -R  --include '$(find.files)' --exclude '*.svn*' -i --line-number '$(find.what)' .
+
+# grep -R  --include '*.[ch]*' --exclude '*.svn*' -i --line-number 'initSerial' .
+# find.command=find -iname '$(find.files)' | xargs grep  --exclude '/.svn/' -i --line-number '$(find.what)'
+
+
+#	find.command=grep --line-number "$(find.what)" $(find.files)
+
+tabsize=2
+indent.size=2
+use.tabs=0
+
+save.session=0
+
+font.base=$(font.monospace)
+font.small=$(font.monospace)
+font.comment=$(font.monospace)
+font.text=$(font.monospace)
+font.text.comment=$(font.monospace)
+font.embedded.base=$(font.monospace)
+font.embedded.comment=$(font.monospace)
+font.vbs=$(font.monospace)
+
+position.tile=1
+split.vertical=0
+
+buffers=20
+
+# Remap some keys - 
+# Ctrl-e = to end of line
+#NO Ctrl-a = to startof line
+
+# Ctrl-` = Next bookmark
+# Alt-`  = Toggle bookmark
+ 
+# See : http://scintilla.sourceforge.net/CommandValues.html
+user.shortcuts=\
+Ctrl+e|2314|\
+Ctrl+`|IDM_BOOKMARK_NEXT|\
+Alt+`|IDM_BOOKMARK_TOGGLE|

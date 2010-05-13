@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<Configuration>
+	<General>
+		<SaveOnExit>false</SaveOnExit>
+	</General>
+	<Hardware>
+		<WriteToRobot>true</WriteToRobot>
+		<Ax12>
+			<CWMargin id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1</CWMargin>
+			<CCWMargin id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1</CCWMargin>
+			<CWSlope id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</CWSlope>
+			<CCWSlope id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</CCWSlope>
+			<Punch id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</Punch>
+			<Status id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >4</Status>
+			<Speed id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >0</Speed>
+			<Torque id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1023</Torque>
+		</Ax12>
+		<AxS1>
+		</AxS1>
+		<ControlTorque>false</ControlTorque>
+		<ControlSpeed>false</ControlSpeed>
+		<Controller>
+			<Torque id="1 2 3 4 5 6 7 8" time="1" p="10" i="0.5" d="0" offset="150" />
+			<Torque id="11 12" time="1" p="0" i="0" d="0" offset="1023" />
+			<Torque id="9 10 13 14 15 16 17 18" time="1" p="10" i="0.8" d="0" offset="512" />
+		</Controller>
+	</Hardware>
+	<Software>
+	      <ComPort>COM4</ComPort>
+		<Debug>true</Debug>
+		<StopOnCollisionRead>true</StopOnCollisionRead>
+		<StopOnCollisionWrite>true</StopOnCollisionWrite>
+		<AddMotionsWithCollision>false</AddMotionsWithCollision>
+		<RobotConfigFile>dh_humanoid.xml</RobotConfigFile>
+		<RobotIsPresent>true</RobotIsPresent>
+		<WriteToRobot>true</WriteToRobot>
+		<ReadFromRobot>true</ReadFromRobot>
+		<OldMtnFiles>true</OldMtnFiles>
+	</Software>
+</Configuration>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<Configuration>
+	<General>
+		<SaveOnExit>false</SaveOnExit>
+	</General>
+	<Hardware>
+		<WriteToRobot>false</WriteToRobot>
+		<Ax12>
+			<CWMargin id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1</CWMargin>
+			<CCWMargin id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1</CCWMargin>
+			<CWSlope id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</CWSlope>
+			<CCWSlope id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</CCWSlope>
+			<Punch id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >32</Punch>
+			<Status id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >4</Status>
+			<Speed id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1023</Speed>
+			<Torque id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" >1023</Torque>
+		</Ax12>
+		<AxS1>
+		</AxS1>
+		<ControlTorque>true</ControlTorque>
+		<ControlSpeed>false</ControlSpeed>
+		<Controller>
+			<Torque id="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18" time="1" p="10" i="0.5" d="0" offset="100" />
+		</Controller>
+	</Hardware>
+	<Software>
+	      <ComPort>COM4</ComPort>
+		<Debug>false</Debug>
+		<RobotConfigFile>dh_test.xml</RobotConfigFile>
+		<RobotIsPresent>true</RobotIsPresent>
+		<WriteToRobot>false</WriteToRobot>
+		<ReadFromRobot>true</ReadFromRobot>
+		<OldMtnFiles>true</OldMtnFiles>
+	</Software>
+</Configuration>
+
