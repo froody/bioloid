@@ -26,6 +26,9 @@
 #include "DynamixelComm.h"
 #include "Motion.h"
 #include "Page.h"
+#include "constants.h"
+#include "types.h"
+#include "interpolation.h"
 
 @interface MyDocument : NSDocument
 {
@@ -42,6 +45,8 @@
 
     IBOutlet NSSlider * goalPositionSlider;
     IBOutlet NSSlider * movingSpeedSlider;
+	
+	IBOutlet NSSlider * ipoPauseSlider;
 
     IBOutlet NSControl * torqueAuto;
     IBOutlet NSControl * torqueEnable;
@@ -62,6 +67,11 @@
 	struct page *pages;
 	NSMutableArray *pagesArray;
 	BOOL stop;
+
+	struct RobotData robotData;
+	struct InterpolationData ipoData;
+	struct SCurveParameters sCurveParams;
+	NSLock *dcLock;
 }
 
 - (IBAction)connect:(id)sender;
@@ -70,6 +80,9 @@
 - (IBAction)setGoalPosition:(id)sender;
 - (IBAction)setSpeed:(id)sender;
 - (IBAction)toggleTorque:(id)sender;
+
+- (IBAction)setIpoPause:(id)sender;
+
 
 - (IBAction)torqueAllEnable:(id)sender;
 - (IBAction)torqueAllDisable:(id)sender;
