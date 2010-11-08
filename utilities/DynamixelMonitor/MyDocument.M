@@ -29,7 +29,8 @@
 #import "Page.h"
 #import "Pose.h"
 
-NSString *pageFieldNames[] = {
+#define NUM_FIELDS 11
+NSString *pageFieldNames[NUM_FIELDS] = {
 	@"playCode",
 	@"pageSpeed",
 	@"dxlSetup",
@@ -43,14 +44,18 @@ NSString *pageFieldNames[] = {
 	@"checkSum"
 };
 
+
 @implementation MyDocument
 
 #define BUF_SIZE 128*1024
 
 -(void)timerFire:(NSTimer*)theTimer
 {
-    if(dc && [idList selectedRow] != -1)
-        dc->ReadAllData([[idNumber objectAtIndex: [idList selectedRow]] intValue], servoData);
+    if(dc && [idList selectedRow] != -1) {
+		[dcLock lock];
+		dc->ReadAllData([[idNumber objectAtIndex: [idList selectedRow]] intValue], servoData);
+		[dcLock unlock];
+	}
     [self update: self];
 }
 
@@ -85,6 +90,12 @@ NSString *pageFieldNames[] = {
 			if(pages[i].header.numPoses)
 				[pagesArray insertObject:[[Page alloc] initWithPage:&pages[i] index:i] atIndex:i];
 		}
+
+		initRobotData(robotData);
+		initInterpolationData(ipoData);
+		robotData.writeTimeDiffAverage = ipoData.ipoTotalTime;
+		initSCurveParameters(sCurveParams);
+		dcLock = [[NSLock alloc] init];
 	}
 
 	//NSLog(@"%@", pagesArray);
@@ -355,12 +366,14 @@ NSString *pageFieldNames[] = {
         
         for(int i=0; i<32; i++)
         {
+			[dcLock lock];
             if(dc->Ping(i))
             {
             //  NSLog(@"ID = %d found", i);
                 [ID addObject: [[NSString alloc] initWithFormat:@"ID-%d", i]];
                 [idNumber addObject: [NSNumber numberWithInt: i]];
             }
+			[dcLock unlock];
         }
         [idList reloadData];
         [connectButton setTitle: @"Disconnect"];
@@ -385,8 +398,10 @@ NSString *pageFieldNames[] = {
 
 - (void)forceUpdate
 {
+	/*
     if(dc && [idList selectedRow] != -1)
         dc->ReadAllData([[idNumber objectAtIndex: [idList selectedRow]] intValue], servoData);
+	 */
 
     [servoValues reloadData];
     [servoValues display];      // Force redraw
@@ -505,7 +520,9 @@ NSString *pageFieldNames[] = {
 	// Keep the display lively
 	[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 
+	[dcLock lock];
     dc->Move([[idNumber objectAtIndex: [idList selectedRow]] intValue], p, s);
+	[dcLock unlock];
 }
 
 
@@ -518,30 +535,47 @@ NSString *pageFieldNames[] = {
 	// Keep the display lively
 	[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
 
+	[dcLock lock];
     dc->SetSpeed([[idNumber objectAtIndex: [idList selectedRow]] intValue], s);
+	[dcLock unlock];
     
     [self forceUpdate];
 }
+
+- (IBAction)setIpoPause:(id)sender
+{
+	NSLog(@"Old ipo stuff %d %d", ipoData.ipoPauseAutoSet, ipoData.ipoPause);
+	ipoData.ipoPauseAutoSet = 0;
+	ipoData.ipoPause = [ipoPauseSlider intValue];
+	NSLog(@"New ipo stuff %d %d", ipoData.ipoPauseAutoSet, ipoData.ipoPause);
+}
+
 
 
 
 - (IBAction)toggleTorque:(id)sender
 {
+	[dcLock lock];
     dc->SetTorque([[idNumber objectAtIndex: [idList selectedRow]] intValue], [sender intValue]);
+	[dcLock unlock];
 }
 
 
 
 - (IBAction)torqueAllEnable:(id)sender
 {
+	[dcLock lock];
     dc->SetTorque(254, 1);
+	[dcLock unlock];
 }
 
 
 
 - (IBAction)torqueAllDisable:(id)sender
 {
+	[dcLock lock];
     dc->SetTorque(254, 0);
+	[dcLock unlock];
 }
 
 - (IBAction)stop:(id)sender
@@ -631,6 +665,8 @@ NSString *pageFieldNames[] = {
 
 - (void) reallyPlayPage:(Page *)thePage
 {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
 	struct page *page = thePage->thePage;
 	int i;
 	int nextPage;
@@ -638,8 +674,45 @@ NSString *pageFieldNames[] = {
 	while(1) {
 		for(i=0;i< page->header.numPoses; i++)
 		{
+			#if crap
 			[self reallyPlayPose:&page->rec[i]];
 			usleep(500000);
+			#else
+			{
+				[dcLock lock];
+				struct pose *pose = &page->rec[i];
+				int j;
+				NSMutableString *s = [NSMutableString stringWithCapacity:100];
+				for(j=0;j<[ID count];j++) {
+					int servoID = [[idNumber objectAtIndex:j] intValue];
+					robotData.writeBuffer[0][j*6] = pose->posData[servoID] & 0xff;
+					robotData.writeBuffer[0][j*6+1] = (pose->posData[servoID] >> 8) & 0xff;
+					robotData.writeBuffer[0][j*6+2] = 255;
+					robotData.writeBuffer[0][j*6+3] = 0;
+					robotData.writeBuffer[0][j*6+4] = 255;
+					robotData.writeBuffer[0][j*6+5] = 0;
+
+					//NSLog(@"setting servo %d to %d\n", servoID, pose->posData[servoID]);
+					//dc->Move([[idNumber objectAtIndex: j] intValue], pose->posData[servoID], 100);
+				}
+
+				[s appendFormat:@"setting joints "];
+				for(int i = 0;i<18 /*[idNumber count]*/;i++) {
+					[s appendFormat:@"%04x ", pose->posData[i+1]];
+				}
+				NSLog(s);
+
+				robotData.writeBufferLength = 1;
+				robotData.writeBufferIndex = 0;
+				while(robotData.writeBufferLength) {
+					//NSLog(@"doing interpolation!");
+
+					doInterpolation(dc, robotData, ipoData, sCurveParams);
+				}
+				NSLog(@"done a pose!");
+				[dcLock unlock];
+			}
+			#endif
 		}
 
 		NSLog(@"stop = %d\n", stop);
@@ -658,6 +731,8 @@ NSString *pageFieldNames[] = {
 			break;
 		}
 	}
+
+	[pool release];
 }
 
 - (void) reallyPlayPose:(struct pose *)pose
@@ -668,7 +743,9 @@ NSString *pageFieldNames[] = {
 	for(i=0;i<[ID count];i++) {
 		int servoID = [[idNumber objectAtIndex:i] intValue];
 		//NSLog(@"setting servo %d to %d\n", servoID, pose->posData[servoID]);
+		[dcLock lock];
 		dc->Move([[idNumber objectAtIndex: i] intValue], pose->posData[servoID], 100);
+		[dcLock unlock];
 	}
 }
 
@@ -708,13 +785,13 @@ NSString *pageFieldNames[] = {
 		return [pagesArray objectAtIndex:index];
 	} else if([item class] == [Page class]) {
 		Page *thePage = item;
-		if(index < 11) {
+		if(index < NUM_FIELDS) {
 			uint8_t value = (&thePage->thePage->header.playCode)[index];
 			NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:value] forKey:pageFieldNames[index]];
 				[d retain];
 			return d;
 		} else 
-			return [(Page *)item getPose:index-10];
+			return [(Page *)item getPose:index-NUM_FIELDS];
 	} else if([item class] == [Pose class]) {
 		return nil; //[(Pose *)item getPosition:index+1];
 	} else {
@@ -730,7 +807,7 @@ NSString *pageFieldNames[] = {
 	} else if([item class] == [Page class]) {
 		NSMutableArray *poses = ((Page *)item)->poses;
 
-		int ret = 10 + [poses count];
+		int ret = NUM_FIELDS + [poses count];
 
 		return ret;
 	} else if([item class] == [Pose class]) {
@@ -782,10 +859,10 @@ NSString *pageFieldNames[] = {
 		else {
 			NSMutableString *s = [NSMutableString stringWithCapacity:100];
 
-			[s appendFormat:@"S: %3d D: %3d ", thePose->thePose->speed, thePose->thePose->delay];
+			[s appendFormat:@"S: %03x D: %03x ", thePose->thePose->speed, thePose->thePose->delay];
 
 			for(int i = 0;i<18 /*[idNumber count]*/;i++) {
-				[s appendFormat:@"%4d ", thePose->thePose->posData[i+1]];
+				[s appendFormat:@"%04x ", thePose->thePose->posData[i+1]];
 			}
 
 			return s;
