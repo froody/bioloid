@@ -51,13 +51,15 @@
 	NSBezierPath *line = [NSBezierPath bezierPath];
 
 //	NSLog(@"bounds %f %f\n", bounds.size.width, bounds.size.height);
+//
+	[[NSGraphicsContext currentContext] setShouldAntialias:NO];
 
 
 	double w = bounds.size.width;
 	double h = bounds.size.height;
 
 	int i, j;
-	[line setLineWidth:1.0];
+	[line setLineWidth:0.5];
 	for(i=0;i<NUM_BLAH;i++) {
 
 		[line appendBezierPathWithRect:NSMakeRect(0, i*(h/NUM_BLAH), w, h/NUM_BLAH)];
