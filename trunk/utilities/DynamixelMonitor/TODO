@@ -1,7 +1,8 @@
 Rough unsorted list of things to do:
 
-* Print out the full page header, and find some way of representing linked pages
+* Find some way of representing linked pages
 * Real code for playing pages, that does S-curves, etc
+	* I'm working on it!
 * Serial/zigbee support, because the bioloid cables are too short
 	* This will need some integration with firmware, etc
 * Fancy 3D Visualisation of poses (could borrow some code from https://sourceforge.net/projects/bioloidcontrol/)
