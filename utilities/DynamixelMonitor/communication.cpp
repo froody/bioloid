@@ -109,11 +109,8 @@ byte RxPacket(DynamixelComm *dc, byte bRxPacketLength)
 {
 #define RX_TIMEOUT_COUNT2   3000L  
 #define RX_TIMEOUT_COUNT1  (RX_TIMEOUT_COUNT2*10L)  
-  unsigned long ulCounter;
   byte bCount, bLength, bChecksum;
   byte bTimeout;
-
-  byte tmpBuffer[128];
 
   bTimeout = 0;
 #if 0

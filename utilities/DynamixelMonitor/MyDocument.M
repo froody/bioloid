@@ -56,8 +56,11 @@ NSString *pageFieldNames[NUM_FIELDS] = {
 		dc->ReadAllData([[idNumber objectAtIndex: [idList selectedRow]] intValue], servoData);
 		[dcLock unlock];
 	}
+	[histogramView setNeedsDisplay:YES];
     [self update: self];
 }
+
+HistogramView *gHisogramView;
 
 - (id)init
 {
@@ -96,6 +99,8 @@ NSString *pageFieldNames[NUM_FIELDS] = {
 		robotData.writeTimeDiffAverage = ipoData.ipoTotalTime;
 		initSCurveParameters(sCurveParams);
 		dcLock = [[NSLock alloc] init];
+
+		//gHisogramView = histogramView;
 	}
 
 	//NSLog(@"%@", pagesArray);
@@ -138,6 +143,8 @@ NSString *pageFieldNames[NUM_FIELDS] = {
         selector:@selector(timerFire:)
         userInfo:nil
         repeats:YES];
+
+	gHisogramView = histogramView;
 
 	[self connect:self];
 }
@@ -700,7 +707,7 @@ NSString *pageFieldNames[NUM_FIELDS] = {
 				for(int i = 0;i<18 /*[idNumber count]*/;i++) {
 					[s appendFormat:@"%04x ", pose->posData[i+1]];
 				}
-				NSLog(s);
+				NSLog(@"%@",s);
 
 				robotData.writeBufferLength = 1;
 				robotData.writeBufferIndex = 0;
@@ -739,6 +746,7 @@ NSString *pageFieldNames[NUM_FIELDS] = {
 {
 	//NSLog(@"Really playing a pose omg w00t! %d servos", [ID count]);
 	//[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+#if crap
 	int i;
 	for(i=0;i<[ID count];i++) {
 		int servoID = [[idNumber objectAtIndex:i] intValue];
@@ -747,6 +755,41 @@ NSString *pageFieldNames[NUM_FIELDS] = {
 		dc->Move([[idNumber objectAtIndex: i] intValue], pose->posData[servoID], 100);
 		[dcLock unlock];
 	}
+#else
+	{
+		[dcLock lock];
+		int j;
+		NSMutableString *s = [NSMutableString stringWithCapacity:100];
+		for(j=0;j<[ID count];j++) {
+			int servoID = [[idNumber objectAtIndex:j] intValue];
+			robotData.writeBuffer[0][j*6] = pose->posData[servoID] & 0xff;
+			robotData.writeBuffer[0][j*6+1] = (pose->posData[servoID] >> 8) & 0xff;
+			robotData.writeBuffer[0][j*6+2] = 255;
+			robotData.writeBuffer[0][j*6+3] = 0;
+			robotData.writeBuffer[0][j*6+4] = 255;
+			robotData.writeBuffer[0][j*6+5] = 3;
+
+			//NSLog(@"setting servo %d to %d\n", servoID, pose->posData[servoID]);
+			//dc->Move([[idNumber objectAtIndex: j] intValue], pose->posData[servoID], 100);
+		}
+
+		[s appendFormat:@"setting joints "];
+		for(int i = 0;i<18 /*[idNumber count]*/;i++) {
+			[s appendFormat:@"%04x ", pose->posData[i+1]];
+		}
+		NSLog(@"%@",s);
+
+		robotData.writeBufferLength = 1;
+		robotData.writeBufferIndex = 0;
+		while(robotData.writeBufferLength) {
+			//NSLog(@"doing interpolation!");
+
+			doInterpolation(dc, robotData, ipoData, sCurveParams);
+		}
+		NSLog(@"done a pose!");
+		[dcLock unlock];
+	}
+#endif
 }
 
 
@@ -878,6 +921,13 @@ NSString *pageFieldNames[NUM_FIELDS] = {
 		NSLog(@"wtf mate?");
 		return [item description];
 	}
+}
+
+void push_data(int servo, int val);
+void
+push_data(int servo, int val)
+{
+	[gHisogramView addPoint:val forGraph:servo];
 }
 
 @end

@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100225"/>
+			<integer value="100222"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -38,7 +38,7 @@
 			<object class="NSWindowTemplate" id="275939982">
 				<int key="NSWindowStyleMask">13</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{0, 382}, {982, 774}}</string>
+				<string key="NSWindowRect">{{0, 480}, {982, 676}}</string>
 				<int key="NSWTFlags">1886912512</int>
 				<string key="NSWindowTitle">Dynamixel Monitor</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -53,7 +53,7 @@
 						<object class="NSTabView" id="333429838">
 							<reference key="NSNextResponder" ref="568628114"/>
 							<int key="NSvFlags">18</int>
-							<string key="NSFrame">{{-8, -10}, {998, 778}}</string>
+							<string key="NSFrame">{{-8, -10}, {998, 680}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<object class="NSMutableArray" key="NSTabViewItems">
@@ -1063,7 +1063,7 @@
 								<object class="NSTabViewItem" id="874948248">
 									<string key="NSIdentifier">2</string>
 									<object class="NSView" key="NSView" id="831778816">
-										<reference key="NSNextResponder" ref="333429838"/>
+										<nil key="NSNextResponder"/>
 										<int key="NSvFlags">274</int>
 										<object class="NSMutableArray" key="NSSubviews">
 											<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1364,25 +1364,46 @@
 											</object>
 										</object>
 										<string key="NSFrame">{{10, 33}, {978, 732}}</string>
-										<reference key="NSSuperview" ref="333429838"/>
 									</object>
 									<string key="NSLabel">Motion</string>
 									<reference key="NSColor" ref="430099250"/>
 									<reference key="NSTabView" ref="333429838"/>
 								</object>
+								<object class="NSTabViewItem" id="304980195">
+									<string key="NSIdentifier">Item 2</string>
+									<object class="NSView" key="NSView" id="34231105">
+										<reference key="NSNextResponder" ref="333429838"/>
+										<int key="NSvFlags">256</int>
+										<object class="NSMutableArray" key="NSSubviews">
+											<bool key="EncodedWithXMLCoder">YES</bool>
+											<object class="NSCustomView" id="580464438">
+												<reference key="NSNextResponder" ref="34231105"/>
+												<int key="NSvFlags">274</int>
+												<string key="NSFrame">{{-3, -3}, {984, 634}}</string>
+												<reference key="NSSuperview" ref="34231105"/>
+												<string key="NSClassName">HistogramView</string>
+											</object>
+										</object>
+										<string key="NSFrame">{{10, 33}, {978, 634}}</string>
+										<reference key="NSSuperview" ref="333429838"/>
+									</object>
+									<string key="NSLabel">Item 2</string>
+									<reference key="NSColor" ref="430099250"/>
+									<reference key="NSTabView" ref="333429838"/>
+								</object>
 							</object>
-							<reference key="NSSelectedTabViewItem" ref="874948248"/>
+							<reference key="NSSelectedTabViewItem" ref="304980195"/>
 							<reference key="NSFont" ref="1004662452"/>
 							<int key="NSTvFlags">0</int>
 							<bool key="NSAllowTruncatedLabels">YES</bool>
 							<bool key="NSDrawsBackground">YES</bool>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<reference ref="831778816"/>
+								<reference ref="34231105"/>
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{982, 774}</string>
+					<string key="NSFrameSize">{982, 676}</string>
 					<reference key="NSSuperview"/>
 					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
@@ -1661,6 +1682,14 @@
 					</object>
 					<int key="connectionID">100274</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">histogramView</string>
+						<reference key="source" ref="512844837"/>
+						<reference key="destination" ref="580464438"/>
+					</object>
+					<int key="connectionID">100278</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1715,6 +1744,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="874948248"/>
 							<reference ref="709933973"/>
+							<reference ref="304980195"/>
 						</object>
 						<reference key="parent" ref="568628114"/>
 					</object>
@@ -2496,6 +2526,29 @@
 						<reference key="object" ref="764352734"/>
 						<reference key="parent" ref="462741067"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100275</int>
+						<reference key="object" ref="304980195"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="34231105"/>
+						</object>
+						<reference key="parent" ref="333429838"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100276</int>
+						<reference key="object" ref="34231105"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="580464438"/>
+						</object>
+						<reference key="parent" ref="304980195"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">100277</int>
+						<reference key="object" ref="580464438"/>
+						<reference key="parent" ref="34231105"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -2607,6 +2660,7 @@
 					<string>100267.IBPluginDependency</string>
 					<string>100270.IBPluginDependency</string>
 					<string>100271.IBPluginDependency</string>
+					<string>100277.IBPluginDependency</string>
 					<string>5.IBEditorWindowLastContentRect</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.IBWindowTemplateEditedContentRect</string>
@@ -2726,9 +2780,10 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{13, 81}, {982, 774}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{13, 81}, {982, 774}}</string>
+					<string>{{14, 0}, {982, 676}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{14, 0}, {982, 676}}</string>
 					<integer value="1"/>
 					<string>{{201, 387}, {507, 413}}</string>
 					<boolean value="NO"/>
@@ -2755,11 +2810,19 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100274</int>
+			<int key="maxID">100278</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">HistogramView</string>
+					<string key="superclassName">NSView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">HistogramView.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">MyDocument</string>
 					<string key="superclassName">NSDocument</string>
@@ -2800,6 +2863,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>connectButton</string>
 							<string>goalPositionSlider</string>
+							<string>histogramView</string>
 							<string>idList</string>
 							<string>ipoPauseSlider</string>
 							<string>loadIndicator</string>
@@ -2819,6 +2883,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSButton</string>
 							<string>NSSlider</string>
+							<string>HistogramView</string>
 							<string>NSTableView</string>
 							<string>NSSlider</string>
 							<string>NSLevelIndicator</string>

@@ -25,6 +25,7 @@
 
 #include "DynamixelComm.h"
 #include "Motion.h"
+#include "HistogramView.h"
 #include "Page.h"
 #include "constants.h"
 #include "types.h"
@@ -57,6 +58,8 @@
     NSArray * controlTable;
     NSMutableArray * ID;
     NSMutableArray * idNumber;
+
+	IBOutlet HistogramView *histogramView;
 
     DynamixelComm * dc;
     
