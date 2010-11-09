@@ -147,7 +147,7 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 		robotData.readTimeDiff = tmpTime - robotData.readTime;
 		robotData.readTime = tmpTime;
 
-		printf("past the time - %d, pause = %d\n", tmpTime, ipoData.ipoPause);
+		//printf("past the time - %ld, pause = %ld\n", tmpTime, ipoData.ipoPause);
 		
 		// read or write every ipoData.ipoPause Milliseconds
 		if (ipoData.ipoCounter <= ipoData.ipoMax)
@@ -189,6 +189,7 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 						//robotData.writeStartBuffer = robotData.writeLastBuffer;
 						
 						// preprocessing
+						printf("doPreparation inner\n");
 						doPreparation(robotData, ipoData, params);
 					}
 					
@@ -279,6 +280,7 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 				setWriteStartBuffer(robotData, ipoData, params);
 			
 				// preprocessing
+				printf("doPreparation outer\n");
 				doPreparation(robotData, ipoData, params);
 			} 
 			// stuff read op between two write ops 
@@ -297,8 +299,8 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 // read from ALL ax
 void readPositionData(DynamixelComm *dc, byte* buffer, byte &failure)
 {		
-	printf("%s! %d != %d\n", __func__, AX12_DATA_READ, AX12_DATA_WRITE);
-	int id, i, len;
+	printf("%s! %p\n", __func__, buffer);
+	int id, i;
 	// command: read AX12_DATA_READ bytes from address P_PRESENT_POSITION_L /ax12
 	gbpParameter[0] = P_PRESENT_POSITION_L; //Address
 	gbpParameter[1] = AX12_DATA_READ;  //Read Length
@@ -377,7 +379,7 @@ void writePositionData(DynamixelComm *dc, byte* readBuffer, byte* writeBuffer, l
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 0] = current & 0xFF; 
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 1] = (current & 0xFF00) >> 8;
 
-		printf("%04x ", current);
+		printf("%04lx ", current);
 		
 		// store target speed and torque in write buffer
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 2] = writeBuffer[i * AX12_DATA_WRITE + 2]; 
@@ -395,7 +397,7 @@ void writePositionData(DynamixelComm *dc, byte* readBuffer, byte* writeBuffer, l
 // ptp movement (sinus wave acceleration)
 void writePositionDataPTPPrepareSinus(unsigned long  ipoTime, unsigned long totalTime, unsigned long  time, unsigned long  max, unsigned long param, byte* readBuffer, byte* writeBuffer, float* tbs, float* tes, int* sgns, float* vmaxs, float* bmaxs)
 {
-	printf("%s!\n", __func__);
+	printf("%s!, %p %p\n", __func__, readBuffer, writeBuffer);
    int i;
    float current, target;
    
@@ -419,8 +421,6 @@ void writePositionDataPTPPrepareSinus(unsigned long  ipoTime, unsigned long tota
 	  target = writeBuffer[i * AX12_DATA_WRITE + 0] + 256 * writeBuffer[i * AX12_DATA_WRITE + 1];
 	  current = readBuffer[i * AX12_DATA_WRITE + 0] + 256 * readBuffer[i * AX12_DATA_WRITE + 1];
 
-	  printf("t %04x c %04x ", target, current);
-	
       vmax = VMAX;
       bmax = BMAX;
       se = (target - current);
@@ -457,9 +457,14 @@ void writePositionDataPTPPrepareSinus(unsigned long  ipoTime, unsigned long tota
       tbs[i] = tb;
       vmaxs[i] = vmax;
       bmaxs[i] = bmax;
+
+	  //printf("se %f te %lx tb %lx vm %f bm %f ", se, te, tb, vmax, bmax);
+	
    }
    printf("\n");
 }
+
+extern void push_data(int servo, int val);
 
 // ptp movement (sinus wave acceleration)
 void writePositionDataPTPSinus(DynamixelComm *dc, unsigned long  readPause, byte* readBuffer,byte* writeBuffer, float pos, float* tb, float* te, int* sgn, float* vmax, float* bmax)
@@ -484,13 +489,13 @@ void writePositionDataPTPSinus(DynamixelComm *dc, unsigned long  readPause, byte
       t = pos * te[i];
       tv = te[i] - tb[i];
       if (t <= tb[i]) {
-		  printf("A");
+		  //printf("A");
          se = bmax[i] * (0.25 * t * t + (tb[i] * tb[i] / (8.0 * M_PI * M_PI)) * (cos(2.0*M_PI*t/tb[i])-1.0));
 	  } else if (t <= te[i] - tb[i]) {
-		  printf("B");
+		  //printf("B");
          se = vmax[i] * (t - 0.5 * tb[i]);
 	  } else {
-		  printf("C");
+		  //printf("C");
          se = 0.5 * bmax[i] * (te[i] * (t + tb[i]) - 0.5*(t*t + te[i]*te[i] + 2.0 * tb[i]*tb[i]) + (tb[i]*tb[i]/(4.0 * M_PI * M_PI))*(1.0 - cos((2.0*M_PI/tb[i])*(t - tv))));
 	  }
          
@@ -505,7 +510,11 @@ void writePositionDataPTPSinus(DynamixelComm *dc, unsigned long  readPause, byte
     	gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 0] = current & 0xFF; 
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 1] = (current & 0xFF00) >> 8;
 		//printf("%04x ", current);
-		printf("%0d/%04lx:%04x", sgn[i], (long int) (se), current);
+		if(sgn[i]*(long int)(se) != 0) {
+			printf("%d/%f:%04lx:%04lx ", i, se, current, sgn[i] * (long int) (se));
+		}
+
+		push_data(i, current);
 		
 		/*
 		if (i == 13)
@@ -675,7 +684,7 @@ void writePositionDataPTP(DynamixelComm *dc, unsigned long  readPause, byte* rea
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 1] = (current & 0xFF00) >> 8;
 
 
-		printf("%04x ", current);
+		printf("%04lx ", current);
 		
     	// store target speed and torque in write buffer
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 2] = writeBuffer[i * AX12_DATA_WRITE + 2]; 

@@ -15,6 +15,7 @@
 		2250F1C7117FC6EE00B6E6D3 /* DynamixelComm.cc in Sources */ = {isa = PBXBuildFile; fileRef = 2250F1C6117FC6EE00B6E6D3 /* DynamixelComm.cc */; };
 		22778C97116AA89E001C0ECD /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 22778C91116AA89E001C0ECD /* Help */; };
 		72050B4C119A9792005FD0AF /* motion.bin in Resources */ = {isa = PBXBuildFile; fileRef = 72050B4A119A9792005FD0AF /* motion.bin */; };
+		721B50E61287E9F90039ADC7 /* HistogramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 721B50E51287E9F90039ADC7 /* HistogramView.m */; };
 		72B74C631197B01D00709210 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B74C621197B01D00709210 /* Page.m */; };
 		72B74C661197B02600709210 /* Pose.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B74C651197B02600709210 /* Pose.m */; };
 		72F4B78611CEF4B1004F13A4 /* interpolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72F4B78511CEF4B1004F13A4 /* interpolation.cpp */; };
@@ -52,6 +53,8 @@
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		72050B4B119A9792005FD0AF /* English */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = English; path = English.lproj/motion.bin; sourceTree = "<group>"; };
+		721B50E41287E9F90039ADC7 /* HistogramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistogramView.h; sourceTree = "<group>"; };
+		721B50E51287E9F90039ADC7 /* HistogramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistogramView.m; sourceTree = "<group>"; };
 		72B74C611197B01D00709210 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		72B74C621197B01D00709210 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 		72B74C641197B02600709210 /* Pose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pose.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				1DDD58280DA1D0D100B32029 /* MyDocument.xib */,
 				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
 				72050B4A119A9792005FD0AF /* motion.bin */,
+				721B50E41287E9F90039ADC7 /* HistogramView.h */,
+				721B50E51287E9F90039ADC7 /* HistogramView.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				72B74C661197B02600709210 /* Pose.m in Sources */,
 				72F4B78611CEF4B1004F13A4 /* interpolation.cpp in Sources */,
 				72F4B7A611CEF62B004F13A4 /* communication.cpp in Sources */,
+				721B50E61287E9F90039ADC7 /* HistogramView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +384,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;

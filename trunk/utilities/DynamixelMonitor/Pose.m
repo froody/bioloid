@@ -18,12 +18,12 @@
 	return self;
 }
 
-- (NSNumber *)getPosition:(int)index
+- (NSNumber *)getPosition:(int)i
 {
-	if(index >= 31)
+	if(i >= 31)
 		return nil;
 	else {
-		return [[NSNumber numberWithInt:thePose->posData[index]] retain];
+		return [[NSNumber numberWithInt:thePose->posData[i]] retain];
 	}
 }
 @end
