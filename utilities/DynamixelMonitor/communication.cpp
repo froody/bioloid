@@ -72,7 +72,7 @@ byte TxPacket(DynamixelComm *dc, byte bID, byte bInstruction, byte bParameterLen
 {
 	//printf("TxPacket %d, %d, %d\n", bID, bInstruction, bParameterLength);
 
-	byte bCount,bCheckSum,bPacketLength;
+	byte bCount,bPacketLength;
 
     gbpTxBuffer[0] = 0xff;
     gbpTxBuffer[1] = 0xff;
@@ -85,15 +85,8 @@ byte TxPacket(DynamixelComm *dc, byte bID, byte bInstruction, byte bParameterLen
         gbpTxBuffer[bCount+5] = gbpParameter[bCount];
     }
     
-	bCheckSum = 0;
     bPacketLength = bParameterLength+4+2;
     
-	for(bCount = 2; bCount < bPacketLength-1; bCount++) //except 0xff,checksum
-    {
-        bCheckSum += gbpTxBuffer[bCount];
-    }
-    gbpTxBuffer[bCount] = ~bCheckSum; //Writing Checksum with Bit Inversion
-
 	dc->Send(gbpTxBuffer);
     
 	return(bPacketLength);

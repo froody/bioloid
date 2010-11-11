@@ -95,7 +95,7 @@ void doPreparation(struct RobotData &robotData, struct InterpolationData &ipoDat
 			break;
 						
 			case IPO_PTP_SINE:
-			writePositionDataPTPPrepareSinus(ipoData.ipoPause, ipoData.ipoTotalTime, ipoData.ipoVMax, ipoData.ipoBMax, ipoData.ipoParam, robotData.writeStartBuffer, &robotData.writeBuffer[robotData.writeBufferIndex][0], params.tb, params.te, params.sgn, params.vmax, params.bmax);
+			writePositionDataPTPPrepareSinus(ipoData.ipoPause, ipoData.ipoTotalTime, ipoData.ipoVMax, ipoData.ipoBMax, ipoData.ipoParam, robotData.readBuffer, &robotData.writeBuffer[robotData.writeBufferIndex][0], params.tb, params.te, params.sgn, params.vmax, params.bmax);
 			break;
 			
 			case IPO_LINEAR:
@@ -117,7 +117,7 @@ static void doWriteData(DynamixelComm *dc, struct RobotData &robotData, struct I
 		break;
 					
 		case IPO_PTP_SINE:
-		writePositionDataPTPSinus(dc, ipoData.ipoPause, robotData.writeStartBuffer, &robotData.writeBuffer[robotData.writeBufferIndex][0], (float)ipoData.ipoCounter/(float)ipoData.ipoMax, params.tb, params.te, params.sgn, params.vmax, params.bmax); 
+		writePositionDataPTPSinus(dc, ipoData.ipoPause, robotData.readBuffer, &robotData.writeBuffer[robotData.writeBufferIndex][0], (float)ipoData.ipoCounter/(float)ipoData.ipoMax, params.tb, params.te, params.sgn, params.vmax, params.bmax); 
 		break;
 		
 		case IPO_LINEAR:
@@ -137,6 +137,21 @@ void setWriteStartBuffer(struct RobotData &robotData, struct InterpolationData &
 	robotData.writeStartBuffer = robotData.readBuffer;
 }
 
+void testWB(byte *writeBuffer, int line)
+{
+	return;
+
+	int i;
+	bool fail = false;
+	for(i=0;i<AX12_COUNT;i++) {
+		if(!((writeBuffer[i * AX12_DATA_WRITE + 4] == 255) && (writeBuffer[i * AX12_DATA_WRITE + 5] == 3))) {
+			fail = true;
+		}
+	}
+	if(fail)
+		printf("%d/%p:TORQUE FAIL!!",line, writeBuffer);
+}
+
 byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct InterpolationData &ipoData, struct SCurveParameters &params)
 {
 	byte failure = AX12_NOERROR;
@@ -144,6 +159,8 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 	
 	if (tmpTime >= robotData.readTime + ipoData.ipoPause)
 	{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 		robotData.readTimeDiff = tmpTime - robotData.readTime;
 		robotData.readTime = tmpTime;
 
@@ -152,9 +169,13 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 		// read or write every ipoData.ipoPause Milliseconds
 		if (ipoData.ipoCounter <= ipoData.ipoMax)
 		{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 			// if at least two points are available
 			if ((robotData.writeBufferLength > ipoData.ipoParam) && ipoData.preparationDone)
 			{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 				/*
 				if (!ipoData.preparationDone)
 				{
@@ -171,6 +192,11 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 				// remove data from robotData.writeBuffer at end of interpolation cycle
 				if (ipoData.ipoCounter >= ipoData.ipoMax)
 				{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
+					while(gettickcount() < tmpTime + ipoData.ipoPause)
+						;
+
 					ipoData.preparationDone = false;
 					
 					robotData.writeBufferLength--;
@@ -185,6 +211,8 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 					
 					if (robotData.writeBufferLength > 0)
 					{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 						// modified:
 						//robotData.writeStartBuffer = robotData.writeLastBuffer;
 						
@@ -205,14 +233,20 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 					
 					if ((robotData.writeTime - tmpTime) < WRITEBUFFERMAXPAUSE)
 					{
+						printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 						robotData.writeTimeDiffAverage = (unsigned int) (0.7 * (float)robotData.writeTimeDiffAverage + 
 															0.3 * (float) (robotData.writeTime - tmpTime));
 		
 						if (ipoData.ipoPauseAutoSet)
 						{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 							float tmp = ((float)ipoData.ipoTotalTime * (float)ipoData.ipoTotalTime)/ ((float)ipoData.ipoMax * (float)robotData.writeTimeDiffAverage);
 							if (robotData.writeBufferLength > 1)
 							{	
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 								float tmp2 = (float) (robotData.writeBufferLength-1);
 							
 								tmp *= 1.0 - ipoData.ipoAutoAdjustParameter + 
@@ -260,13 +294,21 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 		// read ax12 data every (ipoData.ipoMax + 1) +ipoData.ipoPause Milliseconds
 		//if (ipoData.ipoCounter >= ipoData.ipoMax)
 		{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 			failure = AX12_NOERROR;
 			if (!ipoData.preparationDone) // comment this line in order to produce position feedback during write actions
+			{
+		printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 				readPositionData(dc, robotData.readBuffer, failure);
+			}
 			
 			
 			if (failure != AX12_NOERROR)
 			{
+				printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 				robotData.readTime = gettickcount() - ipoData.ipoPause + AX12_READERROR_TIMEOUT;
 				return failure;
 			}
@@ -277,10 +319,13 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 			if (failure == AX12_NOERROR)
 			if (!ipoData.preparationDone)
 			{
+				printf("%s:%d\n",__func__,__LINE__);
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 				setWriteStartBuffer(robotData, ipoData, params);
 			
 				// preprocessing
 				printf("doPreparation outer\n");
+		testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 				doPreparation(robotData, ipoData, params);
 			} 
 			// stuff read op between two write ops 
@@ -292,6 +337,8 @@ byte doInterpolation(DynamixelComm *dc, struct RobotData &robotData, struct Inte
 		
 		ipoData.ipoCounter++;
 	}	
+
+	testWB(robotData.writeBuffer[robotData.writeBufferIndex],__LINE__);
 	
 	return failure;
 }
@@ -424,6 +471,8 @@ void writePositionDataPTPPrepareSinus(unsigned long  ipoTime, unsigned long tota
       vmax = VMAX;
       bmax = BMAX;
       se = (target - current);
+
+	  printf("tc %f %f ", target, current);
       if (se < 0)
       {
          sgn = -1;
@@ -442,7 +491,7 @@ void writePositionDataPTPPrepareSinus(unsigned long  ipoTime, unsigned long tota
          tb = ((long int)( 2.0 * vmax / (bmax * ipo) + 0.5)) * ipo;
          tv = (long int)(TIME - tb);
       }
-      
+
       if (tb == 0)
          tb = 1;
         if (tv == 0)
@@ -457,6 +506,10 @@ void writePositionDataPTPPrepareSinus(unsigned long  ipoTime, unsigned long tota
       tbs[i] = tb;
       vmaxs[i] = vmax;
       bmaxs[i] = bmax;
+
+	  if(!((writeBuffer[i * AX12_DATA_WRITE + 4] == 255) && (writeBuffer[i * AX12_DATA_WRITE + 5] == 3))) {
+		  printf("%d:TORQUE FAIL!!",__LINE__);
+	  }
 
 	  //printf("se %f te %lx tb %lx vm %f bm %f ", se, te, tb, vmax, bmax);
 	
@@ -478,7 +531,7 @@ void writePositionDataPTPSinus(DynamixelComm *dc, unsigned long  readPause, byte
 	gbpParameter[0] = P_GOAL_POSITION_L; //Address
 	gbpParameter[1] = AX12_DATA_WRITE;
 	
-	printf("%s joints: ", __func__);
+	printf("%s joints %f: ", __func__, pos);
 	// prepare write buffer -> unpack data from serial and store bytewise in buffer
 	for (i=0;i<AX12_COUNT;i++)
 	{   
@@ -488,6 +541,8 @@ void writePositionDataPTPSinus(DynamixelComm *dc, unsigned long  readPause, byte
 		  
       t = pos * te[i];
       tv = te[i] - tb[i];
+
+	  printf("teb %f %f %f ", pos, bmax[i], vmax[i]);
       if (t <= tb[i]) {
 		  //printf("A");
          se = bmax[i] * (0.25 * t * t + (tb[i] * tb[i] / (8.0 * M_PI * M_PI)) * (cos(2.0*M_PI*t/tb[i])-1.0));
@@ -511,7 +566,8 @@ void writePositionDataPTPSinus(DynamixelComm *dc, unsigned long  readPause, byte
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 1] = (current & 0xFF00) >> 8;
 		//printf("%04x ", current);
 		if(sgn[i]*(long int)(se) != 0) {
-			printf("%d/%f:%04lx:%04lx ", i, se, current, sgn[i] * (long int) (se));
+			//printf("%d/%f:%04lx:%04lx ", i, se, current, sgn[i] * (long int) (se));
+			printf("!!");
 		}
 
 		push_data(i, current);
@@ -529,6 +585,9 @@ void writePositionDataPTPSinus(DynamixelComm *dc, unsigned long  readPause, byte
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 3] = writeBuffer[i * AX12_DATA_WRITE + 3];
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 4] = writeBuffer[i * AX12_DATA_WRITE + 4]; 
 		gbpParameter[3 + i * (AX12_DATA_WRITE+1) + 5] = writeBuffer[i * AX12_DATA_WRITE + 5];
+		if(!((writeBuffer[i * AX12_DATA_WRITE + 4] == 255) && (writeBuffer[i * AX12_DATA_WRITE + 5] == 3))) {
+			printf("%d:TORQUE FAIL!!",__LINE__);
+		}
 		
     }
 	printf("\n");
