@@ -697,7 +697,7 @@ HistogramView *gHisogramView;
 					robotData.writeBuffer[0][j*6+2] = 255;
 					robotData.writeBuffer[0][j*6+3] = 0;
 					robotData.writeBuffer[0][j*6+4] = 255;
-					robotData.writeBuffer[0][j*6+5] = 0;
+					robotData.writeBuffer[0][j*6+5] = 3;
 
 					//NSLog(@"setting servo %d to %d\n", servoID, pose->posData[servoID]);
 					//dc->Move([[idNumber objectAtIndex: j] intValue], pose->posData[servoID], 100);
@@ -717,6 +717,7 @@ HistogramView *gHisogramView;
 					doInterpolation(dc, robotData, ipoData, sCurveParams);
 				}
 				NSLog(@"done a pose!");
+//			usleep(1000000);
 				[dcLock unlock];
 			}
 			#endif
@@ -787,6 +788,7 @@ HistogramView *gHisogramView;
 			doInterpolation(dc, robotData, ipoData, sCurveParams);
 		}
 		NSLog(@"done a pose!");
+			//usleep(1000000);
 		[dcLock unlock];
 	}
 #endif
