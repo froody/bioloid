@@ -1,0 +1,16 @@
+<launch>
+	<arg name="model" />
+	<arg name="gui" default="False" />
+	<param name="robot_description" command="rosrun xacro xacro.py '$(arg model)'" />
+	<param name="use_gui" value="$(arg gui)"/>
+	<rosparam param="source_list">[tom_states]</rosparam>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="controller" pkg="awesomeo_controller" type="controller.py" />
+	<node name="arm_kinematics" pkg="arm_kinematics" type="arm_kinematics">
+                <param name="root_name" value="base_link"/>
+                <param name="tip_name" value="right_foot_pad"/>
+                <param name="epsilon" value="0.00001"/>
+        </node>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/urdf.vcg" />
+</launch>
