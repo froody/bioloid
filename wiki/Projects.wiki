@@ -1,4 +1,7 @@
 #summary List of all the different projects hosted here
+= [http://code.google.com/p/bioloid/source/browse/#svn/trunk/utilities/ROS/awesomeo_controller ROS] =
+
+I'm in the process of learning ROS, so I started applying it to my Bioloid robot. The code does a fair bit right now - an IK solver on a simulated robot that looks somewhat like a TypeA Bioloid. As I progress in my understanding of ROS I'll add more features including an accurate model and communication with an actual robot!
 
 = [http://code.google.com/p/bioloid/source/browse/#svn/trunk/utilities/BioloidControl Bioloid Control] =
 
