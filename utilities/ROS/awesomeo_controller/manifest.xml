@@ -1,0 +1,28 @@
+<package>
+  <description brief="awesomeo_controller">
+	Some work-in-progress code to control Bioloid robot using
+	ROS. This node + launchfile simulates a TypeA robot and
+	allows experimentation with an IK solver to set joints.
+
+	Caveats:
+		* Buggy
+		* The urdf is innacurate - dimensions and servo 
+		  axes are nowhere near exact
+
+	To run: roslaunch display.launch model:=TypeA.xacro gui:=True
+
+  </description>
+  <author>local</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://code.google.com/p/bioloid</url>
+  <depend package="rospy"/>
+  <depend package="sensor_msgs"/>
+  <depend package="kinematics_msgs"/>
+  <depend package="arm_kinematics"/>
+  <depend package="rviz"/>
+  <depend package="joint_state_publisher"/>
+
+</package>
+
+
