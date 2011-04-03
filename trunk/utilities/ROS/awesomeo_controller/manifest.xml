@@ -22,6 +22,8 @@
   <depend package="arm_kinematics"/>
   <depend package="rviz"/>
   <depend package="joint_state_publisher"/>
+  <depend package="ax12_driver_core"/>
+  <depend package="ax12_controller_core"/>
 
 </package>
 
