@@ -11,6 +11,13 @@
                 <param name="root_name" value="base_link"/>
                 <param name="tip_name" value="right_foot_pad"/>
                 <param name="epsilon" value="0.00001"/>
-        </node>
+    </node>
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/urdf.vcg" />
+    <node name="ttyUSB0_manager" pkg="ax12_controller_core" type="controller_manager.py" required="true" output="screen"> 
+        <param name="port_name" type="str" value="/dev/ttyUSB0"/> 
+        <param name="baud_rate" type="int" value="1000000"/> 
+        <param name="max_motor_id" type="int" value="18"/> 
+        <param name="update_rate" type="int" value="10"/> 
+    </node> 
+
 </launch>

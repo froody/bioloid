@@ -5,6 +5,7 @@ import wx
 import kinematics_msgs
 import kinematics_msgs.srv
 from sensor_msgs.msg import JointState
+from ax12_driver_core.msg import *
 from threading import Thread
 #from arm_kinematics.srv import *
 
@@ -12,11 +13,63 @@ RANGE=10000
 
 indices = None
 seed = None
+joint_names = None
+pub = None
 
+hack_joint_names = ["1.0:base_to_right_shoulder",
+                 "3.0:right_shoulder_to_upper",
+                 "5.0:right_elbow",
+                 "2.0:base_to_left_shoulder",
+                 "4.0:left_shoulder_to_upper",
+                 "6.0:left_elbow",
+                 "7.0:base_to_right_hip",
+                 "9.0:right_hip_to_split",
+                 "11.0:right_hip_split_to_upper",
+                 "13.0:right_knee",
+                 "15.0:right_ankle",
+                 "17.0:right_ankle_roll",
+                 "8.0:base_to_left_hip",
+                 "10.0:left_hip_to_split",
+                 "12.0:left_hip_split_to_upper",
+                 "14.0:left_knee",
+                 "16.0:left_ankle",
+                 "18.0:left_ankle_roll"]
+
+
+initial = {'x':0.03, 'y':0.0, 'z':-0.215}
+
+def process_motor_states(msg):
+    joint_state = kinematics_msgs.srv.GetPositionFKRequest().robot_state.joint_state
+
+    if(joint_names is None):
+        return
+    if pub is None:
+        return
+
+        
+    joint_state.name = hack_joint_names
+    joint_state.position = []
+    
+    for n in hack_joint_names:
+        id = int(n.split('.0:')[0])
+        if msg.motor_states[id-1].id != id:
+            rospy.logwarn("motor id mismatch? %d %d" % (id, msg.motor_states[id-1].id))
+            return
+
+        angle = msg.motor_states[id-1].position/float(1024)
+        angle -= 0.5
+        angle *= 3.14159
+        joint_state.position.append(angle)
+        
+
+    pub.publish(joint_state)
+        
 from std_msgs.msg import String
 def controller(x, y, z):
     global seed
     global indices
+    global joint_names
+    global pub
     pub = rospy.Publisher('tom_states', JointState)
     rospy.init_node('controller')
 	
@@ -34,6 +87,8 @@ def controller(x, y, z):
     fkr = kinematics_msgs.srv.GetPositionFKRequest()
     fkr.header.frame_id = "base_link"
     fkr.fk_link_names = ["right_foot_pad"]
+    if joint_names is None:
+        joint_names = solverInfo.joint_names
     fkr.robot_state.joint_state.name = solverInfo.joint_names
     fkr.robot_state.joint_state.position = [0 for i in solverInfo.joint_names]
 
@@ -144,6 +199,9 @@ class ControllerGui(wx.Frame):
             self.joint_map[name] = {'slidervalue':0, 'display':display, 
                                     'slider':slider}
 
+            display.SetValue("%.2f"%initial[name])
+            slider.SetValue(int((initial[name] + 0.5)*float(RANGE)))
+
         ### Buttons ###
         self.ctrbutton = wx.Button(panel, 1, 'Center')
         self.Bind(wx.EVT_SLIDER, self.sliderUpdate)
@@ -179,16 +237,18 @@ class ControllerGui(wx.Frame):
 
 if __name__ == '__main__':
     try:
+        rospy.Subscriber("/motor_states/ttyUSB0", MotorStateList, process_motor_states)
+        controller(0,0,0)
         # Enable this if you want to search through a rectangular prism of
         # poses for the right foot
 
         #controller_loop()
-        app = wx.App()
-        x = ControllerGui("Controller")
-        x.Show()
-        # FIXME for some reason killing roslaunch doesn't always kill this app
-        # but roslaunch is smart enough to send sigkill, it just takes a while
-        Thread(target=app.MainLoop).start()
+        #app = wx.App()
+        #x = ControllerGui("Controller")
+        #x.Show()
+        ## FIXME for some reason killing roslaunch doesn't always kill this app
+        ## but roslaunch is smart enough to send sigkill, it just takes a while
+        #Thread(target=app.MainLoop).start()
         while True:
             rospy.sleep(1)
             
