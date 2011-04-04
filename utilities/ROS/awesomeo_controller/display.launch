@@ -10,7 +10,8 @@
 	<node name="arm_kinematics" pkg="arm_kinematics" type="arm_kinematics">
                 <param name="root_name" value="base_link"/>
                 <param name="tip_name" value="right_foot_pad"/>
-                <param name="epsilon" value="0.00001"/>
+                <param name="epsilon" value="0.0001"/>
+                <param name="maxIterations" value="1000"/>
     </node>
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/urdf.vcg" />
     <node name="ttyUSB0_manager" pkg="ax12_controller_core" type="controller_manager.py" required="true" output="screen"> 

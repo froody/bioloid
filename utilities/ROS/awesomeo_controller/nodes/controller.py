@@ -17,23 +17,23 @@ joint_names = None
 pub = None
 
 hack_joint_names = ["1.0:base_to_right_shoulder",
-                 "3.0:right_shoulder_to_upper",
-                 "5.0:right_elbow",
-                 "2.0:base_to_left_shoulder",
-                 "4.0:left_shoulder_to_upper",
-                 "6.0:left_elbow",
-                 "7.0:base_to_right_hip",
-                 "9.0:right_hip_to_split",
-                 "11.0:right_hip_split_to_upper",
-                 "13.0:right_knee",
-                 "15.0:right_ankle",
-                 "17.0:right_ankle_roll",
-                 "8.0:base_to_left_hip",
-                 "10.0:left_hip_to_split",
-                 "12.0:left_hip_split_to_upper",
-                 "14.0:left_knee",
-                 "16.0:left_ankle",
-                 "18.0:left_ankle_roll"]
+                    "2.0:base_to_left_shoulder",
+                    "3.0:right_shoulder_to_upper",
+                    "4.0:left_shoulder_to_upper",
+                    "5.0:right_elbow",
+                    "6.0:left_elbow",
+                    "7.0:base_to_right_hip",
+                    "8.0:base_to_left_hip",
+                    "9.0:right_hip_to_split",
+                    "10.0:left_hip_to_split",
+                    "11.0:right_hip_split_to_upper",
+                    "12.0:left_hip_split_to_upper",
+                    "13.0:right_knee",
+                    "14.0:left_knee",
+                    "15.0:right_ankle",
+                    "16.0:left_ankle",
+                    "17.0:right_ankle_roll",
+                    "18.0:left_ankle_roll"]
 
 
 initial = {'x':0.03, 'y':0.0, 'z':-0.215}
@@ -46,22 +46,20 @@ def process_motor_states(msg):
     if pub is None:
         return
 
-        
     joint_state.name = hack_joint_names
-    joint_state.position = []
-    
-    for n in hack_joint_names:
-        id = int(n.split('.0:')[0])
-        if msg.motor_states[id-1].id != id:
-            rospy.logwarn("motor id mismatch? %d %d" % (id, msg.motor_states[id-1].id))
-            return
 
-        angle = msg.motor_states[id-1].position/float(1024)
+    # Prefill with dummy values incase we miss a packet
+    vals = [0.0 for x in range(len(hack_joint_names))]
+
+    # Process all the states given to us by the ax12 node
+    for m in msg.motor_states:
+        angle = m.position/float(1024)
         angle -= 0.5
         angle *= 3.14159
-        joint_state.position.append(angle)
-        
+        vals[m.id-1] = angle
 
+    joint_state.position = vals
+        
     pub.publish(joint_state)
         
 from std_msgs.msg import String
@@ -115,7 +113,9 @@ def controller(x, y, z):
         seed = [0 for i in solverInfo.joint_names]
     ikr.ik_request.ik_seed_state.joint_state.position = seed
 
+    before = rospy.get_time();
     response = get_position_ik(ikr)
+    after = rospy.get_time()
 
     if response.error_code.val == 1:
         #rospy.logwarn("publishing!")
@@ -238,18 +238,23 @@ class ControllerGui(wx.Frame):
 if __name__ == '__main__':
     try:
         rospy.Subscriber("/motor_states/ttyUSB0", MotorStateList, process_motor_states)
-        controller(0,0,0)
+        #controller(0,0,0)
         # Enable this if you want to search through a rectangular prism of
         # poses for the right foot
 
         #controller_loop()
-        #app = wx.App()
-        #x = ControllerGui("Controller")
-        #x.Show()
+        app = wx.App()
+        x = ControllerGui("Controller")
+        x.Show()
         ## FIXME for some reason killing roslaunch doesn't always kill this app
         ## but roslaunch is smart enough to send sigkill, it just takes a while
-        #Thread(target=app.MainLoop).start()
-        while True:
+        Thread(target=app.MainLoop).start()
+        while not rospy.is_shutdown():
+            #rospy.logwarn("looping...");
             rospy.sleep(1)
+	
+	rospy.logwarn("shutdown!")
+
+	exit()
             
     except rospy.ROSInterruptException: pass
