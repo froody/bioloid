@@ -12,7 +12,7 @@
 </material>
 </visual>
 </link>
-<joint name="${base+1}:base_to_${prefix}_shoulder" type="revolute">
+<joint name="base_to_${prefix}_shoulder" type="revolute">
 <parent link="base_link"/>
 <child link="${prefix}_shoulder"/>
 <origin rpy="1.5 0 0" xyz="${reflect*0.070} 0 0.03"/>
@@ -31,7 +31,7 @@
       <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
     </visual>
 </link>
-  <joint name="${base+3}:${prefix}_shoulder_to_upper" type="revolute">
+  <joint name="${prefix}_shoulder_to_upper" type="revolute">
     <parent link="${prefix}_shoulder"/>
     <child link="${prefix}_upper_arm"/>
     <origin rpy="0 ${reflect*-1.5} 0" xyz="0.00 0 0.0"/>
@@ -48,7 +48,7 @@
       <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
     </visual>
 </link>
-  <joint name="${base+5}:${prefix}_elbow" type="revolute">
+  <joint name="${prefix}_elbow" type="revolute">
     <parent link="${prefix}_upper_arm"/>
     <child link="${prefix}_forearm"/>
     <origin rpy="0 0 0" xyz="0.00 0 -0.08"/>
@@ -69,7 +69,7 @@
 		</material>
 	</visual>
 </link>
-<joint name="${base+7}:base_to_${prefix}_hip" type="revolute">
+<joint name="base_to_${prefix}_hip" type="revolute">
 	<parent link="base_link"/>
 	<child link="${prefix}_hip"/>
 	<origin rpy="0 0 ${reflect*-0.70}" xyz="${reflect*0.030} 0 -0.06"/>
@@ -87,7 +87,7 @@
       <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
     </visual>
 </link>
-<joint name="${base+9}:${prefix}_hip_to_split" type="revolute">
+<joint name="${prefix}_hip_to_split" type="revolute">
 <parent link="${prefix}_hip"/>
 <child link="${prefix}_hip_split"/>
 <origin rpy="0 0 0" xyz="0.00 0 0.0"/>
@@ -103,7 +103,7 @@
       <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
     </visual>
 </link>
-  <joint name="${base+11}:${prefix}_hip_split_to_upper" type="revolute">
+  <joint name="${prefix}_hip_split_to_upper" type="revolute">
     <parent link="${prefix}_hip_split"/>
     <child link="${prefix}_upper_leg"/>
     <origin rpy="0 0 0" xyz="0.00 0 0.0"/>
@@ -120,7 +120,7 @@
       <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
     </visual>
 </link>
-  <joint name="${base+13}:${prefix}_knee" type="revolute">
+  <joint name="${prefix}_knee" type="revolute">
     <parent link="${prefix}_upper_leg"/>
     <child link="${prefix}_calf"/>
     <origin rpy="0 0 0" xyz="0.00 0 -0.08"/>
@@ -136,7 +136,7 @@
       <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
     </visual>
 </link>
-  <joint name="${base+15}:${prefix}_ankle" type="revolute">
+  <joint name="${prefix}_ankle" type="revolute">
     <parent link="${prefix}_calf"/>
     <child link="${prefix}_foot"/>
     <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
@@ -152,7 +152,7 @@
       <origin rpy="0 0 0" xyz="0.00 0 -0.045"/>
     </visual>
 </link>
-  <joint name="${base+17}:${prefix}_ankle_roll" type="revolute">
+  <joint name="${prefix}_ankle_roll" type="revolute">
     <parent link="${prefix}_foot"/>
     <child link="${prefix}_foot_pad"/>
     <origin rpy="0 0 0" xyz="0.00 0 -0.03"/>

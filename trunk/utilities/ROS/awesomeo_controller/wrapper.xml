@@ -1,0 +1,14 @@
+<robot>
+ <robot file="/home/local/ros_tutorials/awesomeo_controller/TypeA.dae"></robot>
+ <kinbody>
+   <body name="base_link">
+   </body>
+ </kinbody>
+ <manipulator name="right_leg">
+   <base>base</base>
+   <effector>right_foot_pad</effector>
+   <joints>base_to_right_hip right_hip_to_split right_hip_split_to_upper right_knee right_ankle right_ankle_roll</joints>
+   <closingdirection>0 0 0 0 0 0</closingdirection>
+   <direction>1 0 0</direction>
+ </manipulator>
+</robot>

@@ -1,0 +1,30 @@
+<launch>
+	<arg name="model" />
+	<arg name="gui" default="False" />
+	<param name="robot_description" command="rosrun xacro xacro.py '$(arg model)'" />
+	<param name="use_gui" value="$(arg gui)"/>
+	<rosparam param="source_list">[tom_states]</rosparam>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="controller" pkg="awesomeo_controller" type="controller.py" />
+	<node name="arm_kinematics" pkg="arm_kinematics" type="arm_kinematics">
+                <param name="root_name" value="base_link"/>
+                <param name="tip_name" value="right_foot_pad"/>
+                <param name="epsilon" value="0.0001"/>
+                <param name="maxIterations" value="1000"/>
+    </node>
+    <node name="orrosplanning" pkg="orrosplanning" type="ik_openrave.py" args='--scene $(find awesomeo_controller)/wrapper.xml --mapframe ""'> 
+            <env name="PYTHONPATH" value="$(optenv PYTHONPATH):$(find openrave)/share/openrave"/>
+            <env name="OPENRAVE_PLUGINS" value="$(optenv OPENRAVE_PLUGINS):$(find openrave)/share/openrave/plugins:$(find openrave_robot_control)/lib"/>
+            <param name="scene" value="loool"/>
+        
+    </node>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find urdf_tutorial)/urdf.vcg" />
+    <!--node name="ttyUSB0_manager" pkg="ax12_controller_core" type="controller_manager.py" required="true" output="screen"> 
+        <param name="port_name" type="str" value="/dev/ttyUSB0"/> 
+        <param name="baud_rate" type="int" value="1000000"/> 
+        <param name="max_motor_id" type="int" value="18"/> 
+        <param name="update_rate" type="int" value="10"/> 
+    </node--> 
+
+</launch>
