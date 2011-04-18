@@ -24,6 +24,7 @@
   <depend package="joint_state_publisher"/>
   <depend package="ax12_driver_core"/>
   <depend package="ax12_controller_core"/>
+  <depend package="orrosplanning"/>
 
 </package>
 

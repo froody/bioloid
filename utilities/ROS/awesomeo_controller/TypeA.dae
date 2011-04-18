@@ -1,0 +1,2214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2008/03/COLLADASchema" version="1.5.0">
+	<asset>
+		<contributor>
+			<authoring_tool>URDF Collada Writer</authoring_tool>
+		</contributor>
+		<created>2011-04-17T23:19:38.000000</created>
+		<modified>2011-04-17T23:19:38.000000</modified>
+		<unit/>
+		<up_axis>Z_UP</up_axis>
+	</asset>
+	<library_visual_scenes id="vscenes">
+		<visual_scene id="vscene" name="URDF Visual Scene">
+			<node id="visual0" name="awesome-o" sid="visual0">
+				<node id="vkmodel0_node0" name="base_link" sid="node0">
+					<translate>0 0 0</translate>
+					<rotate>1 0 0 0</rotate>
+					<instance_geometry url="#gkmodel0_base_link_geom0">
+						<bind_material>
+							<technique_common>
+								<instance_material symbol="mat0" target="#gkmodel0_base_link_geom0_mat"/>
+							</technique_common>
+						</bind_material>
+					</instance_geometry>
+					<node id="vkmodel0_node5" name="left_hip" sid="node5">
+						<translate>-0 -0 -0</translate>
+						<rotate>1 0 0 0</rotate>
+						<translate>-0.03 0 -0.06</translate>
+						<rotate>0 0 1 40.107</rotate>
+						<rotate sid="node_base_to_left_hip_axis0">0 0 -1 0</rotate>
+						<translate>0 0 0</translate>
+						<rotate>1 0 0 0</rotate>
+						<instance_geometry url="#gkmodel0_left_hip_geom0">
+							<bind_material>
+								<technique_common>
+									<instance_material symbol="mat0" target="#gkmodel0_left_hip_geom0_mat"/>
+								</technique_common>
+							</bind_material>
+						</instance_geometry>
+						<node id="vkmodel0_node6" name="left_hip_split" sid="node6">
+							<translate>-0 -0 -0</translate>
+							<rotate>1 0 0 0</rotate>
+							<translate>0 0 0</translate>
+							<rotate>1 0 0 0</rotate>
+							<rotate sid="node_left_hip_to_split_axis0">0 1 0 0</rotate>
+							<translate>0 0 -0.045</translate>
+							<rotate>1 0 0 0</rotate>
+							<instance_geometry url="#gkmodel0_left_hip_split_geom0">
+								<bind_material>
+									<technique_common>
+										<instance_material symbol="mat0" target="#gkmodel0_left_hip_split_geom0_mat"/>
+									</technique_common>
+								</bind_material>
+							</instance_geometry>
+							<node id="vkmodel0_node9" name="left_upper_leg" sid="node9">
+								<translate>-0 -0 0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<translate>0 0 0</translate>
+								<rotate>1 0 0 0</rotate>
+								<rotate sid="node_left_hip_split_to_upper_axis0">1 0 0 0</rotate>
+								<translate>0 0 -0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<instance_geometry url="#gkmodel0_left_upper_leg_geom0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="mat0" target="#gkmodel0_left_upper_leg_geom0_mat"/>
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+								<node id="vkmodel0_node1" name="left_calf" sid="node1">
+									<translate>-0 -0 0.045</translate>
+									<rotate>1 0 0 0</rotate>
+									<translate>0 0 -0.08</translate>
+									<rotate>1 0 0 0</rotate>
+									<rotate sid="node_left_knee_axis0">-1 0 0 0</rotate>
+									<translate>0 0 -0.045</translate>
+									<rotate>1 0 0 0</rotate>
+									<instance_geometry url="#gkmodel0_left_calf_geom0">
+										<bind_material>
+											<technique_common>
+												<instance_material symbol="mat0" target="#gkmodel0_left_calf_geom0_mat"/>
+											</technique_common>
+										</bind_material>
+									</instance_geometry>
+									<node id="vkmodel0_node2" name="left_foot" sid="node2">
+										<translate>-0 -0 0.045</translate>
+										<rotate>1 0 0 0</rotate>
+										<translate>0 0 -0.045</translate>
+										<rotate>1 0 0 0</rotate>
+										<rotate sid="node_left_ankle_axis0">-1 0 0 0</rotate>
+										<translate>0 0 -0.045</translate>
+										<rotate>1 0 0 0</rotate>
+										<instance_geometry url="#gkmodel0_left_foot_geom0">
+											<bind_material>
+												<technique_common>
+													<instance_material symbol="mat0" target="#gkmodel0_left_foot_geom0_mat"/>
+												</technique_common>
+											</bind_material>
+										</instance_geometry>
+										<node id="vkmodel0_node3" name="left_foot_pad" sid="node3">
+											<translate>-0 -0 0.045</translate>
+											<rotate>1 0 0 0</rotate>
+											<translate>0 0 -0.03</translate>
+											<rotate>1 0 0 0</rotate>
+											<rotate sid="node_left_ankle_roll_axis0">0 -1 0 0</rotate>
+											<translate>0 0 -0.045</translate>
+											<rotate>1 0 0 0</rotate>
+											<instance_geometry url="#gkmodel0_left_foot_pad_geom0">
+												<bind_material>
+													<technique_common>
+														<instance_material symbol="mat0" target="#gkmodel0_left_foot_pad_geom0_mat"/>
+													</technique_common>
+												</bind_material>
+											</instance_geometry>
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+					<node id="vkmodel0_node7" name="left_shoulder" sid="node7">
+						<translate>-0 -0 -0</translate>
+						<rotate>1 0 0 0</rotate>
+						<translate>-0.07 0 0.03</translate>
+						<rotate>1 0 0 85.9437</rotate>
+						<rotate sid="node_base_to_left_shoulder_axis0">-1 0 0 0</rotate>
+						<translate>0 0 0</translate>
+						<rotate>1 0 0 0</rotate>
+						<instance_geometry url="#gkmodel0_left_shoulder_geom0">
+							<bind_material>
+								<technique_common>
+									<instance_material symbol="mat0" target="#gkmodel0_left_shoulder_geom0_mat"/>
+								</technique_common>
+							</bind_material>
+						</instance_geometry>
+						<node id="vkmodel0_node8" name="left_upper_arm" sid="node8">
+							<translate>-0 -0 -0</translate>
+							<rotate>1 0 0 0</rotate>
+							<translate>0 0 0</translate>
+							<rotate>0 1 0 85.9437</rotate>
+							<rotate sid="node_left_shoulder_to_upper_axis0">0 -1 0 0</rotate>
+							<translate>0 0 -0.045</translate>
+							<rotate>1 0 0 0</rotate>
+							<instance_geometry url="#gkmodel0_left_upper_arm_geom0">
+								<bind_material>
+									<technique_common>
+										<instance_material symbol="mat0" target="#gkmodel0_left_upper_arm_geom0_mat"/>
+									</technique_common>
+								</bind_material>
+							</instance_geometry>
+							<node id="vkmodel0_node4" name="left_forearm" sid="node4">
+								<translate>-0 -0 0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<translate>0 0 -0.08</translate>
+								<rotate>1 0 0 0</rotate>
+								<rotate sid="node_left_elbow_axis0">0 -1 0 0</rotate>
+								<translate>0 0 -0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<instance_geometry url="#gkmodel0_left_forearm_geom0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="mat0" target="#gkmodel0_left_forearm_geom0_mat"/>
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+							</node>
+						</node>
+					</node>
+					<node id="vkmodel0_node14" name="right_hip" sid="node14">
+						<translate>-0 -0 -0</translate>
+						<rotate>1 0 0 0</rotate>
+						<translate>0.03 0 -0.06</translate>
+						<rotate>0 0 -1 40.107</rotate>
+						<rotate sid="node_base_to_right_hip_axis0">0 0 -1 0</rotate>
+						<translate>0 0 0</translate>
+						<rotate>1 0 0 0</rotate>
+						<instance_geometry url="#gkmodel0_right_hip_geom0">
+							<bind_material>
+								<technique_common>
+									<instance_material symbol="mat0" target="#gkmodel0_right_hip_geom0_mat"/>
+								</technique_common>
+							</bind_material>
+						</instance_geometry>
+						<node id="vkmodel0_node15" name="right_hip_split" sid="node15">
+							<translate>-0 -0 -0</translate>
+							<rotate>1 0 0 0</rotate>
+							<translate>0 0 0</translate>
+							<rotate>1 0 0 0</rotate>
+							<rotate sid="node_right_hip_to_split_axis0">0 1 0 0</rotate>
+							<translate>0 0 -0.045</translate>
+							<rotate>1 0 0 0</rotate>
+							<instance_geometry url="#gkmodel0_right_hip_split_geom0">
+								<bind_material>
+									<technique_common>
+										<instance_material symbol="mat0" target="#gkmodel0_right_hip_split_geom0_mat"/>
+									</technique_common>
+								</bind_material>
+							</instance_geometry>
+							<node id="vkmodel0_node18" name="right_upper_leg" sid="node18">
+								<translate>-0 -0 0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<translate>0 0 0</translate>
+								<rotate>1 0 0 0</rotate>
+								<rotate sid="node_right_hip_split_to_upper_axis0">-1 0 0 0</rotate>
+								<translate>0 0 -0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<instance_geometry url="#gkmodel0_right_upper_leg_geom0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="mat0" target="#gkmodel0_right_upper_leg_geom0_mat"/>
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+								<node id="vkmodel0_node10" name="right_calf" sid="node10">
+									<translate>-0 -0 0.045</translate>
+									<rotate>1 0 0 0</rotate>
+									<translate>0 0 -0.08</translate>
+									<rotate>1 0 0 0</rotate>
+									<rotate sid="node_right_knee_axis0">1 0 0 0</rotate>
+									<translate>0 0 -0.045</translate>
+									<rotate>1 0 0 0</rotate>
+									<instance_geometry url="#gkmodel0_right_calf_geom0">
+										<bind_material>
+											<technique_common>
+												<instance_material symbol="mat0" target="#gkmodel0_right_calf_geom0_mat"/>
+											</technique_common>
+										</bind_material>
+									</instance_geometry>
+									<node id="vkmodel0_node11" name="right_foot" sid="node11">
+										<translate>-0 -0 0.045</translate>
+										<rotate>1 0 0 0</rotate>
+										<translate>0 0 -0.045</translate>
+										<rotate>1 0 0 0</rotate>
+										<rotate sid="node_right_ankle_axis0">1 0 0 0</rotate>
+										<translate>0 0 -0.045</translate>
+										<rotate>1 0 0 0</rotate>
+										<instance_geometry url="#gkmodel0_right_foot_geom0">
+											<bind_material>
+												<technique_common>
+													<instance_material symbol="mat0" target="#gkmodel0_right_foot_geom0_mat"/>
+												</technique_common>
+											</bind_material>
+										</instance_geometry>
+										<node id="vkmodel0_node12" name="right_foot_pad" sid="node12">
+											<translate>-0 -0 0.045</translate>
+											<rotate>1 0 0 0</rotate>
+											<translate>0 0 -0.03</translate>
+											<rotate>1 0 0 0</rotate>
+											<rotate sid="node_right_ankle_roll_axis0">0 -1 0 0</rotate>
+											<translate>0 0 -0.045</translate>
+											<rotate>1 0 0 0</rotate>
+											<instance_geometry url="#gkmodel0_right_foot_pad_geom0">
+												<bind_material>
+													<technique_common>
+														<instance_material symbol="mat0" target="#gkmodel0_right_foot_pad_geom0_mat"/>
+													</technique_common>
+												</bind_material>
+											</instance_geometry>
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+					<node id="vkmodel0_node16" name="right_shoulder" sid="node16">
+						<translate>-0 -0 -0</translate>
+						<rotate>1 0 0 0</rotate>
+						<translate>0.07 0 0.03</translate>
+						<rotate>1 0 0 85.9437</rotate>
+						<rotate sid="node_base_to_right_shoulder_axis0">1 0 0 0</rotate>
+						<translate>0 0 0</translate>
+						<rotate>1 0 0 0</rotate>
+						<instance_geometry url="#gkmodel0_right_shoulder_geom0">
+							<bind_material>
+								<technique_common>
+									<instance_material symbol="mat0" target="#gkmodel0_right_shoulder_geom0_mat"/>
+								</technique_common>
+							</bind_material>
+						</instance_geometry>
+						<node id="vkmodel0_node17" name="right_upper_arm" sid="node17">
+							<translate>-0 -0 -0</translate>
+							<rotate>1 0 0 0</rotate>
+							<translate>0 0 0</translate>
+							<rotate>0 -1 0 85.9437</rotate>
+							<rotate sid="node_right_shoulder_to_upper_axis0">0 -1 0 0</rotate>
+							<translate>0 0 -0.045</translate>
+							<rotate>1 0 0 0</rotate>
+							<instance_geometry url="#gkmodel0_right_upper_arm_geom0">
+								<bind_material>
+									<technique_common>
+										<instance_material symbol="mat0" target="#gkmodel0_right_upper_arm_geom0_mat"/>
+									</technique_common>
+								</bind_material>
+							</instance_geometry>
+							<node id="vkmodel0_node13" name="right_forearm" sid="node13">
+								<translate>-0 -0 0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<translate>0 0 -0.08</translate>
+								<rotate>1 0 0 0</rotate>
+								<rotate sid="node_right_elbow_axis0">0 -1 0 0</rotate>
+								<translate>0 0 -0.045</translate>
+								<rotate>1 0 0 0</rotate>
+								<instance_geometry url="#gkmodel0_right_forearm_geom0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="mat0" target="#gkmodel0_right_forearm_geom0_mat"/>
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+							</node>
+						</node>
+					</node>
+				</node>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<library_geometries id="geometries">
+		<geometry id="gkmodel0_base_link_geom0"/>
+		<geometry id="gkmodel0_left_hip_geom0"/>
+		<geometry id="gkmodel0_left_hip_split_geom0"/>
+		<geometry id="gkmodel0_left_upper_leg_geom0"/>
+		<geometry id="gkmodel0_left_calf_geom0"/>
+		<geometry id="gkmodel0_left_foot_geom0"/>
+		<geometry id="gkmodel0_left_foot_pad_geom0"/>
+		<geometry id="gkmodel0_left_shoulder_geom0"/>
+		<geometry id="gkmodel0_left_upper_arm_geom0"/>
+		<geometry id="gkmodel0_left_forearm_geom0"/>
+		<geometry id="gkmodel0_right_hip_geom0"/>
+		<geometry id="gkmodel0_right_hip_split_geom0"/>
+		<geometry id="gkmodel0_right_upper_leg_geom0"/>
+		<geometry id="gkmodel0_right_calf_geom0"/>
+		<geometry id="gkmodel0_right_foot_geom0"/>
+		<geometry id="gkmodel0_right_foot_pad_geom0"/>
+		<geometry id="gkmodel0_right_shoulder_geom0"/>
+		<geometry id="gkmodel0_right_upper_arm_geom0"/>
+		<geometry id="gkmodel0_right_forearm_geom0"/>
+	</library_geometries>
+	<library_effects id="effects">
+		<effect id="gkmodel0_base_link_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.1 0.1 0.1 0</color>
+						</ambient>
+						<diffuse>
+							<color>1 1 1 0</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_base_link_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0.1 0.1 0.1 0</color>
+						</ambient>
+						<diffuse>
+							<color>1 1 1 0</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_hip_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_hip_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_hip_split_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>1 0 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>1 0 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_hip_split_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>1 0 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>1 0 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_upper_leg_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_upper_leg_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_calf_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_calf_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_foot_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_foot_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_foot_pad_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_foot_pad_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_shoulder_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_shoulder_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_upper_arm_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_upper_arm_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_forearm_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_left_forearm_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_hip_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_hip_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_hip_split_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>1 0 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>1 0 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_hip_split_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>1 0 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>1 0 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_upper_leg_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_upper_leg_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_calf_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_calf_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_foot_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_foot_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_foot_pad_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_foot_pad_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_shoulder_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_shoulder_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_upper_arm_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_upper_arm_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0.8 0 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0.8 0 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_forearm_geom0">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="gkmodel0_right_forearm_geom0_eff">
+			<profile_COMMON>
+				<technique sid="">
+					<phong>
+						<ambient>
+							<color>0 0 0.8 1</color>
+						</ambient>
+						<diffuse>
+							<color>0 0 0.8 1</color>
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_materials id="materials">
+		<material id="gkmodel0_base_link_geom0_mat">
+			<instance_effect url="#gkmodel0_base_link_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_base_link_geom0_mat">
+			<instance_effect url="#gkmodel0_base_link_geom0"/>
+		</material>
+		<material id="gkmodel0_left_hip_geom0_mat">
+			<instance_effect url="#gkmodel0_left_hip_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_hip_geom0_mat">
+			<instance_effect url="#gkmodel0_left_hip_geom0"/>
+		</material>
+		<material id="gkmodel0_left_hip_split_geom0_mat">
+			<instance_effect url="#gkmodel0_left_hip_split_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_hip_split_geom0_mat">
+			<instance_effect url="#gkmodel0_left_hip_split_geom0"/>
+		</material>
+		<material id="gkmodel0_left_upper_leg_geom0_mat">
+			<instance_effect url="#gkmodel0_left_upper_leg_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_upper_leg_geom0_mat">
+			<instance_effect url="#gkmodel0_left_upper_leg_geom0"/>
+		</material>
+		<material id="gkmodel0_left_calf_geom0_mat">
+			<instance_effect url="#gkmodel0_left_calf_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_calf_geom0_mat">
+			<instance_effect url="#gkmodel0_left_calf_geom0"/>
+		</material>
+		<material id="gkmodel0_left_foot_geom0_mat">
+			<instance_effect url="#gkmodel0_left_foot_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_foot_geom0_mat">
+			<instance_effect url="#gkmodel0_left_foot_geom0"/>
+		</material>
+		<material id="gkmodel0_left_foot_pad_geom0_mat">
+			<instance_effect url="#gkmodel0_left_foot_pad_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_foot_pad_geom0_mat">
+			<instance_effect url="#gkmodel0_left_foot_pad_geom0"/>
+		</material>
+		<material id="gkmodel0_left_shoulder_geom0_mat">
+			<instance_effect url="#gkmodel0_left_shoulder_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_shoulder_geom0_mat">
+			<instance_effect url="#gkmodel0_left_shoulder_geom0"/>
+		</material>
+		<material id="gkmodel0_left_upper_arm_geom0_mat">
+			<instance_effect url="#gkmodel0_left_upper_arm_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_upper_arm_geom0_mat">
+			<instance_effect url="#gkmodel0_left_upper_arm_geom0"/>
+		</material>
+		<material id="gkmodel0_left_forearm_geom0_mat">
+			<instance_effect url="#gkmodel0_left_forearm_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_left_forearm_geom0_mat">
+			<instance_effect url="#gkmodel0_left_forearm_geom0"/>
+		</material>
+		<material id="gkmodel0_right_hip_geom0_mat">
+			<instance_effect url="#gkmodel0_right_hip_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_hip_geom0_mat">
+			<instance_effect url="#gkmodel0_right_hip_geom0"/>
+		</material>
+		<material id="gkmodel0_right_hip_split_geom0_mat">
+			<instance_effect url="#gkmodel0_right_hip_split_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_hip_split_geom0_mat">
+			<instance_effect url="#gkmodel0_right_hip_split_geom0"/>
+		</material>
+		<material id="gkmodel0_right_upper_leg_geom0_mat">
+			<instance_effect url="#gkmodel0_right_upper_leg_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_upper_leg_geom0_mat">
+			<instance_effect url="#gkmodel0_right_upper_leg_geom0"/>
+		</material>
+		<material id="gkmodel0_right_calf_geom0_mat">
+			<instance_effect url="#gkmodel0_right_calf_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_calf_geom0_mat">
+			<instance_effect url="#gkmodel0_right_calf_geom0"/>
+		</material>
+		<material id="gkmodel0_right_foot_geom0_mat">
+			<instance_effect url="#gkmodel0_right_foot_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_foot_geom0_mat">
+			<instance_effect url="#gkmodel0_right_foot_geom0"/>
+		</material>
+		<material id="gkmodel0_right_foot_pad_geom0_mat">
+			<instance_effect url="#gkmodel0_right_foot_pad_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_foot_pad_geom0_mat">
+			<instance_effect url="#gkmodel0_right_foot_pad_geom0"/>
+		</material>
+		<material id="gkmodel0_right_shoulder_geom0_mat">
+			<instance_effect url="#gkmodel0_right_shoulder_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_shoulder_geom0_mat">
+			<instance_effect url="#gkmodel0_right_shoulder_geom0"/>
+		</material>
+		<material id="gkmodel0_right_upper_arm_geom0_mat">
+			<instance_effect url="#gkmodel0_right_upper_arm_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_upper_arm_geom0_mat">
+			<instance_effect url="#gkmodel0_right_upper_arm_geom0"/>
+		</material>
+		<material id="gkmodel0_right_forearm_geom0_mat">
+			<instance_effect url="#gkmodel0_right_forearm_geom0_eff"/>
+		</material>
+		<material id="gkmodel0_right_forearm_geom0_mat">
+			<instance_effect url="#gkmodel0_right_forearm_geom0"/>
+		</material>
+	</library_materials>
+	<library_kinematics_models id="kmodels">
+		<kinematics_model id="kmodel0" name="awesome-o">
+			<technique_common>
+				<joint name="base_to_left_hip" sid="base_to_left_hip">
+					<revolute sid="axis0">
+						<axis>0 0 -1</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="base_to_left_shoulder" sid="base_to_left_shoulder">
+					<revolute sid="axis0">
+						<axis>-1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="base_to_right_hip" sid="base_to_right_hip">
+					<revolute sid="axis0">
+						<axis>0 0 -1</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="base_to_right_shoulder" sid="base_to_right_shoulder">
+					<revolute sid="axis0">
+						<axis>1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="left_ankle" sid="left_ankle">
+					<revolute sid="axis0">
+						<axis>-1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="left_ankle_roll" sid="left_ankle_roll">
+					<revolute sid="axis0">
+						<axis>0 -1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="left_elbow" sid="left_elbow">
+					<revolute sid="axis0">
+						<axis>0 -1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="left_hip_split_to_upper" sid="left_hip_split_to_upper">
+					<revolute sid="axis0">
+						<axis>1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="left_hip_to_split" sid="left_hip_to_split">
+					<revolute sid="axis0">
+						<axis>0 1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="left_knee" sid="left_knee">
+					<revolute sid="axis0">
+						<axis>-1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="left_shoulder_to_upper" sid="left_shoulder_to_upper">
+					<revolute sid="axis0">
+						<axis>0 -1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="right_ankle" sid="right_ankle">
+					<revolute sid="axis0">
+						<axis>1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="right_ankle_roll" sid="right_ankle_roll">
+					<revolute sid="axis0">
+						<axis>0 -1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="right_elbow" sid="right_elbow">
+					<revolute sid="axis0">
+						<axis>0 -1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="right_hip_split_to_upper" sid="right_hip_split_to_upper">
+					<revolute sid="axis0">
+						<axis>-1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="right_hip_to_split" sid="right_hip_to_split">
+					<revolute sid="axis0">
+						<axis>0 1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="right_knee" sid="right_knee">
+					<revolute sid="axis0">
+						<axis>1 0 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<joint name="right_shoulder_to_upper" sid="right_shoulder_to_upper">
+					<revolute sid="axis0">
+						<axis>0 -1 0</axis>
+						<limits>
+							<min>-179.909</min>
+							<max>179.909</max>
+						</limits>
+					</revolute>
+				</joint>
+				<link sid="base_link" name="base_link">
+					<attachment_full joint="kmodel0/base_to_left_hip">
+						<translate>-0.03 0 -0.06</translate>
+						<rotate>0 0 1 40.107</rotate>
+						<link sid="left_hip" name="left_hip">
+							<attachment_full joint="kmodel0/left_hip_to_split">
+								<translate>0 0 0</translate>
+								<rotate>1 0 0 0</rotate>
+								<link sid="left_hip_split" name="left_hip_split">
+									<attachment_full joint="kmodel0/left_hip_split_to_upper">
+										<translate>0 0 0</translate>
+										<rotate>1 0 0 0</rotate>
+										<link sid="left_upper_leg" name="left_upper_leg">
+											<attachment_full joint="kmodel0/left_knee">
+												<translate>0 0 -0.08</translate>
+												<rotate>1 0 0 0</rotate>
+												<link sid="left_calf" name="left_calf">
+													<attachment_full joint="kmodel0/left_ankle">
+														<translate>0 0 -0.045</translate>
+														<rotate>1 0 0 0</rotate>
+														<link sid="left_foot" name="left_foot">
+															<attachment_full joint="kmodel0/left_ankle_roll">
+																<translate>0 0 -0.03</translate>
+																<rotate>1 0 0 0</rotate>
+																<link sid="left_foot_pad" name="left_foot_pad"/>
+															</attachment_full>
+														</link>
+													</attachment_full>
+												</link>
+											</attachment_full>
+										</link>
+									</attachment_full>
+								</link>
+							</attachment_full>
+						</link>
+					</attachment_full>
+					<attachment_full joint="kmodel0/base_to_left_shoulder">
+						<translate>-0.07 0 0.03</translate>
+						<rotate>1 0 0 85.9437</rotate>
+						<link sid="left_shoulder" name="left_shoulder">
+							<attachment_full joint="kmodel0/left_shoulder_to_upper">
+								<translate>0 0 0</translate>
+								<rotate>0 1 0 85.9437</rotate>
+								<link sid="left_upper_arm" name="left_upper_arm">
+									<attachment_full joint="kmodel0/left_elbow">
+										<translate>0 0 -0.08</translate>
+										<rotate>1 0 0 0</rotate>
+										<link sid="left_forearm" name="left_forearm"/>
+									</attachment_full>
+								</link>
+							</attachment_full>
+						</link>
+					</attachment_full>
+					<attachment_full joint="kmodel0/base_to_right_hip">
+						<translate>0.03 0 -0.06</translate>
+						<rotate>0 0 -1 40.107</rotate>
+						<link sid="right_hip" name="right_hip">
+							<attachment_full joint="kmodel0/right_hip_to_split">
+								<translate>0 0 0</translate>
+								<rotate>1 0 0 0</rotate>
+								<link sid="right_hip_split" name="right_hip_split">
+									<attachment_full joint="kmodel0/right_hip_split_to_upper">
+										<translate>0 0 0</translate>
+										<rotate>1 0 0 0</rotate>
+										<link sid="right_upper_leg" name="right_upper_leg">
+											<attachment_full joint="kmodel0/right_knee">
+												<translate>0 0 -0.08</translate>
+												<rotate>1 0 0 0</rotate>
+												<link sid="right_calf" name="right_calf">
+													<attachment_full joint="kmodel0/right_ankle">
+														<translate>0 0 -0.045</translate>
+														<rotate>1 0 0 0</rotate>
+														<link sid="right_foot" name="right_foot">
+															<attachment_full joint="kmodel0/right_ankle_roll">
+																<translate>0 0 -0.03</translate>
+																<rotate>1 0 0 0</rotate>
+																<link sid="right_foot_pad" name="right_foot_pad"/>
+															</attachment_full>
+														</link>
+													</attachment_full>
+												</link>
+											</attachment_full>
+										</link>
+									</attachment_full>
+								</link>
+							</attachment_full>
+						</link>
+					</attachment_full>
+					<attachment_full joint="kmodel0/base_to_right_shoulder">
+						<translate>0.07 0 0.03</translate>
+						<rotate>1 0 0 85.9437</rotate>
+						<link sid="right_shoulder" name="right_shoulder">
+							<attachment_full joint="kmodel0/right_shoulder_to_upper">
+								<translate>0 0 0</translate>
+								<rotate>0 -1 0 85.9437</rotate>
+								<link sid="right_upper_arm" name="right_upper_arm">
+									<attachment_full joint="kmodel0/right_elbow">
+										<translate>0 0 -0.08</translate>
+										<rotate>1 0 0 0</rotate>
+										<link sid="right_forearm" name="right_forearm"/>
+									</attachment_full>
+								</link>
+							</attachment_full>
+						</link>
+					</attachment_full>
+				</link>
+			</technique_common>
+		</kinematics_model>
+	</library_kinematics_models>
+	<library_articulated_systems id="asystems">
+		<articulated_system id="robot0_motion">
+			<motion>
+				<instance_articulated_system url="#robot0_kinematics">
+					<newparam sid="robot0_motion_kmodel0_inst">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_ankle_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_ankle_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_elbow_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_elbow_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_elbow_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_elbow_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_knee_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_knee_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_knee_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_knee_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_ankle_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_ankle_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_elbow_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_elbow_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_elbow_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_elbow_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_knee_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_knee_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_knee_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_knee_axis0_value</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_motion_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0_value">
+						<SIDREF>robot0_kinematics/robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0_value</SIDREF>
+					</newparam>
+				</instance_articulated_system>
+				<technique_common>
+					<axis_info axis="robot0_kinematics/axis_info_inst0">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst1">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst2">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst3">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst4">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst5">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst6">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst7">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst8">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst9">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst10">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst11">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst12">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst13">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst14">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst15">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst16">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+					<axis_info axis="robot0_kinematics/axis_info_inst17">
+						<speed>
+							<float>0.5</float>
+						</speed>
+						<acceleration>
+							<float>1000</float>
+						</acceleration>
+					</axis_info>
+				</technique_common>
+			</motion>
+		</articulated_system>
+		<articulated_system id="robot0_kinematics">
+			<kinematics>
+				<instance_kinematics_model url="#kmodel0" sid="kmodel0_inst">
+					<newparam sid="robot0_kinematics_kmodel0_inst">
+						<SIDREF>robot0_kinematics/kmodel0_inst</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/base_to_left_hip/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/base_to_left_shoulder/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/base_to_right_hip/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/base_to_right_shoulder/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_ankle_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/left_ankle/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_ankle_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/left_ankle_roll/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_elbow_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/left_elbow/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_elbow_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/left_hip_split_to_upper/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/left_hip_to_split/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_knee_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/left_knee/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_knee_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/left_shoulder_to_upper/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_ankle_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/right_ankle/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_ankle_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/right_ankle_roll/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_elbow_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/right_elbow/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_elbow_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/right_hip_split_to_upper/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/right_hip_to_split/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_knee_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/right_knee/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_knee_axis0_value">
+						<float>0</float>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0">
+						<SIDREF>robot0_kinematics/kmodel0_inst/right_shoulder_to_upper/axis0</SIDREF>
+					</newparam>
+					<newparam sid="robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0_value">
+						<float>0</float>
+					</newparam>
+				</instance_kinematics_model>
+				<technique_common>
+					<axis_info sid="axis_info_inst0" axis="kmodel0/base_to_left_hip/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst1" axis="kmodel0/base_to_left_shoulder/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst2" axis="kmodel0/base_to_right_hip/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst3" axis="kmodel0/base_to_right_shoulder/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst4" axis="kmodel0/left_ankle/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst5" axis="kmodel0/left_ankle_roll/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst6" axis="kmodel0/left_elbow/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst7" axis="kmodel0/left_hip_split_to_upper/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst8" axis="kmodel0/left_hip_to_split/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst9" axis="kmodel0/left_knee/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst10" axis="kmodel0/left_shoulder_to_upper/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst11" axis="kmodel0/right_ankle/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst12" axis="kmodel0/right_ankle_roll/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst13" axis="kmodel0/right_elbow/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst14" axis="kmodel0/right_hip_split_to_upper/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst15" axis="kmodel0/right_hip_to_split/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst16" axis="kmodel0/right_knee/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+					<axis_info sid="axis_info_inst17" axis="kmodel0/right_shoulder_to_upper/axis0">
+						<active>
+							<bool>true</bool>
+						</active>
+						<locked>
+							<bool>false</bool>
+						</locked>
+						<limits>
+							<min>
+								<float>-179.909</float>
+							</min>
+							<max>
+								<float>179.909</float>
+							</max>
+						</limits>
+					</axis_info>
+				</technique_common>
+			</kinematics>
+		</articulated_system>
+	</library_articulated_systems>
+	<library_kinematics_scenes id="kscenes">
+		<kinematics_scene id="kscene" name="URDF Kinematics Scene">
+			<instance_articulated_system sid="robot0_motion_inst" url="#robot0_motion" name="awesome-o">
+				<bind symbol="kscene_kmodel0_inst">
+					<param ref="robot0_motion/robot0_motion_kmodel0_inst"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_elbow_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_elbow_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_elbow_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_elbow_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_knee_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_knee_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_knee_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_knee_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_elbow_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_elbow_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_elbow_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_elbow_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_knee_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_knee_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_knee_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_knee_axis0_value"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0"/>
+				</bind>
+				<bind symbol="kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0_value">
+					<param ref="robot0_motion/robot0_motion_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0_value"/>
+				</bind>
+			</instance_articulated_system>
+		</kinematics_scene>
+	</library_kinematics_scenes>
+	<library_physics_scenes id="pscenes">
+		<physics_scene id="pscene" name="URDF Physics Scene">
+			<technique_common>
+				<gravity>0 0 0</gravity>
+			</technique_common>
+		</physics_scene>
+	</library_physics_scenes>
+	<scene>
+		<instance_physics_scene url="#pscene"/>
+		<instance_visual_scene url="#vscene"/>
+		<instance_kinematics_scene url="#kscene">
+			<bind_kinematics_model node="visual0/node0">
+				<param>kscene_kmodel0_inst</param>
+			</bind_kinematics_model>
+			<bind_joint_axis target="node5/node_base_to_left_hip_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_hip_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node7/node_base_to_left_shoulder_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_left_shoulder_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node14/node_base_to_right_hip_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_hip_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node16/node_base_to_right_shoulder_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_base_to_right_shoulder_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node5/node6/node9/node2/node_left_ankle_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node5/node6/node9/node1/node3/node_left_ankle_roll_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_ankle_roll_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node7/node4/node_left_elbow_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_elbow_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_elbow_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node5/node9/node_left_hip_split_to_upper_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_split_to_upper_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node6/node_left_hip_to_split_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_hip_to_split_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node5/node6/node1/node_left_knee_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_knee_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_knee_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node8/node_left_shoulder_to_upper_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_left_shoulder_to_upper_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node14/node15/node18/node11/node_right_ankle_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node14/node15/node18/node10/node12/node_right_ankle_roll_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_ankle_roll_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node16/node13/node_right_elbow_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_elbow_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_elbow_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node14/node18/node_right_hip_split_to_upper_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_split_to_upper_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node15/node_right_hip_to_split_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_hip_to_split_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node14/node15/node10/node_right_knee_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_knee_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_knee_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+			<bind_joint_axis target="node0/node17/node_right_shoulder_to_upper_axis0">
+				<axis>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0</param>
+				</axis>
+				<value>
+					<param>kscene_kmodel0_inst_robot0_kinematics_kmodel0_inst_right_shoulder_to_upper_axis0_value</param>
+				</value>
+			</bind_joint_axis>
+		</instance_kinematics_scene>
+	</scene>
+	<extra id="sensors" type="library_sensors">
+		<technique profile="OpenRAVE"/>
+	</extra>
+</COLLADA>

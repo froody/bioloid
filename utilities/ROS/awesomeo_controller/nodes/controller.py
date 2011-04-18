@@ -4,6 +4,7 @@ import rospy
 import wx
 import kinematics_msgs
 import kinematics_msgs.srv
+import orrosplanning.srv
 from sensor_msgs.msg import JointState
 from ax12_driver_core.msg import *
 from threading import Thread
@@ -74,7 +75,10 @@ def controller(x, y, z):
     get_ik_solver_info = rospy.ServiceProxy(
                             'arm_kinematics/get_ik_solver_info', 
                             kinematics_msgs.srv.GetKinematicSolverInfo)
-    get_position_ik = rospy.ServiceProxy('arm_kinematics/get_ik', 
+    #get_position_ik = rospy.ServiceProxy('arm_kinematics/get_ik', 
+    #                        kinematics_msgs.srv.GetPositionIK)
+    rospy.wait_for_service("GetPositionIK")
+    get_position_ik = rospy.ServiceProxy('GetPositionIK', 
                             kinematics_msgs.srv.GetPositionIK)
     get_position_fk = rospy.ServiceProxy('arm_kinematics/get_fk', 
                             kinematics_msgs.srv.GetPositionFK)
@@ -118,7 +122,7 @@ def controller(x, y, z):
     after = rospy.get_time()
 
     if response.error_code.val == 1:
-        #rospy.logwarn("publishing!")
+        rospy.logwarn("publishing!")
         if(indices is None):
             indices = []
             a = response.solution.joint_state.name
